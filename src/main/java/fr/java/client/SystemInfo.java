@@ -1,4 +1,4 @@
-package org.example;
+package fr.java.client;
 
 public class SystemInfo {
 

@@ -1,4 +1,4 @@
-package org.example;
+package fr.java.client;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
