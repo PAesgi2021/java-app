@@ -1,21 +1,19 @@
 package fr.java.client;
 
 import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.io.File;
+import java.net.URL;
+
 
 /**
  * JavaFX App
@@ -49,11 +47,15 @@ public class App extends Application {
 
 
         return new VBox(hBox_list, hBox_buttons);
+        //        stage.setScene(new Scene(createContent(), 1000, 500, Color.GRAY));
+
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(createContent(), 1000, 500, Color.GRAY));
+        URL file = new File("src/main/java/fr/java/client/components/todolist/todolistView.fxml").toURI().toURL();
+        Parent root = FXMLLoader.load(file);
+        stage.setScene(new Scene(root, 1000, 500, Color.GRAY));
         stage.show();
     }
 
