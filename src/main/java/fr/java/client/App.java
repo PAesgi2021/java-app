@@ -1,5 +1,6 @@
 package fr.java.client;
 
+import fr.java.client.components.FileUtils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -53,9 +54,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        URL file = new File("src/main/java/fr/java/client/components/todolist/todolistView.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(file);
-        stage.setScene(new Scene(root, 1000, 500, Color.GRAY));
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/todolist/todolistView.fxml"));
         stage.show();
     }
 

@@ -9,6 +9,6 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="fr.java.client.components.todolist.todolistController"
-            prefHeight="1280" prefWidth="720">
+            prefHeight="200" prefWidth="200">
     <Button>cooucou</Button>
 </AnchorPane>
