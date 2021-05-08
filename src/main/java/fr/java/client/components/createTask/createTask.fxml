@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.createTask.createTaskController">
+    <children>
+        <Button layoutX="220.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Validate">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+        <Button layoutX="568.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" wrapText="true" AnchorPane.bottomAnchor="409.0" AnchorPane.leftAnchor="568.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
+            <font>
+                <Font size="1.0" />
+            </font>
+            <graphic>
+                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="X" textAlignment="CENTER" wrappingWidth="34.3671875">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="24.0" />
+                    </font>
+                </Text>
+            </graphic>
+        </Button>
+        <TextField layoutX="130.0" layoutY="147.0" prefHeight="54.0" prefWidth="346.0" text="task name" />
+      <TextArea layoutX="130.0" layoutY="224.0" prefHeight="117.0" prefWidth="346.0" text="task content" />
+      <Text fontSmoothingType="LCD" layoutX="66.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create task" textAlignment="CENTER" wrappingWidth="473.3671875">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </Text>
+    </children>
+</AnchorPane>

@@ -1,5 +1,6 @@
 package fr.java.client.components.todolist;
 
+import fr.java.client.components.FileUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -8,6 +9,9 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class todolistController {
 
@@ -15,20 +19,11 @@ public class todolistController {
     public HBox listsHBox;
 
 
-    public void createList(ActionEvent actionEvent) {
+    public void createList(ActionEvent actionEvent) throws IOException {
 
-        Label title = new Label("Title");
-        GridPane listHeader = new GridPane();
-        listHeader.getChildren().add(title);
-
-        ListView listBody = new ListView();
-        listBody.setId("listNumberX");
-
-        VBox list = new VBox();
-        list.getChildren().add(listHeader);
-        list.getChildren().add(listBody);
-
-        this.listsHBox.getChildren().add(list);
-
+        Stage stage = new Stage();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
+        stage.show();
+        
     }
 }
