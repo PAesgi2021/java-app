@@ -1,6 +1,6 @@
 package fr.java.client.components.login;
 
-import fr.java.client.service.Instance;
+import fr.java.client.services.Instance;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;

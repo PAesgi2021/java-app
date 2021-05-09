@@ -1,4 +1,4 @@
-package fr.java.client.service;
+package fr.java.client.services;
 
 public class AsyncService {
     //TODO implem de okHTTP et GSON
