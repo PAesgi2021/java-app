@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
 <?import java.net.URL?>
-<VBox prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/11.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
     <children>
         <Pane prefHeight="40" prefWidth="1280" style="-fx-background-color: #1571b1;">
-            <Button layoutX="28.0" layoutY="8.0" onAction="#displayCreateListView" prefHeight="25.0" prefWidth="80.0"
-                    style="-fx-background-color: whitesmoke;" text="Create list"/>
-            <Button layoutX="1186.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0"
-                    style="-fx-background-color: #d02121;" text="Logout" textFill="whitesmoke"/>
-            <Button layoutX="1090.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0"
-                    styleClass="bg-trans" text="Profile" textFill="whitesmoke"/>
+            <Button layoutX="28.0" layoutY="8.0" onAction="#displayCreateListView" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: whitesmoke;" text="Create list" />
+            <Button fx:id="btLogout" layoutX="1186.0" layoutY="8.0" onAction="#displayLoginView" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #d02121;" text="Logout" textFill="whitesmoke" />
+            <Button layoutX="1090.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="bg-trans" text="Profile" textFill="whitesmoke" />
             <Text fill="WHITE" layoutX="580.0" layoutY="30.0" opacity="0.3" text="TODOLIST" textAlignment="CENTER">
                 <font>
-                    <Font name="Leelawadee UI Bold" size="25.0"/>
+                    <Font name="Leelawadee UI Bold" size="25.0" />
                 </font>
             </Text>
         </Pane>
         <ScrollPane prefHeight="680.0" prefWidth="1280.0">
             <content>
-                <HBox fx:id="listsHBox" maxWidth="1280.0" prefWidth="200.0" spacing="5"
-                      styleClass="bg-trans, border-trans"/>
+                <HBox fx:id="listsHBox" maxWidth="1280.0" prefWidth="200.0" spacing="5" styleClass="bg-trans, border-trans" />
             </content>
         </ScrollPane>
     </children>
 
 
     <stylesheets>
-        <URL value="@Todolist.css"></URL>
+        <URL value="@Todolist.css" />
     </stylesheets>
 </VBox>

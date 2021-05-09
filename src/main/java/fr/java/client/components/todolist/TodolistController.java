@@ -163,4 +163,15 @@ public class TodolistController {
         this.listsHBox.getChildren().removeAll(this.listsHBox.getChildren());
         this.initialize();
     }
+
+    public void displayLoginView(ActionEvent actionEvent) {
+        instance.getUserService().logout();
+        Stage stage = new Stage();
+        try {
+            stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/LoginView.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        stage.showAndWait();
+    }
 }
