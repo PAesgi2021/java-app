@@ -1,10 +1,14 @@
 package fr.java.client.components.createTask;
 
+import fr.java.client.entities.Task;
+import fr.java.client.entities.Todolist;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -16,7 +20,8 @@ public class createTaskController {
 
     @FXML
     TextField titleEntry;
-    TextField contentEntry;
+    @FXML
+    TextArea contentEntry;
     @FXML
     Button closeButton;
 
@@ -25,11 +30,19 @@ public class createTaskController {
         stage.close();
     }
 
-    public void createTaskAction() throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
-        stage.showAndWait();
 
+    public void createTaskAction(ActionEvent actionEvent) {
+
+       if(!this.titleEntry.getText().equals("") && !this.contentEntry.getText().equals("")){
+           this.instance.getTodolistService().getCurrentTodolist().addTask(new Task(this.titleEntry.getText(), this.contentEntry.getText()));
+           this.closeBtnAction();
+       } else {
+           Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+           errorAlert.setHeaderText("Error");
+           errorAlert.setContentText("you should complete");
+           errorAlert.showAndWait();
+       }
     }
-
 }
+
+

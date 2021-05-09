@@ -55,6 +55,13 @@ public class TodolistController {
         this.refreshAction();
     }
 
+    public void displayTaskManagerView() throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskManager/TaskManager.fxml"));
+        stage.showAndWait();
+        this.refreshAction();
+    }
+
     /**
      * create a list in the listsHBox (TODOLIST)
      * @param todolist
@@ -70,6 +77,7 @@ public class TodolistController {
         btnAddTask.getStyleClass().add("btnActionList");
         btnAddTask.setOnAction(actionEvent -> {
             try {
+                this.instance.getTodolistService().setCurrentTodolist(todolist);
                 this.displayCreateTaskView();
             } catch (IOException e) {
                 e.printStackTrace();
@@ -132,8 +140,13 @@ public class TodolistController {
 
             // remove himself on click
             card.setOnMouseClicked(event -> {
-                todolist.getTasks().remove(task);
-                this.refreshAction();
+                try {
+                    this.instance.getTodolistService().setCurrentTodolist(todolist);
+                    this.instance.getTodolistService().setCurrentTask(task);
+                    this.displayTaskManagerView();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             });
             card.getStyleClass().add("task");
             card.setCursor(Cursor.HAND);
