@@ -1,10 +1,12 @@
 package fr.java.client.utils;
 
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
@@ -25,6 +27,13 @@ public class FileUtils {
         errorAlert.setHeaderText(header);
         errorAlert.setContentText(body);
         errorAlert.showAndWait();
+    }
+
+    public static void closeWhenLoseFocus(Stage stage) {
+        stage.focusedProperty().addListener((ov, onHidden, onShown) -> {
+            if(!stage.isFocused())
+                Platform.runLater(() -> stage.close());
+        });
     }
 
     /**

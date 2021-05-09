@@ -6,6 +6,10 @@ import fr.java.client.services.TodolistService;
 import fr.java.client.entities.Task;
 import fr.java.client.entities.Todolist;
 import fr.java.client.utils.FileUtils;
+import fr.java.client.utils.types.TaskStatusType;
+import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
@@ -58,6 +62,7 @@ public class TodolistController {
     public void displayTaskManagerView() throws IOException {
         Stage stage = new Stage();
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskManager/TaskManager.fxml"));
+        FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();
     }
@@ -103,7 +108,7 @@ public class TodolistController {
 
         VBox listBody = new VBox();
         listBody.setStyle("-fx-background-color: #d0d0d0; -fx-spacing: 4px; -fx-padding: 5px; -fx-min-width: 210px;");
-        addTask(todolist, listBody);
+        addTask(todolist, listBody, TaskStatusType.todo);
 
         StackPane listFooter = new StackPane();
         listFooter.setStyle("-fx-background-color: #d0d0d0");
@@ -124,9 +129,14 @@ public class TodolistController {
      * create a simple card clickable for each task of a todolist (TASK)
      * @param todolist
      * @param listView
+     * @param status
      */
-    public void addTask(Todolist todolist, VBox listView) {
+    public void addTask(Todolist todolist, VBox listView, TaskStatusType status) {
         for (Task task : todolist.getTasks()) {
+
+            if (task.getStatus() != status) {
+                continue;
+            }
 
             TextFlow title = new TextFlow();
             title.getStyleClass().add("taskHeader");

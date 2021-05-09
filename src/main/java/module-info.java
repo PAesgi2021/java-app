@@ -1,8 +1,6 @@
 module fr.java.client {
     requires javafx.controls;
     requires javafx.fxml;
-    requires com.gluonhq.charm.glisten;
-    requires com.gluonhq.attach.util;
 
     // exports
     exports fr.java.client;
