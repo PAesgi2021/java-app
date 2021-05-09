@@ -26,8 +26,11 @@ public class TodolistService {
         this.todolists.get(1).addTask(new Task("title", "prouuuuuuuut"));
         this.todolists.get(4).addTask(new Task("title", "prouuuuuuuut"));
         this.todolists.get(3).addTask(new Task("title", "prouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuut"));
-        this.todolists.get(2).addTask(new Task("title", "prouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuut"));
-        this.todolists.get(2).addTask(new Task("title", "prouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuut"));
+
+        for (int i = 0; i < 10; i++) {
+            this.todolists.get(2).addTask(new Task("title", "prouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuut"));
+        }
+
     }
 
     public static TodolistService getInstance() {
