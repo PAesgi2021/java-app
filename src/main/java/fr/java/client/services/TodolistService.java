@@ -48,8 +48,4 @@ public class TodolistService {
     public List<Todolist> getTodolists() {
         return todolists;
     }
-
-    public void setTodolists(List<Todolist> todolists) {
-        this.todolists = todolists;
-    }
 }

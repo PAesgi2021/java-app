@@ -7,9 +7,13 @@ import fr.java.client.entities.Todolist;
 import fr.java.client.utils.FileUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.Cursor;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -43,9 +47,17 @@ public class TodolistController {
         Label titleLabel = new Label(todolist.getTitle());
         titleLabel.setStyle("-fx-font-weight: bolder; -fx-text-fill: #4e4b4b; -fx-padding: 10px;");
 
-        Pane listHeader = new Pane();
+        Button btnAddTask = new Button();
+        btnAddTask.setText("ADD TASK");
+        btnAddTask.setCursor(Cursor.HAND);
+        btnAddTask.setStyle("-fx-background-color: transparent; -fx-border-color: transparent");
+
+        StackPane listHeader = new StackPane();
         listHeader.setStyle("-fx-background-color: #d0d0d0");
         listHeader.getChildren().add(titleLabel);
+        listHeader.setAlignment(titleLabel, Pos.CENTER_LEFT);
+        listHeader.getChildren().add(btnAddTask);
+        listHeader.setAlignment(btnAddTask, Pos.CENTER_RIGHT);
 
         VBox listBody = new VBox();
         listBody.setStyle("-fx-background-color: #d0d0d0; -fx-spacing: 4px; -fx-padding: 5px; -fx-min-width: 210px;");
