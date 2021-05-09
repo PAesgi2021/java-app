@@ -3,4 +3,6 @@ module fr.java.client {
     requires javafx.fxml;
     exports fr.java.client;
     exports fr.java.client.components.todolist;
+    exports fr.java.client.components.login;
+    opens fr.java.client.components.login;
 }
