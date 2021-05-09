@@ -18,18 +18,17 @@
                 </Text>
             </graphic>
         </Button>
-
-        <Button onAction="#createTaskAction" layoutX="220.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Validate">
-            <font>
-                <Font size="15.0" />
-            </font>
-        </Button>
-        <TextField layoutX="130.0" layoutY="147.0" prefHeight="54.0" prefWidth="346.0" text="task name" />
-      <TextArea layoutX="130.0" layoutY="224.0" prefHeight="117.0" prefWidth="346.0" text="task content" />
+        <TextField fx:id="titleEntry" layoutX="130.0" layoutY="147.0" prefHeight="54.0" prefWidth="346.0" text="" />
+      <TextArea fx:id="contentEntry" layoutX="130.0" layoutY="224.0" prefHeight="117.0" prefWidth="346.0" text="" />
       <Text fontSmoothingType="LCD" layoutX="66.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create task" textAlignment="CENTER" wrappingWidth="473.3671875">
          <font>
             <Font name="Comic Sans MS Bold" size="24.0" />
          </font>
       </Text>
+        <Button onAction="#createTaskAction" layoutX="220.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Validate">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>
