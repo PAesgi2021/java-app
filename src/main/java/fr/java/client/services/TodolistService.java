@@ -8,9 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TodolistService {
+    private static TodolistService instance;
 
     private List<Todolist> todolists;
-    private static TodolistService instance;
+    private Todolist currentTodolist;
+    private Task currentTask;
 
     private TodolistService() {
         this.todolists = new ArrayList<>();
@@ -22,7 +24,6 @@ public class TodolistService {
         this.todolists.get(0).addTask(new Task("title", "miamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaima"));
         this.todolists.get(0).addTask(new Task("title", "prouuuuuuuut"));
         this.todolists.get(1).addTask(new Task("title", "prouuuuuuuut"));
-
     }
 
     public static TodolistService getInstance() {
@@ -34,11 +35,26 @@ public class TodolistService {
     }
 
     public void addTodolist(String title) {
-
-            this.todolists.add(new Todolist(title));
+        this.todolists.add(new Todolist(title));
     }
 
     public List<Todolist> getTodolists() {
         return todolists;
+    }
+
+    public Todolist getCurrentTodolist() {
+        return currentTodolist;
+    }
+
+    public void setCurrentTodolist(Todolist currentTodolist) {
+        this.currentTodolist = currentTodolist;
+    }
+
+    public Task getCurrentTask() {
+        return currentTask;
+    }
+
+    public void setCurrentTask(Task currentTask) {
+        this.currentTask = currentTask;
     }
 }

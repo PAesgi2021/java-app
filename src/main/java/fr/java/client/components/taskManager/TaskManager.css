@@ -1,0 +1,22 @@
+.manageTask {
+    -fx-background-color: #ffffff;
+}
+
+.trans {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.validTaskBtn {
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+    -fx-background-color: #469746;
+    -fx-text-fill: #ffffff;
+}
+
+.deleteTaskBtn {
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+    -fx-background-color: #cb2109;
+    -fx-text-fill: #ffffff;
+}

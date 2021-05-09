@@ -48,7 +48,8 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
+//        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskManager/TaskManager.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/todolist/TodolistView.fxml"));
         stage.setTitle("JAVA-APP");
         stage.show();
     }

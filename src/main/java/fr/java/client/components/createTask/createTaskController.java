@@ -1,5 +1,7 @@
 package fr.java.client.components.createTask;
 
+import fr.java.client.entities.Task;
+import fr.java.client.entities.Todolist;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
@@ -26,10 +28,9 @@ public class createTaskController {
     }
 
     public void createTaskAction() throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
-        stage.showAndWait();
-
+        Todolist myTodolist = this.instance.getTodolistService().getCurrentTodolist();
+        myTodolist.addTask(new Task("test", "test"));
+        closeBtnAction();
     }
 
 }
