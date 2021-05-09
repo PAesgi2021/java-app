@@ -15,13 +15,14 @@
     -fx-border-color: transparent;
 }
 
+/********** TASK CARD **********/
+
 .task {
     -fx-background-color: white;
 }
 
 .task:hover {
-    transform: scale(1.1);
-    -fx-background-color: #c6a3a3;
+    -fx-background-color: #f8e9a0;
 }
 
 .btnActionList {
@@ -29,3 +30,16 @@
     -fx-background-color: transparent;
     -fx-font-size: 10px;
 }
+
+.taskHeader {
+    -fx-padding: 5px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.taskBody {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+}
+
+/********** (END) TASK CARD **********/

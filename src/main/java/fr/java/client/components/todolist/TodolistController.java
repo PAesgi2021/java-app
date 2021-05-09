@@ -119,11 +119,15 @@ public class TodolistController {
     public void addTask(Todolist todolist, VBox listView) {
         for (Task task : todolist.getTasks()) {
 
+            TextFlow title = new TextFlow();
+            title.getStyleClass().add("taskHeader");
+            title.getChildren().add(new Text(task.getTitle()));
+
             TextFlow text = new TextFlow();
-            text.setStyle("-fx-padding: 10px; -fx-background-color: transparent;");
+            text.getStyleClass().add("taskBody");
             text.getChildren().add(new Text(task.getContent()));
 
-            StackPane card = new StackPane();
+            VBox card = new VBox();
 
             // remove himself on click
             card.setOnMouseClicked(event -> {
@@ -132,8 +136,11 @@ public class TodolistController {
             });
             card.getStyleClass().add("task");
             card.setCursor(Cursor.HAND);
-
+            card.getChildren().add(title);
             card.getChildren().add(text);
+            card.setAlignment(Pos.CENTER);
+
+
             listView.getChildren().add(card);
         }
     }
