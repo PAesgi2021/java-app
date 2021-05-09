@@ -2,14 +2,19 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.todolistController">
+<AnchorPane prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
 
-    <Pane prefHeight="50" prefWidth="1280">
-        <Button layoutX="28.0" layoutY="13.0" onAction="#createList" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: transparent; -fx-border-color: #555555" text="Create list" />
-        <Button layoutX="1186.0" layoutY="13.0" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #d02121;" text="Logout" textFill="whitesmoke" />
-        <Button layoutX="1090.0" layoutY="13.0" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="Profile" />
+    <Pane prefHeight="40" prefWidth="1280" style="-fx-background-color: #1571b1;">
+        <Button layoutX="28.0" layoutY="8.0" onAction="#displayCreateListView" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: whitesmoke;" text="Create list" />
+        <Button layoutX="1186.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #d02121;" text="Logout" textFill="whitesmoke" />
+        <Button layoutX="1090.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: transparent;" text="Profile" textFill="whitesmoke" />
+        <Text fill="WHITE" layoutX="580.0" layoutY="30.0" opacity="0.3" text="TODOLIST" textAlignment="CENTER">
+         <font>
+            <Font name="Leelawadee UI Bold" size="25.0" />
+         </font></Text>
     </Pane>
-    <HBox fx:id="listsHBox" layoutX="32.0" layoutY="62.0" prefHeight="596.0" prefWidth="1217.0" style="-fx-border-color: #216bb3" />
+    <HBox fx:id="listsHBox" layoutX="32.0" layoutY="62.0" prefHeight="596.0" prefWidth="1217.0" spacing="5" style="-fx-border-color: transparent; -fx-background-color: transparent;" />
 
 </AnchorPane>

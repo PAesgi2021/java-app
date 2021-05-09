@@ -4,7 +4,9 @@ import fr.java.client.Service.FileUtils;
 import fr.java.client.Service.TodolistService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Popup;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -27,6 +29,7 @@ public class createListController {
         this.todolistService.addTodolist(this.titleEntry.getText());
         closeBtnAction();
 
+        // getinstance
         Stage stage = new Stage();
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/todolist/todolistView.fxml"));
         stage.show();

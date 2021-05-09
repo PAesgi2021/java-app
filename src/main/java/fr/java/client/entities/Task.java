@@ -8,10 +8,10 @@ public class Task {
     private String content;
     private LocalDateTime date;
 
-    public Task(String title, String content, LocalDateTime date) {
+    public Task(String title, String content) {
         this.title = title;
         this.content = content;
-        this.date = date;
+        this.date = LocalDateTime.now();
     }
 
     public String getTitle() {
