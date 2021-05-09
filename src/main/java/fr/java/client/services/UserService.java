@@ -30,6 +30,15 @@ public class UserService {
             return false;
         }
     }
+    public boolean logout() {
+        try {
+            this.user = null;
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 
     public User getUser() {
         return user;
