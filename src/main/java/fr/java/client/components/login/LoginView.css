@@ -1,0 +1,46 @@
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 50px;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.bg-trans {
+    -fx-background-color: transparent;
+}
+
+.border-trans {
+    -fx-border-color: transparent;
+}
+
+
+.task {
+    -fx-background-color: white;
+}
+
+.task:hover {
+    -fx-background-color: #f8e9a0;
+}
+
+.btnActionList {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-font-size: 10px;
+}
+
+.taskHeader {
+    -fx-padding: 5px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.taskBody {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+}
+.tferror {
+    -fx-text-box-border: red ;
+    -fx-focus-color: red ;
+}

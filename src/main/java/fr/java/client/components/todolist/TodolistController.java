@@ -13,6 +13,7 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -162,5 +163,4 @@ public class TodolistController {
         this.listsHBox.getChildren().removeAll(this.listsHBox.getChildren());
         this.initialize();
     }
-
 }
