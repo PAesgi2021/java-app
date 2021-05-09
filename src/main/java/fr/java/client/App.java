@@ -1,6 +1,6 @@
 package fr.java.client;
 
-import fr.java.client.Service.FileUtils;
+import fr.java.client.utils.FileUtils;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
@@ -61,6 +61,6 @@ public class App extends Application {
 /*
 * component  créer un composent FXML  nom + alt entré  crée auto
 * scene builder
-* 720 x 1080
+* 720 x 1280
 *
 * */
