@@ -11,14 +11,12 @@ public class LoginController {
     //Injection
     Instance instance = Instance.getInstance();
 
-    String username;
-    String password;
     @FXML TextField tfUsername;
     @FXML TextField tfPassword;
 
 
     public void signin(MouseEvent mouseEvent) {
-        System.out.println("LOGIN: " + username + "PASSWORD: " + password);
+        System.out.println("LOGIN: " + tfUsername.getText() + "PASSWORD: " + tfPassword.getText());
 
         if (instance.getUserService().login(tfUsername.getText(), tfPassword.getText())) {
             System.out.println("AUTHENTIFICATION REUSSI");
