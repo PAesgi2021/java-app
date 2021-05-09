@@ -1,6 +1,6 @@
 package fr.java.client.service;
 
-import fr.java.client.components.todolist.models.Todolist;
+import fr.java.client.entities.Todolist;
 
 import java.util.List;
 

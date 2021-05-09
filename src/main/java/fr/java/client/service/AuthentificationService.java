@@ -16,10 +16,8 @@ public class AuthentificationService {
     public static AuthentificationService getInstance() {
         if (authentificationService == null) {
             authentificationService = new AuthentificationService();
-            return authentificationService;
-        } else {
-            return authentificationService;
         }
+        return authentificationService;
     }
 
     public User getAuthentification(String username, String password) throws Exception {

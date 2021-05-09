@@ -17,10 +17,8 @@ public class UserService {
     public static UserService getInstance() {
         if (userService == null) {
             userService = new UserService();
-            return userService;
-        } else {
-            return userService;
         }
+        return userService;
     }
 
     public boolean login(String username, String password) {
