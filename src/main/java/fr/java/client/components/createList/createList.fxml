@@ -10,30 +10,38 @@
 <?import javafx.scene.layout.*?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0" prefWidth="410.0" xmlns="http://javafx.com/javafx/8" fx:controller="fr.java.client.components.createList.createListController" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <Button layoutX="123.0" layoutY="193.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Validate">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Button layoutX="371.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" wrapText="true" AnchorPane.bottomAnchor="264.0" AnchorPane.leftAnchor="371.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
-         <font>
-            <Font size="1.0" />
-         </font>
-         <graphic>
-            <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="X" textAlignment="CENTER">
-               <font>
-                  <Font name="Comic Sans MS Bold" size="24.0" />
-               </font>
-            </Text>
-         </graphic>
-      </Button>
-      <TextField layoutX="56.0" layoutY="98.0" prefHeight="54.0" prefWidth="301.0" />
-      <Text fontSmoothingType="LCD" layoutX="13.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enter list name" textAlignment="CENTER" wrappingWidth="383.3046875">
-         <font>
-            <Font name="Calibri Bold" size="24.0" />
-         </font>
-      </Text>
-   </children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="303.0"
+            prefWidth="410.0" xmlns="http://javafx.com/javafx/8"
+            fx:controller="fr.java.client.components.createList.createListController"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Button fx:id="closeButton" onAction="#closeBtnAction" layoutX="371.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0"
+                wrapText="true" AnchorPane.bottomAnchor="264.0" AnchorPane.leftAnchor="371.0"
+                AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
+            <font>
+                <Font size="1.0"/>
+            </font>
+            <graphic>
+                <Text fill="WHITE" fontSmoothingType="LCD" strokeType="OUTSIDE" strokeWidth="0.0" text="X"
+                      textAlignment="CENTER">
+                    <font>
+                        <Font name="Comic Sans MS Bold" size="24.0"/>
+                    </font>
+                </Text>
+            </graphic>
+        </Button>
+        <TextField fx:id="titleEntry" layoutX="56.0" layoutY="98.0" prefHeight="54.0" prefWidth="301.0"/>
+        <Text fontSmoothingType="LCD" layoutX="13.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Enter list name" textAlignment="CENTER" wrappingWidth="383.3046875">
+            <font>
+                <Font name="Calibri Bold" size="24.0"/>
+            </font>
+        </Text>
+        <Button onAction="#createListAction" layoutX="123.0" layoutY="193.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0"
+                text="Validate">
+            <font>
+                <Font size="15.0"/>
+            </font>
+        </Button>
+    </children>
 </AnchorPane>

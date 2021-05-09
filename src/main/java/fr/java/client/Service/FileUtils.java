@@ -1,4 +1,4 @@
-package fr.java.client.components;
+package fr.java.client.Service;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
