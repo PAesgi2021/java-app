@@ -56,3 +56,10 @@ public class App extends Application {
         launch(args);
     }
 }
+
+/*
+* component  créer un composent FXML  nom + alt entré  crée auto
+* scene builder
+* 720 x 1080
+*
+* */
