@@ -48,7 +48,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/loginView.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/LoginView.fxml"));
         stage.show();
     }
 

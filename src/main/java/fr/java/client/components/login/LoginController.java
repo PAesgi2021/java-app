@@ -1,19 +1,15 @@
 package fr.java.client.components.login;
 
 import fr.java.client.service.Instance;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
-
 import javafx.scene.control.TextField;
-import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.MouseEvent;
 
 
-public class loginController {
+public class LoginController {
 
     //Injection
-    private Instance instance = Instance.getInstance();
+    Instance instance = Instance.getInstance();
 
     String username;
     String password;
@@ -22,17 +18,13 @@ public class loginController {
 
 
     public void signin(MouseEvent mouseEvent) {
-        this.username = tfUsername.getText();
-        this.password = tfPassword.getText();
-
         System.out.println("LOGIN: " + username + "PASSWORD: " + password);
-        instance.login(username, password);
 
-        if (instance.isAuthenticated()) {
-        System.out.println("AUTHENTIFICATION REUSSI");
+        if (instance.getUserService().login(tfUsername.getText(), tfPassword.getText())) {
+            System.out.println("AUTHENTIFICATION REUSSI");
+            System.out.println(instance.getUserService().getUser().toString());
         } else {
             System.out.println("ECHEC DE L AUTHENTIFICATION");
         }
-
     }
 }
