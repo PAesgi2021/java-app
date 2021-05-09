@@ -11,6 +11,7 @@ module fr.java.client {
 
     // opens
     opens fr.java.client.components.createList;
+    opens fr.java.client.components.createTask;
     opens fr.java.client.components.todolist;
     exports fr.java.client.services;
     opens fr.java.client.services;

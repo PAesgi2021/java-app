@@ -1,5 +1,6 @@
 package fr.java.client.components.todolist;
 
+import fr.java.client.components.createTask.createTaskController;
 import fr.java.client.services.Instance;
 import fr.java.client.services.TodolistService;
 import fr.java.client.entities.Task;
@@ -51,6 +52,16 @@ public class TodolistController {
         btnAddTask.setText("ADD TASK");
         btnAddTask.setCursor(Cursor.HAND);
         btnAddTask.setStyle("-fx-background-color: transparent; -fx-border-color: transparent");
+        btnAddTask.setOnAction(actionEvent -> {
+            createTaskController createTask = new createTaskController();
+            try {
+                createTask.createTaskAction();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        });
+
+
 
         StackPane listHeader = new StackPane();
         listHeader.setStyle("-fx-background-color: #d0d0d0");
@@ -89,4 +100,5 @@ public class TodolistController {
         this.listsHBox.getChildren().removeAll(this.listsHBox.getChildren());
         this.initialize();
     }
+
 }
