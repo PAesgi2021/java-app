@@ -12,6 +12,8 @@
         <Pane prefHeight="40" prefWidth="1280" style="-fx-background-color: #1571b1;">
             <Button layoutX="28.0" layoutY="8.0" onAction="#displayCreateListView" prefHeight="25.0" prefWidth="80.0"
                     style="-fx-background-color: whitesmoke;" text="Create list"/>
+            <Button layoutX="150.0" layoutY="8.0" onAction="#refreshAction" prefHeight="25.0" prefWidth="80.0"
+                    style="-fx-background-color: whitesmoke;" text="Refresh"/>
             <Button layoutX="1186.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0"
                     style="-fx-background-color: #d02121;" text="Logout" textFill="whitesmoke"/>
             <Button layoutX="1090.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0"

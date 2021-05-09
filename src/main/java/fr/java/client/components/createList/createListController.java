@@ -27,10 +27,5 @@ public class createListController {
     public void createListAction() throws IOException {
         this.instance.getTodolistService().addTodolist(this.titleEntry.getText());
         closeBtnAction();
-
-        // getinstance
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/todolist/todolistView.fxml"));
-        stage.show();
     }
 }

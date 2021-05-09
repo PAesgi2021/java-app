@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -31,10 +32,11 @@ public class TodolistController {
         }
     }
 
-    public void displayCreateListView(ActionEvent actionEvent) throws IOException {
+    public void displayCreateListView() throws IOException {
         Stage stage = new Stage();
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
-        stage.show();
+        stage.showAndWait();
+        this.refreshAction();
     }
 
     public void addList(Todolist todolist) {
@@ -69,5 +71,10 @@ public class TodolistController {
             text.getChildren().add(new Text(task.getContent()));
             listView.getChildren().add(text);
         }
+    }
+
+    public void refreshAction() {
+        this.listsHBox.getChildren().removeAll(this.listsHBox.getChildren());
+        this.initialize();
     }
 }
