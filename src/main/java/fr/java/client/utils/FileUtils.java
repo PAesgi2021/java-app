@@ -1,4 +1,4 @@
-package fr.java.client.components;
+package fr.java.client.utils;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 
 public class FileUtils {
