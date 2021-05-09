@@ -1,4 +1,4 @@
-package fr.java.client.Service;
+package fr.java.client.services;
 
 import fr.java.client.entities.Task;
 import fr.java.client.entities.Todolist;
@@ -9,8 +9,9 @@ import java.util.List;
 public class TodolistService {
 
     private List<Todolist> todolists;
+    private static TodolistService instance;
 
-    public TodolistService() {
+    private TodolistService() {
         this.todolists = new ArrayList<>();
         this.addTodolist("Test");
         this.addTodolist("TO-DO");
@@ -27,6 +28,14 @@ public class TodolistService {
         this.todolists.get(3).addTask(new Task("title", "prouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuut"));
         this.todolists.get(2).addTask(new Task("title", "prouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuut"));
         this.todolists.get(2).addTask(new Task("title", "prouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuutprouuuuuuuut"));
+    }
+
+    public static TodolistService getInstance() {
+        if (TodolistService.instance == null) {
+            instance = new TodolistService();
+            return instance;
+        }
+        return instance;
     }
 
     public void addTodolist(String title) {
