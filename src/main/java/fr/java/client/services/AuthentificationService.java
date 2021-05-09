@@ -1,4 +1,4 @@
-package fr.java.client.service;
+package fr.java.client.services;
 
 import fr.java.client.entities.User;
 import fr.java.client.utils.types.Roles;
