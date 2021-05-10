@@ -4,7 +4,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox opacity="0.9" prefHeight="295.0" prefWidth="427.0" styleClass="manageTask" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.taskManager.TaskManagerController">
+<VBox opacity="0.9" prefHeight="310.0" prefWidth="427.0" styleClass="manageTask" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.taskManager.TaskManagerController">
     <children>
         <StackPane prefHeight="40.0" prefWidth="410.0">
             <children>
@@ -24,8 +24,7 @@
         <Pane prefHeight="64.0" prefWidth="410.0">
             <children>
                 <Button layoutX="360.0" layoutY="27.0" mnemonicParsing="false" onAction="#deleteTaskAction" prefHeight="15.0" prefWidth="53.0" styleClass="deleteTaskBtn" text="Delete" />
-                <Button fx:id="todoBtn" layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#todoAction" prefHeight="27.0" prefWidth="150.0" styleClass="todoBtn" text="Todo" visible="false" />
-                <Button fx:id="doneBtn" layoutX="14.0" layoutY="27.0" mnemonicParsing="false" onAction="#doneAction" prefHeight="27.0" prefWidth="150.0" styleClass="doneBtn" text="Done" />
+                <CheckBox fx:id="statusCheckbox" layoutX="25.0" layoutY="27.0" mnemonicParsing="false" onAction="#changeDynamicallyStatusCheckbox" styleClass="statusTaskCheckbox" text="CheckBox" />
             </children>
         </Pane>
     </children>

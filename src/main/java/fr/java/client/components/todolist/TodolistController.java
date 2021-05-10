@@ -16,6 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -39,82 +40,66 @@ public class TodolistController {
     public HBox listsHBox;
 
     @FXML
+    public CheckBox showDoneTasks;
+
+    @FXML
     protected void initialize() {
         for (Todolist todolist : this.instance.getTodolistService().getTodolists()) {
-            addList(todolist);
+            addList(todolist, TaskStatusType.todo);
         }
     }
 
-    public void displayCreateListView() throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
-        stage.showAndWait();
-        this.refreshAction();
-    }
-
-    public void displayCreateTaskView() throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
-        stage.showAndWait();
-        this.refreshAction();
-    }
-
-    public void displayTaskManagerView() throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskManager/TaskManager.fxml"));
-        FileUtils.closeWhenLoseFocus(stage);
-        stage.showAndWait();
-        this.refreshAction();
-    }
 
     /**
      * create a list in the listsHBox (TODOLIST)
      * @param todolist
      */
-    public void addList(Todolist todolist) {
+    public void addList(Todolist todolist, TaskStatusType status) {
 
         Label titleLabel = new Label(todolist.getTitle());
         titleLabel.setStyle("-fx-font-weight: bolder; -fx-text-fill: #4e4b4b; -fx-padding: 10px;");
-
-        Button btnAddTask = new Button();
-        btnAddTask.setText("ADD TASK");
-        btnAddTask.setCursor(Cursor.HAND);
-        btnAddTask.getStyleClass().add("btnActionList");
-        btnAddTask.setOnAction(actionEvent -> {
-            try {
-                this.instance.getTodolistService().setCurrentTodolist(todolist);
-                this.displayCreateTaskView();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        });
-
-        Button btnDeleteList = new Button();
-        btnDeleteList.setText("DELETE LIST");
-        btnDeleteList.setCursor(Cursor.HAND);
-        btnDeleteList.getStyleClass().add("btnActionList");
-        btnDeleteList.setOnAction(e -> {
-            instance.getTodolistService().getTodolists().remove(todolist);
-            this.refreshAction();
-        });
-
 
         StackPane listHeader = new StackPane();
         listHeader.setStyle("-fx-background-color: #d0d0d0");
         listHeader.getChildren().add(titleLabel);
         listHeader.setAlignment(titleLabel, Pos.CENTER_LEFT);
-        listHeader.getChildren().add(btnAddTask);
-        listHeader.setAlignment(btnAddTask, Pos.CENTER_RIGHT);
 
         VBox listBody = new VBox();
         listBody.setStyle("-fx-background-color: #d0d0d0; -fx-spacing: 4px; -fx-padding: 5px; -fx-min-width: 210px;");
-        addTask(todolist, listBody, TaskStatusType.todo);
+        addTask(todolist, listBody, status);
 
         StackPane listFooter = new StackPane();
         listFooter.setStyle("-fx-background-color: #d0d0d0");
-        listFooter.getChildren().add(btnDeleteList);
-        listFooter.setAlignment(btnDeleteList, Pos.CENTER_RIGHT);
 
+        // todoCard != doneCard
+        if (status == TaskStatusType.todo) {
+            Button btnAddTask = new Button();
+            btnAddTask.setText("ADD TASK");
+            btnAddTask.setCursor(Cursor.HAND);
+            btnAddTask.getStyleClass().add("btnActionList");
+            btnAddTask.setOnAction(actionEvent -> {
+                try {
+                    this.instance.getTodolistService().setCurrentTodolist(todolist);
+                    this.displayCreateTaskView();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            });
+
+            Button btnDeleteList = new Button();
+            btnDeleteList.setText("DELETE LIST");
+            btnDeleteList.setCursor(Cursor.HAND);
+            btnDeleteList.getStyleClass().add("btnActionList");
+            btnDeleteList.setOnAction(e -> {
+                instance.getTodolistService().getTodolists().remove(todolist);
+                this.refreshAction();
+            });
+
+            listHeader.getChildren().add(btnAddTask);
+            listHeader.setAlignment(btnAddTask, Pos.CENTER_RIGHT);
+            listFooter.getChildren().add(btnDeleteList);
+            listFooter.setAlignment(btnDeleteList, Pos.CENTER_RIGHT);
+        }
 
         VBox list = new VBox();
         list.getChildren().add(listHeader);
@@ -164,14 +149,19 @@ public class TodolistController {
             card.getChildren().add(text);
             card.setAlignment(Pos.CENTER);
 
-
             listView.getChildren().add(card);
         }
     }
 
     public void refreshAction() {
         this.listsHBox.getChildren().removeAll(this.listsHBox.getChildren());
-        this.initialize();
+        if (this.showDoneTasks.isSelected()) {
+            for (Todolist todolist : this.instance.getTodolistService().getTodolists()) {
+                addList(todolist, TaskStatusType.done);
+            }
+        } else {
+            this.initialize();
+        }
     }
 
     public void displayLoginView(ActionEvent actionEvent) {
@@ -183,5 +173,27 @@ public class TodolistController {
             e.printStackTrace();
         }
         stage.showAndWait();
+    }
+
+    public void displayCreateListView() throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
+        stage.showAndWait();
+        this.refreshAction();
+    }
+
+    public void displayCreateTaskView() throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
+        stage.showAndWait();
+        this.refreshAction();
+    }
+
+    public void displayTaskManagerView() throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskManager/TaskManager.fxml"));
+        FileUtils.closeWhenLoseFocus(stage);
+        stage.showAndWait();
+        this.refreshAction();
     }
 }

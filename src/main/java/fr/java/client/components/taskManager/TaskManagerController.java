@@ -3,13 +3,13 @@ package fr.java.client.components.taskManager;
 import fr.java.client.entities.Task;
 import fr.java.client.entities.Todolist;
 import fr.java.client.services.Instance;
+import fr.java.client.utils.FileUtils;
 import fr.java.client.utils.types.TaskStatusType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
@@ -23,8 +23,7 @@ public class TaskManagerController {
     @FXML TextArea contentTask;
     @FXML CheckBox lockCheckbox;
     @FXML Button saveBtn;
-    @FXML Button todoBtn;
-    @FXML Button doneBtn;
+    @FXML CheckBox statusCheckbox;
 
     @FXML
     protected void initialize() {
@@ -34,22 +33,16 @@ public class TaskManagerController {
         this.titleTask.setText(this.currentTask.getTitle());
         this.contentTask.setText(this.currentTask.getContent());
 
-        this.changeStatusDynamically();
-        this.doneBtn.setText(LocalDateTime.now().until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
+        this.reloadStatusCheckbox();
+        this.changeDynamicallyStatusCheckbox();
     }
 
     public void deleteTaskAction() {
-        this.currentTodolist.getTasks().remove(this.currentTask);
-        this.close();
-    }
+        boolean res = FileUtils.confirmationAlert("Delete task", "Are you sure ?");
 
-    public void changeStatusDynamically() {
-        if (this.currentTask.getStatus() == TaskStatusType.done) {
-            this.todoBtn.setVisible(true);
-            this.doneBtn.setVisible(false);
-        } else {
-            this.todoBtn.setVisible(false);
-            this.doneBtn.setVisible(true);
+        if (res) {
+            this.currentTodolist.getTasks().remove(this.currentTask);
+            this.close();
         }
     }
 
@@ -79,16 +72,25 @@ public class TaskManagerController {
         stage.close();
     }
 
-    public void todoAction() {
-        this.currentTask.setStatus(TaskStatusType.todo);
-        this.currentTask.setFinishedDate(null);
-        this.changeStatusDynamically();
+    public void changeDynamicallyStatusCheckbox() {
+        if (this.statusCheckbox.isSelected()) {
+            this.currentTask.setStatus(TaskStatusType.done);
+            this.currentTask.setFinishedDate(LocalDateTime.now());
+            this.statusCheckbox.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy (HH:mm)")));
+            this.statusCheckbox.setStyle("-fx-background-color: #519e20");
+        } else {
+            this.currentTask.setStatus(TaskStatusType.todo);
+            this.currentTask.setFinishedDate(null);
+            this.statusCheckbox.setText(LocalDateTime.now().until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
+            this.statusCheckbox.setStyle("-fx-background-color: #cd3737");
+        }
     }
 
-    public void doneAction() {
-        this.currentTask.setStatus(TaskStatusType.done);
-        this.currentTask.setFinishedDate(LocalDateTime.now());
-        this.todoBtn.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy (HH:mm)")));
-        this.changeStatusDynamically();
+    public void reloadStatusCheckbox() {
+        if (this.currentTask.getStatus() == TaskStatusType.done) {
+            this.statusCheckbox.setSelected(true);
+        } else {
+            this.statusCheckbox.setSelected(false);
+        }
     }
 }

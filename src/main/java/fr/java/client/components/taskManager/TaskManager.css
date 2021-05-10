@@ -29,20 +29,14 @@
     -fx-font-size: 10px;
 }
 
-.todoBtn {
+.statusTaskCheckbox {
     -fx-border-color: transparent;
     -fx-border-radius: 25px;
-    -fx-background-color: #6fba25;
     -fx-font-weight: bolder;
     -fx-text-fill: white;
-}
-
-.doneBtn {
-    -fx-border-color: transparent;
-    -fx-border-radius: 25px;
-    -fx-background-color: #cb3939;
-    -fx-font-weight: bolder;
-    -fx-text-fill: white;
+    -fx-padding: 6px;
+    -fx-background-radius: 2px;
+    -fx-pref-width: 150px;
 }
 
 .lockCheckbox {

@@ -29,6 +29,15 @@ public class FileUtils {
         errorAlert.showAndWait();
     }
 
+    public static boolean confirmationAlert(String header, String body)  {
+        Alert errorAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        errorAlert.setHeaderText(header);
+        errorAlert.setContentText(body);
+        errorAlert.showAndWait();
+
+        return errorAlert.getResult().equals("OK");
+    }
+
     public static void closeWhenLoseFocus(Stage stage) {
         stage.focusedProperty().addListener((ov, onHidden, onShown) -> {
             if(!stage.isFocused())
