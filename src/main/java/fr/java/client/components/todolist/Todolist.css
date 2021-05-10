@@ -1,11 +1,4 @@
-.scroll-pane {
-    -fx-background-color: transparent;
-    -fx-padding: 50px;
-}
-
-.scroll-pane > .viewport {
-    -fx-background-color: transparent;
-}
+/********** all **********/
 
 .bg-trans {
     -fx-background-color: transparent;
@@ -15,13 +8,18 @@
     -fx-border-color: transparent;
 }
 
+.rounded {
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
 /********** TASK CARD **********/
 
-.task {
+.taskCard {
     -fx-background-color: white;
 }
 
-.task:hover {
+.taskCard:hover {
     -fx-background-color: #f8e9a0;
 }
 
@@ -42,16 +40,63 @@
     -fx-background-color: transparent;
 }
 
-/********** (END) TASK CARD **********/
+/********** header **********/
 
 .showDoneTasks {
     -fx-text-fill: white;
     -fx-font-size: 13px;
 }
 
-.createListBtn {
-    -fx-background-color: #3b3939;
-    -fx-text-fill: white;
+.trelloBtn {
+    -fx-background-color: #4e97c2;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
     -fx-border-color: transparent;
     -fx-font-weight: bolder;
+}
+
+.trelloBtn:hover {
+    -fx-background-color: #3588b9;
+}
+
+.logoutBtn {
+    -fx-background-color: #c62424;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.logoutBtn:hover {
+    -fx-background-color: #bd1c1c;
+}
+
+.titleLogoPage {
+    -fx-font-size: 20px;
+    -fx-font-weight: bolder;
+    -fx-opacity: 0.3;
+    -fx-fill: white;
+}
+
+.titleLogoPage:hover {
+    -fx-opacity: 0.8;
+}
+
+/********** body **********/
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 50px;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.headerTodolistView {
+    -fx-background-color: #026aa7;
+}
+
+.todolistCard {
+    -fx-background-color: #d0d0d0;
 }

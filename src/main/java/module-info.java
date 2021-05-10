@@ -10,7 +10,7 @@ module fr.java.client {
     exports fr.java.client.entities;
     exports fr.java.client.services;
     exports fr.java.client.components.login;
-    exports fr.java.client.components.taskManager;
+    exports fr.java.client.components.taskConfig;
 
     // opens
     opens fr.java.client.components.createList;
@@ -18,5 +18,5 @@ module fr.java.client {
     opens fr.java.client.components.todolist;
     opens fr.java.client.services;
     opens fr.java.client.components.login;
-    opens fr.java.client.components.taskManager;
+    opens fr.java.client.components.taskConfig;
 }

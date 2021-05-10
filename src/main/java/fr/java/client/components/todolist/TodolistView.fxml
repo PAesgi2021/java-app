@@ -5,34 +5,28 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/11.0.1"
-      xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
+<VBox prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
     <children>
-        <Pane prefHeight="40" prefWidth="1280" style="-fx-background-color: #1571b1;">
-            <Button styleClass="createListBtn" layoutX="28.0" layoutY="8.0" onAction="#displayCreateListView"
-                    prefHeight="25.0" prefWidth="120.0" text="Create list"/>
-            <Button fx:id="btLogout" layoutX="1186.0" layoutY="8.0" onAction="#displayLoginView" prefHeight="25.0"
-                    prefWidth="80.0" style="-fx-background-color: #d02121;" text="Logout" textFill="whitesmoke"/>
-            <Button layoutX="1090.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="bg-trans"
-                    text="Profile" textFill="whitesmoke"/>
-            <Text fill="WHITE" layoutX="580.0" layoutY="30.0" opacity="0.3" text="TODOLIST" textAlignment="CENTER">
+        <Pane prefHeight="54.0" prefWidth="1280" styleClass="headerTodolistView">
+            <Button layoutX="14.0" layoutY="8.0" onAction="#showCreateListView" prefHeight="25.0" prefWidth="120.0" styleClass="trelloBtn" text="Create list" />
+            <Button fx:id="btLogout" layoutX="1186.0" layoutY="8.0" onAction="#showLoginView" prefHeight="25.0" prefWidth="80.0" styleClass="logoutBtn" text="Logout" />
+            <Button layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="trelloBtn" text="Profile" />
+            <Text layoutX="580.0" layoutY="30.0" styleClass="titleLogoPage" text="Paesgi" textAlignment="CENTER">
                 <font>
-                    <Font name="Leelawadee UI Bold" size="25.0"/>
+                    <Font name="Leelawadee UI Bold" size="25.0" />
                 </font>
             </Text>
-            <CheckBox fx:id="showDoneTasks" onAction="#refreshAction" styleClass="showDoneTasks" layoutX="173.0" layoutY="12.0" mnemonicParsing="false"
-                      text="Show done tasks"/>
+            <CheckBox fx:id="showDoneTasks" layoutX="145.0" layoutY="14.0" mnemonicParsing="false" onAction="#refreshAction" styleClass="showDoneTasks" text="Show done tasks" />
         </Pane>
-        <ScrollPane prefHeight="680.0" prefWidth="1280.0">
+        <ScrollPane prefHeight="680.0" prefWidth="1280.0" styleClass="todolistScrollPane">
             <content>
-                <HBox fx:id="listsHBox" maxWidth="1280.0" prefWidth="200.0" spacing="5"
-                      styleClass="bg-trans, border-trans"/>
+                <HBox fx:id="listsHBox" maxWidth="1280.0" prefWidth="200.0" spacing="5" styleClass="bg-trans, border-trans" />
             </content>
         </ScrollPane>
     </children>
 
 
     <stylesheets>
-        <URL value="@Todolist.css"/>
+        <URL value="@Todolist.css" />
     </stylesheets>
 </VBox>

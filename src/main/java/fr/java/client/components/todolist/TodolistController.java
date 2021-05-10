@@ -1,46 +1,31 @@
 package fr.java.client.components.todolist;
 
-import fr.java.client.components.createTask.createTaskController;
 import fr.java.client.services.Instance;
-import fr.java.client.services.TodolistService;
 import fr.java.client.entities.Task;
 import fr.java.client.entities.Todolist;
 import fr.java.client.utils.FileUtils;
 import fr.java.client.utils.types.TaskStatusType;
-import javafx.application.Platform;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
 
 public class TodolistController {
-
     Instance instance = Instance.getInstance();
 
-    @FXML
-    public HBox listsHBox;
-
-    @FXML
-    public CheckBox showDoneTasks;
+    @FXML public HBox listsHBox;
+    @FXML public CheckBox showDoneTasks;
 
     @FXML
     protected void initialize() {
@@ -49,27 +34,35 @@ public class TodolistController {
         }
     }
 
-
     /**
-     * create a list in the listsHBox (TODOLIST)
+     * create a list of task component
      * @param todolist
+     * @param status
      */
     public void addList(Todolist todolist, TaskStatusType status) {
 
+        //Header
+        //  + Todolist.title
+        //  + If (isTodoList) add task btn
+        StackPane listHeader = new StackPane();
+        listHeader.getStyleClass().add("todolistCard");
+
         Label titleLabel = new Label(todolist.getTitle());
         titleLabel.setStyle("-fx-font-weight: bolder; -fx-text-fill: #4e4b4b; -fx-padding: 10px;");
-
-        StackPane listHeader = new StackPane();
-        listHeader.setStyle("-fx-background-color: #d0d0d0");
         listHeader.getChildren().add(titleLabel);
         listHeader.setAlignment(titleLabel, Pos.CENTER_LEFT);
 
+        //Body
+        //  + cards of task
         VBox listBody = new VBox();
-        listBody.setStyle("-fx-background-color: #d0d0d0; -fx-spacing: 4px; -fx-padding: 5px; -fx-min-width: 210px;");
+        listBody.getStyleClass().add("todolistCard");
+        listBody.setStyle("-fx-spacing: 4px; -fx-padding: 5px; -fx-min-width: 210px;");
         addTask(todolist, listBody, status);
 
+        //Footer
+        //  + If (isTodoList) delete list btn
         StackPane listFooter = new StackPane();
-        listFooter.setStyle("-fx-background-color: #d0d0d0");
+        listFooter.getStyleClass().add("todolistCard");
 
         // todoCard != doneCard
         if (status == TaskStatusType.todo) {
@@ -80,7 +73,7 @@ public class TodolistController {
             btnAddTask.setOnAction(actionEvent -> {
                 try {
                     this.instance.getTodolistService().setCurrentTodolist(todolist);
-                    this.displayCreateTaskView();
+                    this.showCreateTaskView();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -101,17 +94,17 @@ public class TodolistController {
             listFooter.setAlignment(btnDeleteList, Pos.CENTER_RIGHT);
         }
 
+        // final component
         VBox list = new VBox();
+        list.setStyle("-fx-min-width: 225px;");
         list.getChildren().add(listHeader);
         list.getChildren().add(listBody);
         list.getChildren().add(listFooter);
-        list.setStyle("-fx-min-width: 225px;");
-
         this.listsHBox.getChildren().add(list);
     }
 
     /**
-     * create a simple card clickable for each task of a todolist (TASK)
+     * foreach Task create a clickable card
      * @param todolist
      * @param listView
      * @param status
@@ -119,37 +112,47 @@ public class TodolistController {
     public void addTask(Todolist todolist, VBox listView, TaskStatusType status) {
         for (Task task : todolist.getTasks()) {
 
+            // separate todoTask and doneTask
             if (task.getStatus() != status) {
                 continue;
             }
 
+            //Header
+            //  + Task.title
             TextFlow title = new TextFlow();
             title.getStyleClass().add("taskHeader");
             title.getChildren().add(new Text(task.getTitle()));
 
+            //Body
+            // + Task.content
             TextFlow text = new TextFlow();
             text.getStyleClass().add("taskBody");
             text.getChildren().add(new Text(task.getContent()));
 
-            VBox card = new VBox();
+            //TODO Footer
+            //  + If (isTodoTask) Task.deadLine
+            //  + If (isDoneTask) Task.finishedDate
 
-            // remove himself on click
+            // final component
+            VBox card = new VBox();
+            card.getStyleClass().add("taskCard");
+            card.setCursor(Cursor.HAND);
+            card.getChildren().add(title);
+            card.getChildren().add(text);
+            listView.getChildren().add(card);
+
+            //Card should be clickable
+            //  + update currentTodolist, currentTask
+            //  + show TaskConfigView
             card.setOnMouseClicked(event -> {
                 try {
                     this.instance.getTodolistService().setCurrentTodolist(todolist);
                     this.instance.getTodolistService().setCurrentTask(task);
-                    this.displayTaskManagerView();
+                    this.showTaskConfigView();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             });
-            card.getStyleClass().add("task");
-            card.setCursor(Cursor.HAND);
-            card.getChildren().add(title);
-            card.getChildren().add(text);
-            card.setAlignment(Pos.CENTER);
-
-            listView.getChildren().add(card);
         }
     }
 
@@ -164,7 +167,7 @@ public class TodolistController {
         }
     }
 
-    public void displayLoginView(ActionEvent actionEvent) {
+    public void showLoginView(ActionEvent actionEvent) {
         instance.getUserService().logout();
         Stage stage = new Stage();
         try {
@@ -175,23 +178,23 @@ public class TodolistController {
         stage.showAndWait();
     }
 
-    public void displayCreateListView() throws IOException {
+    public void showCreateListView() throws IOException {
         Stage stage = new Stage();
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
         stage.showAndWait();
         this.refreshAction();
     }
 
-    public void displayCreateTaskView() throws IOException {
+    public void showCreateTaskView() throws IOException {
         Stage stage = new Stage();
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
         stage.showAndWait();
         this.refreshAction();
     }
 
-    public void displayTaskManagerView() throws IOException {
+    public void showTaskConfigView() throws IOException {
         Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskManager/TaskManager.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskConfig/TaskConfig.fxml"));
         FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();

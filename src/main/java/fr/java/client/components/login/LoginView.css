@@ -16,11 +16,11 @@
 }
 
 
-.task {
+.taskCard {
     -fx-background-color: white;
 }
 
-.task:hover {
+.taskCard:hover {
     -fx-background-color: #f8e9a0;
 }
 

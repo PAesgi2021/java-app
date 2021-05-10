@@ -2,6 +2,7 @@ package fr.java.client.utils;
 
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -65,6 +66,11 @@ public class FileUtils {
             }
         }
         return result == textFields.size();
+    }
+
+    public static void close(Node node) {
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
     }
 
 
