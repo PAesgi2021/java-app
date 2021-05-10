@@ -3,33 +3,60 @@
 <?import java.net.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<VBox opacity="0.9" prefHeight="310.0" prefWidth="427.0" styleClass="manageTask" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.taskConfig.TaskConfigController">
+<VBox opacity="0.9" prefHeight="449.0" prefWidth="649.0" styleClass="manageTask" xmlns="http://javafx.com/javafx/11.0.1"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.taskConfig.TaskConfigController">
     <children>
-        <StackPane prefHeight="40.0" prefWidth="410.0">
+        <Pane fx:id="headerTaskConfig" styleClass="TaskConfigBanner"/>
+        <Pane prefHeight="321.0" prefWidth="618.0">
             <children>
-                <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-font-weight: bolder" text="MY TASK" textAlignment="CENTER" />
-            </children>
-        </StackPane>
-        <Pane prefHeight="202.0" prefWidth="459.0">
-            <children>
-                <TextField fx:id="titleTask" disable="true" layoutX="50.0" layoutY="25.0" prefHeight="25.0" prefWidth="310.0" />
-                <TextArea fx:id="contentTask" disable="true" layoutX="50.0" layoutY="69.0" prefHeight="95.0" prefWidth="310.0" />
-                <Label layoutX="50.0" layoutY="6.0" text="Title:" />
-                <Label layoutX="49.0" layoutY="50.0" text="Description:" />
-                <CheckBox fx:id="lockCheckbox" layoutX="50.0" layoutY="181.0" mnemonicParsing="false" onAction="#checkFieldAccess" styleClass="lockCheckbox" text="UNLOCK" />
-                <Button fx:id="saveBtn" layoutX="320.0" layoutY="177.0" mnemonicParsing="false" onAction="#saveBtnAction" styleClass="saveBtn" text="SAVE" visible="false" />
+                <ScrollPane layoutX="17.0" layoutY="53.0"
+                            styleClass="scrollPaneText">
+                    <content>
+                        <TextFlow fx:id="titleTaskTextFlow" maxWidth="430.0" prefHeight="38.0" prefWidth="443.0"
+                                  style="-fx-background-color: white" visible="true"/>
+                    </content>
+                </ScrollPane>
+                <ScrollPane layoutX="17.0" layoutY="132.0" styleClass="scrollPaneText">
+                    <content>
+                        <TextFlow fx:id="descriptionTaskTextFlow" maxWidth="430.0" prefHeight="149.0" prefWidth="443.0"
+                                  style="-fx-background-color: white" visible="true"/>
+                    </content>
+                </ScrollPane>
+                <TextField fx:id="titleTask" layoutX="19.0" layoutY="49.0" prefHeight="38.0" prefWidth="443.0"
+                           visible="false"/>
+                <TextArea fx:id="descriptionTask" layoutX="19.0" layoutY="132.0" prefHeight="149.0" prefWidth="443.0"
+                          visible="false"/>
+                <Label layoutX="19.0" layoutY="22.0" text="To do">
+                    <font>
+                        <Font name="System Bold" size="18.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="19.0" layoutY="103.0" text="Description:">
+                    <font>
+                        <Font name="System Bold" size="13.0"/>
+                    </font>
+                </Label>
+                <CheckBox fx:id="lockCheckbox" layoutX="505.0" layoutY="100.0" mnemonicParsing="false"
+                          onAction="#checkFieldAccess" prefHeight="15.0" prefWidth="129.0" styleClass="lockCheckbox"
+                          text="UNLOCK"/>
+                <Label layoutX="505.0" layoutY="79.0" opacity="0.83" text="ACTIONS"/>
             </children>
         </Pane>
-        <Pane prefHeight="64.0" prefWidth="410.0">
+        <Pane prefHeight="58.0" prefWidth="618.0">
             <children>
-                <Button layoutX="360.0" layoutY="27.0" mnemonicParsing="false" onAction="#deleteBtnAction" prefHeight="15.0" prefWidth="53.0" styleClass="deleteTaskBtn" text="Delete" />
-                <CheckBox fx:id="statusCheckbox" layoutX="25.0" layoutY="27.0" mnemonicParsing="false" onAction="#updateStatusCheckboxDynamically" styleClass="statusTaskCheckbox" text="CheckBox" />
+                <CheckBox fx:id="statusCheckbox" layoutX="14.0" layoutY="9.0" mnemonicParsing="false"
+                          onAction="#updateStatusCheckboxDynamically" styleClass="statusTaskCheckbox" text="CheckBox"/>
+                <Button layoutX="561.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteBtnAction"
+                        prefHeight="32.0" prefWidth="74.0" styleClass="deleteBtn" text="DELETE"/>
+                <Button fx:id="saveBtn" layoutX="462.0" layoutY="12.0" mnemonicParsing="false" onAction="#saveBtnAction"
+                        prefHeight="32.0" prefWidth="86.0" styleClass="saveBtn" text="SAVE" visible="false"/>
             </children>
         </Pane>
     </children>
 
     <stylesheets>
-        <URL value="@TaskConfig.css" />
+        <URL value="@TaskConfig.css"/>
     </stylesheets>
 </VBox>

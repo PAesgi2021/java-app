@@ -2,20 +2,25 @@ package fr.java.client.entities;
 
 import fr.java.client.utils.types.TaskStatusType;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Task {
 
     private String title;
-    private String content;
+    private String description;
     private LocalDateTime deadLine;
     private LocalDateTime finishedDate;
     private TaskStatusType status;
 
-    public Task(String title, String content) {
+    public Task(String title, String description) {
         this.title = title;
-        this.content = content;
+        this.description = description;
+        this.deadLine = LocalDateTime.now().plusDays(10);
+        this.status = TaskStatusType.todo;
+    }
+
+    public Task(String title) {
+        this.title = title;
         this.deadLine = LocalDateTime.now().plusDays(10);
         this.status = TaskStatusType.todo;
     }
@@ -28,12 +33,12 @@ public class Task {
         this.title = title;
     }
 
-    public String getContent() {
-        return content;
+    public String getDescription() {
+        return description;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public LocalDateTime getDeadLine() {

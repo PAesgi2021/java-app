@@ -7,7 +7,9 @@ import fr.java.client.utils.FileUtils;
 import fr.java.client.utils.types.TaskStatusType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -22,13 +24,19 @@ public class TaskConfigController {
     @FXML
     TextField titleTask;
     @FXML
-    TextArea contentTask;
+    TextArea descriptionTask;
+    @FXML
+    TextFlow titleTaskTextFlow;
+    @FXML
+    TextFlow descriptionTaskTextFlow;
     @FXML
     CheckBox lockCheckbox;
     @FXML
     Button saveBtn;
     @FXML
     CheckBox statusCheckbox;
+    @FXML
+    Pane headerTaskConfig;
 
     @FXML
     protected void initialize() {
@@ -37,7 +45,17 @@ public class TaskConfigController {
 
         // retrieve data from task to put on the fields
         this.titleTask.setText(this.currentTask.getTitle());
-        this.contentTask.setText(this.currentTask.getContent());
+        this.descriptionTask.setText(this.currentTask.getDescription());
+
+        Text title = new Text();
+        title.setText(this.currentTask.getTitle());
+        title.setStyle("-fx-fill: #656565");
+        this.titleTaskTextFlow.getChildren().add(title);
+
+        Text description = new Text();
+        description.setText(this.currentTask.getDescription());
+        description.setStyle("-fx-fill: #666666");
+        this.descriptionTaskTextFlow.getChildren().add(description);
 
         // set some interactive elements
         this.markStatusCheckboxManagement();
@@ -58,18 +76,22 @@ public class TaskConfigController {
         //      allow to modify fields
         //      display save btn
         if (this.lockCheckbox.isSelected()) {
-            this.titleTask.setDisable(false);
-            this.contentTask.setDisable(false);
+            this.titleTask.setVisible(true);
+            this.descriptionTask.setVisible(true);
             this.saveBtn.setVisible(true);
+            this.titleTaskTextFlow.setVisible(false);
+            this.descriptionTaskTextFlow.setVisible(false);
             this.lockCheckbox.setText("LOCK");
         }
         // else
         //      fields are disable
         //      save btn is hidden
         else {
-            this.titleTask.setDisable(true);
-            this.contentTask.setDisable(true);
+            this.titleTask.setVisible(false);
+            this.descriptionTask.setVisible(false);
             this.saveBtn.setVisible(false);
+            this.titleTaskTextFlow.setVisible(true);
+            this.descriptionTaskTextFlow.setVisible(true);
             this.lockCheckbox.setText("UNLOCK");
         }
 
@@ -77,7 +99,7 @@ public class TaskConfigController {
 
     public void saveBtnAction() {
         this.currentTask.setTitle(this.titleTask.getText());
-        this.currentTask.setContent(this.contentTask.getText());
+        this.currentTask.setDescription(this.descriptionTask.getText());
         FileUtils.close(this.titleTask);
     }
 
@@ -89,7 +111,6 @@ public class TaskConfigController {
         }
     }
 
-
     public void updateStatusCheckboxDynamically() {
         // If 'statusCheckbox' is marked
         //      update task: status, finishedDate
@@ -99,7 +120,8 @@ public class TaskConfigController {
             this.currentTask.setStatus(TaskStatusType.done);
             this.currentTask.setFinishedDate(LocalDateTime.now());
             this.statusCheckbox.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy (HH:mm)")));
-            this.statusCheckbox.setStyle("-fx-background-color: #519e20");
+            this.statusCheckbox.setStyle("-fx-background-color: #62b852");
+            this.headerTaskConfig.setStyle("-fx-background-color: #62b852");
             this.lockCheckbox.setVisible(false);
         }
         // else
@@ -110,7 +132,8 @@ public class TaskConfigController {
             this.currentTask.setStatus(TaskStatusType.todo);
             this.currentTask.setFinishedDate(null);
             this.statusCheckbox.setText(LocalDateTime.now().until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
-            this.statusCheckbox.setStyle("-fx-background-color: #cd3737");
+            this.statusCheckbox.setStyle("-fx-background-color: #e26050");
+            this.headerTaskConfig.setStyle("-fx-background-color: #e26050");
             this.lockCheckbox.setVisible(true);
         }
     }

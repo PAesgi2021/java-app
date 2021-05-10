@@ -13,6 +13,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
@@ -20,6 +21,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.List;
 
 public class TodolistController {
     Instance instance = Instance.getInstance();
@@ -56,7 +58,7 @@ public class TodolistController {
         //  + cards of task
         VBox listBody = new VBox();
         listBody.getStyleClass().add("todolistCard");
-        listBody.setStyle("-fx-spacing: 4px; -fx-padding: 5px; -fx-min-width: 210px;");
+        listBody.getStyleClass().add("todolistCardBody");
         addTask(todolist, listBody, status);
 
         //Footer
@@ -118,27 +120,47 @@ public class TodolistController {
             }
 
             //Header
+            //  + banner
+            //      If (isTodoTask) red color
+            //      If (isDoneTask) green color
+            VBox header = new VBox();
+
+            Pane banner = new Pane();
+            if (status == TaskStatusType.todo) {
+                banner.getStyleClass().add("todoTaskBanner");
+            } else {
+                banner.getStyleClass().add("doneTaskBanner");
+            }
+            header.getChildren().add(banner);
+
+            //Body
             //  + Task.title
+            //  + Task.content
+            VBox body = new VBox();
+
             TextFlow title = new TextFlow();
             title.getStyleClass().add("taskHeader");
             title.getChildren().add(new Text(task.getTitle()));
+            body.getChildren().add(title);
 
-            //Body
-            // + Task.content
-            TextFlow text = new TextFlow();
-            text.getStyleClass().add("taskBody");
-            text.getChildren().add(new Text(task.getContent()));
+            if (task.getDescription() != null && task.getDescription().length() > 0) {
+                TextFlow text = new TextFlow();
+                text.getStyleClass().add("taskBody");
+                text.getChildren().add(new Text(task.getDescription()));
+                body.getChildren().add(text);
+            }
+
 
             //TODO Footer
             //  + If (isTodoTask) Task.deadLine
             //  + If (isDoneTask) Task.finishedDate
 
+
             // final component
             VBox card = new VBox();
             card.getStyleClass().add("taskCard");
             card.setCursor(Cursor.HAND);
-            card.getChildren().add(title);
-            card.getChildren().add(text);
+            card.getChildren().addAll(List.of(header, body));
             listView.getChildren().add(card);
 
             //Card should be clickable

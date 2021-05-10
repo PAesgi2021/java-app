@@ -17,10 +17,13 @@
 
 .taskCard {
     -fx-background-color: white;
+    -fx-effect: dropshadow(one-pass-box, rgba(186, 186, 186, 0.8), 2, 0, 0, 0);
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
 }
 
 .taskCard:hover {
-    -fx-background-color: #f8e9a0;
+    -fx-background-color: #f4f5f7;
 }
 
 .btnActionList {
@@ -40,6 +43,16 @@
     -fx-background-color: transparent;
 }
 
+.todoTaskBanner {
+    -fx-pref-height: 25px;
+    -fx-background-color: #ef7564;
+}
+
+.doneTaskBanner {
+    -fx-pref-height: 25px;
+    -fx-background-color: #7bc86c;
+}
+
 /********** header **********/
 
 .showDoneTasks {
@@ -47,7 +60,7 @@
     -fx-font-size: 13px;
 }
 
-.trelloBtn {
+.saveBtn {
     -fx-background-color: #4e97c2;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
@@ -55,11 +68,11 @@
     -fx-font-weight: bolder;
 }
 
-.trelloBtn:hover {
+.saveBtn:hover {
     -fx-background-color: #3588b9;
 }
 
-.logoutBtn {
+.deleteBtn {
     -fx-background-color: #c62424;
     -fx-text-fill: #ffffff;
     -fx-font-size: 14px;
@@ -67,7 +80,7 @@
     -fx-font-weight: bolder;
 }
 
-.logoutBtn:hover {
+.deleteBtn:hover {
     -fx-background-color: #bd1c1c;
 }
 
@@ -98,5 +111,12 @@
 }
 
 .todolistCard {
-    -fx-background-color: #d0d0d0;
+    -fx-background-color: #ebecf0;
+    -fx-font-size: 12px;
+}
+
+.todolistCardBody {
+    -fx-spacing: 7px;
+    -fx-padding: 7px;
+    -fx-min-width: 210px;
 }

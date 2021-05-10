@@ -11,17 +11,17 @@
     <children>
         <Pane prefHeight="54.0" prefWidth="1280" styleClass="headerTodolistView">
            <children>
-               <Button layoutX="14.0" layoutY="8.0" onAction="#showCreateListView" prefHeight="25.0" prefWidth="120.0" styleClass="trelloBtn" text="Create list">
+               <Button layoutX="14.0" layoutY="8.0" onAction="#showCreateListView" prefHeight="25.0" prefWidth="120.0" styleClass="saveBtn" text="Create list">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-               <Button fx:id="btLogout" layoutX="1186.0" layoutY="8.0" onAction="#showLoginView" prefHeight="25.0" prefWidth="80.0" styleClass="logoutBtn" text="Logout">
+               <Button fx:id="btLogout" layoutX="1186.0" layoutY="8.0" onAction="#showLoginView" prefHeight="25.0" prefWidth="80.0" styleClass="deleteBtn" text="Logout">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-               <Button  onAction="#profilAccessView" layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="trelloBtn" text="Profile">
+               <Button onAction="#profilAccessView" layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="saveBtn" text="Profile">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
