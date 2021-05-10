@@ -22,8 +22,7 @@ public class FileUtils {
         return new Scene(root);
     }
 
-
-    public static void showAlert(String header, String body, Alert.AlertType alertType)  {
+    public static void showAlert(String header, String body, Alert.AlertType alertType) {
         Alert errorAlert = new Alert(alertType);
         errorAlert.setHeaderText(header);
         errorAlert.setContentText(body);

@@ -199,4 +199,13 @@ public class TodolistController {
         stage.showAndWait();
         this.refreshAction();
     }
+
+    public void profilAccessView() throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/profil/Profil.fxml"));
+        FileUtils.closeWhenLoseFocus(stage);
+        stage.showAndWait();
+        this.refreshAction();
+
+    }
 }
