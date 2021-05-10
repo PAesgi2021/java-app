@@ -21,7 +21,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-               <Button layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="trelloBtn" text="Profile">
+               <Button  onAction="#profilAccessView" layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="trelloBtn" text="Profile">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
