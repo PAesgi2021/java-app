@@ -1,11 +1,11 @@
 package fr.java.client.services;
 
 import fr.java.client.entities.User;
+import fr.java.client.utils.types.Roles;
 
 public class UserService {
 
     private User user;
-
 
     private final  AuthentificationService authentificationService;
     private static UserService             userService;
@@ -43,6 +43,7 @@ public class UserService {
     public User getUser() {
         return user;
     }
+
 
     public AuthentificationService getAuthentificationService() {
         return authentificationService;

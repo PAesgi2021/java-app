@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import java.net.URL?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.AmbientLight?>
@@ -12,14 +19,16 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.login.LoginController">
+<VBox prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.login.LoginController">
    <children>
       <Pane prefHeight="40" prefWidth="1280" style="-fx-background-color: #1571b1;">
-         <Text fill="WHITE" layoutX="580.0" layoutY="30.0" opacity="0.3" text="LOGIN" textAlignment="CENTER">
-            <font>
-               <Font name="Leelawadee UI Bold" size="25.0" />
-            </font>
-         </Text>
+         <children>
+            <Text fill="WHITE" layoutX="580.0" layoutY="30.0" opacity="0.3" text="LOGIN" textAlignment="CENTER">
+               <font>
+                  <Font name="Leelawadee UI Bold" size="25.0" />
+               </font>
+            </Text>
+         </children>
       </Pane>
       <AmbientLight color="CHARTREUSE" lightOn="true" />
       <AnchorPane>
@@ -31,8 +40,14 @@
                <children>
                   <TextField fx:id="tfUsername" layoutX="268.0" layoutY="172.0" prefHeight="29.0" prefWidth="245.0" promptText="Username" style="-fx-background-color: white;" styleClass="tferror" stylesheets="@LoginView.css" />
                   <TextField fx:id="tfPassword" layoutX="268.0" layoutY="238.0" prefHeight="29.0" prefWidth="245.0" promptText="Password" style="-fx-background-color: white;" styleClass="tferror" stylesheets="@LoginView.css" />
-                  <Button layoutX="314.0" layoutY="319.0" mnemonicParsing="false" onAction="#signin" prefHeight="29.0" prefWidth="153.0" style="-fx-background-color: #2ECC40#2ECC40;" text="Signin" />
-                  <Button layoutX="314.0" layoutY="384.0" mnemonicParsing="false" onAction="#register" prefHeight="29.0" prefWidth="153.0" style="-fx-background-color: #0074D9#0074D9;" text="Register" />
+                  <Button fx:id="btSignin" layoutX="314.0" layoutY="319.0" mnemonicParsing="false" onAction="#signin" prefHeight="29.0" prefWidth="153.0" styleClass="signinBtn" text="Signin">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
+                  <Button fx:id="btRegister" layoutX="314.0" layoutY="384.0" mnemonicParsing="false" onAction="#register" prefHeight="29.0" prefWidth="153.0" styleClass="registerBtn" text="Register">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                   <ProgressIndicator fx:id="pgConnection" layoutX="90.0" layoutY="70.0" maxHeight="-Infinity" maxWidth="-Infinity" opacity="0.56" prefHeight="300.0" prefWidth="600.0" visible="false" />
                </children>
             </Pane>

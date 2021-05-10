@@ -8,20 +8,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane prefHeight="660.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.profil.ProfilController">
+<AnchorPane prefHeight="546.0" prefWidth="510.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.profil.ProfilController">
    <children>
       <Text layoutY="41.0" strokeType="OUTSIDE" strokeWidth="18.0" text="Account " textAlignment="CENTER" wrappingWidth="510.0">
          <font>
             <Font size="25.0" />
          </font>
       </Text>
-      <Text layoutX="15.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="18.0" text="Username :" wrappingWidth="106.0">
+      <Text layoutX="15.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="18.0" text="Username :" wrappingWidth="110.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
       <Text layoutX="15.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="18.0" text="Password :" wrappingWidth="106.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="15.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="18.0" text="Alias :" wrappingWidth="106.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -36,37 +40,11 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="15.0" layoutY="220.0" strokeType="OUTSIDE" strokeWidth="18.0" text="Alias :" wrappingWidth="106.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-
-
-      <Text fx:id="UsernameEntry" layoutX="121.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="18.0" wrappingWidth="353.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="PasswordEntry" layoutX="121.0" layoutY="191.0" strokeType="OUTSIDE" strokeWidth="18.0" wrappingWidth="353.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="AliasEntry" layoutX="121.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="18.0" wrappingWidth="353.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="AgeEntry" layoutX="121.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="18.0" wrappingWidth="353.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text fx:id="RoleEntry" layoutX="121.0" layoutY="279.0" strokeType="OUTSIDE" strokeWidth="18.0" wrappingWidth="353.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
+      <TextField fx:id="usernameEntry" disable="true" layoutX="125.0" layoutY="142.0" prefHeight="20.0" prefWidth="350.0" />
+      <TextField fx:id="passwordEntry" disable="true" layoutX="125.0" layoutY="172.0" prefHeight="20.0" prefWidth="350.0" />
+      <TextField fx:id="aliasEntry" disable="true" layoutX="125.0" layoutY="202.0" prefHeight="20.0" prefWidth="350.0" />
+      <TextField fx:id="ageEntry" disable="true" layoutX="125.0" layoutY="232.0" prefHeight="20.0" prefWidth="350.0" />
+      <TextField fx:id="roleEntry" disable="true" layoutX="125.0" layoutY="262.0" prefHeight="20.0" prefWidth="350.0" />
+      <CheckBox layoutX="15.0" layoutY="300.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="231.0" text="Modify profil" />
    </children>
 </AnchorPane>

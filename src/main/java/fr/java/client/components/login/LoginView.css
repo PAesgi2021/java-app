@@ -30,6 +30,8 @@
     -fx-font-size: 10px;
 }
 
+
+
 .taskHeader {
     -fx-padding: 5px;
     -fx-background-color: transparent;
@@ -43,4 +45,29 @@
 .tferror {
     -fx-text-box-border: red ;
     -fx-focus-color: red ;
+}
+
+.signinBtn {
+    -fx-background-color: #2ECC40;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.signinBtn:hover {
+
+    -fx-background-color: #63d26e;
+}
+
+.registerBtn {
+    -fx-background-color: #0074D9;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.registerBtn:hover {
+    -fx-background-color: #5997ca;
 }

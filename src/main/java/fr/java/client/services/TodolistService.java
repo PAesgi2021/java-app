@@ -2,6 +2,8 @@ package fr.java.client.services;
 
 import fr.java.client.entities.Task;
 import fr.java.client.entities.Todolist;
+import fr.java.client.entities.User;
+import fr.java.client.utils.types.Roles;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -25,6 +27,7 @@ public class TodolistService {
         this.todolists.get(0).addTask(new Task("title", "prouuuuuuuut"));
         this.todolists.get(1).addTask(new Task("title", "prouuuuuuuut"));
     }
+
 
     public static TodolistService getInstance() {
         if (TodolistService.instance == null) {

@@ -19,6 +19,7 @@ public class User {
         this.roles = roles;
     }
 
+
     public String getUsername() {
         return username;
     }
@@ -49,5 +50,9 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Roles getRoles() {
+        return roles;
     }
 }
