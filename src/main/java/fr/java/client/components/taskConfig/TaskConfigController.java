@@ -37,6 +37,8 @@ public class TaskConfigController {
     CheckBox statusCheckbox;
     @FXML
     Pane headerTaskConfig;
+    @FXML
+    Label nbCharDescription;
 
     @FXML
     protected void initialize() {
@@ -46,6 +48,7 @@ public class TaskConfigController {
         // retrieve data from task to put on the fields
         this.titleTask.setText(this.currentTask.getTitle());
         this.descriptionTask.setText(this.currentTask.getDescription());
+        this.updateNbCharDescription();
 
         Text title = new Text();
         title.setText(this.currentTask.getTitle());
@@ -99,7 +102,9 @@ public class TaskConfigController {
 
     public void saveBtnAction() {
         this.currentTask.setTitle(this.titleTask.getText());
-        this.currentTask.setDescription(this.descriptionTask.getText());
+        if (this.isSizeDescriptionValid(this.descriptionTask.getText())) {
+            this.currentTask.setDescription(this.descriptionTask.getText());
+        }
         FileUtils.close(this.titleTask);
     }
 
@@ -136,6 +141,14 @@ public class TaskConfigController {
             this.headerTaskConfig.setStyle("-fx-background-color: #e26050");
             this.lockCheckbox.setVisible(true);
         }
+    }
+
+    public void updateNbCharDescription() {
+        this.nbCharDescription.setText(this.descriptionTask.getLength() + "/" + this.instance.getTodolistService().getCurrentTask().getLimitDescription());
+    }
+
+    public boolean isSizeDescriptionValid(String str) {
+        return str.length() < this.instance.getTodolistService().getCurrentTask().getLimitDescription();
     }
 
 }

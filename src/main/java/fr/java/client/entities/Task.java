@@ -11,18 +11,21 @@ public class Task {
     private LocalDateTime deadLine;
     private LocalDateTime finishedDate;
     private TaskStatusType status;
+    private int limitDescription;
 
     public Task(String title, String description) {
         this.title = title;
         this.description = description;
         this.deadLine = LocalDateTime.now().plusDays(10);
         this.status = TaskStatusType.todo;
+        this.limitDescription = 1000;
     }
 
     public Task(String title) {
         this.title = title;
         this.deadLine = LocalDateTime.now().plusDays(10);
         this.status = TaskStatusType.todo;
+        this.limitDescription = 1000;
     }
 
     public String getTitle() {
@@ -63,5 +66,13 @@ public class Task {
 
     public void setFinishedDate(LocalDateTime finishedDate) {
         this.finishedDate = finishedDate;
+    }
+
+    public int getLimitDescription() {
+        return limitDescription;
+    }
+
+    public void setLimitDescription(int limitDescription) {
+        this.limitDescription = limitDescription;
     }
 }

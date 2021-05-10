@@ -82,3 +82,7 @@
     -fx-text-fill: white;
     -fx-border-color: transparent;
 }
+
+.nbCharLabel {
+    -fx-opacity: 0.5;
+}

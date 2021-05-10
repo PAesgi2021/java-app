@@ -143,10 +143,17 @@ public class TodolistController {
             title.getChildren().add(new Text(task.getTitle()));
             body.getChildren().add(title);
 
-            if (task.getDescription() != null && task.getDescription().length() > 0) {
+            if (task.getDescription() != null && task.getDescription().length() > 0 && task.getDescription().length() < 200) {
                 TextFlow text = new TextFlow();
                 text.getStyleClass().add("taskBody");
                 text.getChildren().add(new Text(task.getDescription()));
+                body.getChildren().add(text);
+            } else if (task.getDescription() != null && task.getDescription().length() > 200) {
+                TextFlow text = new TextFlow();
+                text.getStyleClass().add("taskBody");
+                Text foo = new Text(" description ... ");
+                foo.setStyle("-fx-font-size: 10px; -fx-fill: #5eb6d4");
+                text.getChildren().add(foo);
                 body.getChildren().add(text);
             }
 
