@@ -72,5 +72,14 @@ public class FileUtils {
         stage.close();
     }
 
+    public static void draggableView(Node node) {
+        node.setOnMousePressed(pressEvent -> {
+            node.setOnMouseDragged(dragEvent -> {
+                node.getScene().getWindow().setX(dragEvent.getScreenX() - pressEvent.getSceneX());
+                node.getScene().getWindow().setY(dragEvent.getScreenY() - pressEvent.getSceneY());
+            });
+        });
+    }
+
 
 }

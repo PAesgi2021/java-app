@@ -19,6 +19,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.List;
@@ -28,6 +29,7 @@ public class TodolistController {
 
     @FXML public HBox listsHBox;
     @FXML public CheckBox showDoneTasks;
+    @FXML public VBox component;
 
     @FXML
     protected void initialize() {
@@ -168,7 +170,6 @@ public class TodolistController {
             card.getStyleClass().add("taskCard");
             card.setCursor(Cursor.HAND);
             card.getChildren().addAll(List.of(header, body));
-            listView.getChildren().add(card);
 
             //Card should be clickable
             //  + update currentTodolist, currentTask
@@ -182,6 +183,8 @@ public class TodolistController {
                     e.printStackTrace();
                 }
             });
+
+            listView.getChildren().add(card);
         }
     }
 
@@ -225,7 +228,10 @@ public class TodolistController {
         Stage stage = new Stage();
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskConfig/TaskConfig.fxml"));
         FileUtils.closeWhenLoseFocus(stage);
+        stage.initStyle(StageStyle.UNDECORATED);
+        this.component.setOpacity(0.8);
         stage.showAndWait();
+        this.component.setOpacity(1);
         this.refreshAction();
     }
 
@@ -235,6 +241,5 @@ public class TodolistController {
         FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();
-
     }
 }

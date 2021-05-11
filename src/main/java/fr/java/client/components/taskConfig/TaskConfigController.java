@@ -5,12 +5,16 @@ import fr.java.client.entities.Todolist;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import fr.java.client.utils.types.TaskStatusType;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
+import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -39,6 +43,12 @@ public class TaskConfigController {
     Pane headerTaskConfig;
     @FXML
     Label nbCharDescription;
+    @FXML
+    VBox component;
+    @FXML
+    Label textComplete;
+    @FXML Pane actionPane;
+
 
     @FXML
     protected void initialize() {
@@ -63,6 +73,8 @@ public class TaskConfigController {
         // set some interactive elements
         this.markStatusCheckboxManagement();
         this.updateStatusCheckboxDynamically();
+
+        FileUtils.draggableView(this.component);
     }
 
     public void deleteBtnAction() {
@@ -84,7 +96,6 @@ public class TaskConfigController {
             this.saveBtn.setVisible(true);
             this.titleTaskTextFlow.setVisible(false);
             this.descriptionTaskTextFlow.setVisible(false);
-            this.lockCheckbox.setText("LOCK");
         }
         // else
         //      fields are disable
@@ -95,7 +106,6 @@ public class TaskConfigController {
             this.saveBtn.setVisible(false);
             this.titleTaskTextFlow.setVisible(true);
             this.descriptionTaskTextFlow.setVisible(true);
-            this.lockCheckbox.setText("UNLOCK");
         }
 
     }
@@ -127,7 +137,9 @@ public class TaskConfigController {
             this.statusCheckbox.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy (HH:mm)")));
             this.statusCheckbox.setStyle("-fx-background-color: #62b852");
             this.headerTaskConfig.setStyle("-fx-background-color: #62b852");
-            this.lockCheckbox.setVisible(false);
+            this.textComplete.setVisible(false);
+            this.actionPane.setVisible(false);
+            this.nbCharDescription.setVisible(false);
         }
         // else
         //      reset task: status, finishedDate
@@ -139,7 +151,9 @@ public class TaskConfigController {
             this.statusCheckbox.setText(LocalDateTime.now().until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
             this.statusCheckbox.setStyle("-fx-background-color: #e26050");
             this.headerTaskConfig.setStyle("-fx-background-color: #e26050");
-            this.lockCheckbox.setVisible(true);
+            this.textComplete.setVisible(true);
+            this.actionPane.setVisible(true);
+            this.nbCharDescription.setVisible(true);
         }
     }
 

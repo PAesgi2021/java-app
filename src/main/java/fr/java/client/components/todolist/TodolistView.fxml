@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
+<VBox fx:id="component" prefHeight="720" prefWidth="1280" style="-fx-background-color: #187bc1" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
     <children>
         <Pane prefHeight="54.0" prefWidth="1280" styleClass="headerTodolistView">
            <children>
