@@ -43,3 +43,15 @@
 }
 
 /********** (END) TASK CARD **********/
+
+.showDoneTasks {
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+}
+
+.createListBtn {
+    -fx-background-color: #3b3939;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+    -fx-font-weight: bolder;
+}

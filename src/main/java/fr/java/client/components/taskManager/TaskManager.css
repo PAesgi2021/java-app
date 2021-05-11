@@ -7,7 +7,7 @@
     -fx-border-color: transparent;
 }
 
-.validTaskBtn {
+.statusBtn {
     -fx-border-color: transparent;
     -fx-border-radius: 0;
     -fx-background-color: #469746;
@@ -15,8 +15,38 @@
 }
 
 .deleteTaskBtn {
-    -fx-border-color: transparent;
+    -fx-border-color: #cb2109;
     -fx-border-radius: 0;
-    -fx-background-color: #cb2109;
-    -fx-text-fill: #ffffff;
+    -fx-background-color: white;
+    -fx-text-fill: #cb2109;
+    -fx-font-size: 10px;
 }
+
+.saveBtn {
+    -fx-background-color: #cea24f;
+    -fx-text-fill: white;
+    -fx-font-weight: bolder;
+    -fx-font-size: 10px;
+}
+
+.statusTaskCheckbox {
+    -fx-border-color: transparent;
+    -fx-border-radius: 25px;
+    -fx-font-weight: bolder;
+    -fx-text-fill: white;
+    -fx-padding: 6px;
+    -fx-background-radius: 2px;
+    -fx-pref-width: 150px;
+}
+
+.lockCheckbox {
+    -fx-text-fill: #2964af;
+    -fx-font-weight: bolder;
+    -fx-font-size: 10px;
+}
+
+.statusPane {
+    -fx-border-radius: 25px;
+    -fx-border-color: #6f6f6f;
+}
+
