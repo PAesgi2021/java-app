@@ -12,6 +12,8 @@ import javafx.scene.Cursor;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
@@ -21,15 +23,23 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TodolistController {
     Instance instance = Instance.getInstance();
 
-    @FXML public HBox listsHBox;
-    @FXML public CheckBox showDoneTasks;
-    @FXML public VBox component;
+    @FXML
+    public HBox listsHBox;
+    @FXML
+    public CheckBox showDoneTasks;
+    @FXML
+    public VBox component;
 
     @FXML
     protected void initialize() {
@@ -40,6 +50,7 @@ public class TodolistController {
 
     /**
      * create a list of task component
+     *
      * @param todolist
      * @param status
      */
@@ -109,6 +120,7 @@ public class TodolistController {
 
     /**
      * foreach Task create a clickable card
+     *
      * @param todolist
      * @param listView
      * @param status
@@ -124,14 +136,20 @@ public class TodolistController {
             //Header
             //  + banner
             //      If (isTodoTask) red color
-            //      If (isDoneTask) green color
+            //      If (isDoneTask) green color + Task.finishedDate
             VBox header = new VBox();
 
-            Pane banner = new Pane();
+            StackPane banner = new StackPane();
             if (status == TaskStatusType.todo) {
                 banner.getStyleClass().add("todoTaskBanner");
             } else {
                 banner.getStyleClass().add("doneTaskBanner");
+                banner.setStyle("-fx-padding: 5px");
+                try {
+                    banner.getChildren().add(this.createTaskDoneHeader(task, banner));
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                }
             }
             header.getChildren().add(banner);
 
@@ -158,12 +176,6 @@ public class TodolistController {
                 text.getChildren().add(foo);
                 body.getChildren().add(text);
             }
-
-
-            //TODO Footer
-            //  + If (isTodoTask) Task.deadLine
-            //  + If (isDoneTask) Task.finishedDate
-
 
             // final component
             VBox card = new VBox();
@@ -241,5 +253,18 @@ public class TodolistController {
         FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();
+    }
+
+    public HBox createTaskDoneHeader(Task task, StackPane banner) throws MalformedURLException {
+        Text finishedDate = new Text();
+        finishedDate.setStyle("-fx-fill: white");
+        finishedDate.setText(task.getFinishedDate().format(DateTimeFormatter.ofPattern("dd-MM-yyyy")));
+        StackPane.setAlignment(finishedDate, Pos.CENTER_LEFT);
+
+        HBox result = new HBox();
+        result.setSpacing(5);
+        URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/validation.png");
+        result.getChildren().addAll(List.of(FileUtils.createViewImg(url, 15, 15), finishedDate));
+        return result;
     }
 }

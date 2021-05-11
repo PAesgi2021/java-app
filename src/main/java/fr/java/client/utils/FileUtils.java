@@ -7,14 +7,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
 public class FileUtils {
+
+    public static final String PROJECT_PATH = System.getProperty("user.dir");
 
     public static Scene createSceneFromFXLM(String path) throws IOException {
         URL    file = new File(path).toURI().toURL();
@@ -26,6 +32,7 @@ public class FileUtils {
         Alert errorAlert = new Alert(alertType);
         errorAlert.setHeaderText(header);
         errorAlert.setContentText(body);
+        errorAlert.initStyle(StageStyle.UTILITY);
         errorAlert.showAndWait();
     }
 
@@ -82,4 +89,11 @@ public class FileUtils {
     }
 
 
+    public static ImageView createViewImg(URL url, double height, double width) throws MalformedURLException {
+        Image img = new Image(url.toString());
+        ImageView imgView = new ImageView(img);
+        imgView.setFitHeight(height);
+        imgView.setFitWidth(width);
+        return imgView;
+    }
 }
