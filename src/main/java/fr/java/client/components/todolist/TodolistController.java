@@ -215,7 +215,7 @@ public class TodolistController {
         instance.getUserService().logout();
         Stage stage = new Stage();
         try {
-            stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/LoginView.fxml"));
+            stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/Login.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }

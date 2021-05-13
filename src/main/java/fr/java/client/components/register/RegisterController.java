@@ -1,6 +1,8 @@
 package fr.java.client.components.register;
 
 import fr.java.client.entities.Todolist;
+import fr.java.client.entities.User;
+import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import fr.java.client.utils.types.TaskStatusType;
 import javafx.event.ActionEvent;
@@ -13,6 +15,7 @@ import javafx.stage.StageStyle;
 import java.io.IOException;
 
 public class RegisterController {
+    Instance instance = Instance.getInstance();
 
     @FXML TextField emailEntry;
     @FXML TextField firstnameEntry;
@@ -22,11 +25,6 @@ public class RegisterController {
     @FXML Button redirectLoginBtn;
     @FXML Button registerBtn;
     @FXML StackPane errorPane;
-
-    @FXML
-    protected void initialize() {
-        this.showError("test");
-    }
 
     public void register() throws IOException {
 
@@ -60,7 +58,13 @@ public class RegisterController {
             return;
         }
 
-        // this.dobEntry.getValue().atStartOfDay()
+        // create a new user
+        this.instance.getUserService().getAuthentificationService().addUser(new User(
+                this.emailEntry.getText(),
+                this.passwordEntry.getText(),
+                this.firstnameEntry.getText(),
+                this.lastnameEntry.getText(),
+                this.dobEntry.getValue().atStartOfDay()));
         showToDoListView();
     }
 
@@ -78,15 +82,11 @@ public class RegisterController {
         stage.show();
     }
 
-    public void delete() {
-        this.errorPane.getChildren().removeAll();
-    }
-
     public void showError(String message) {
         this.errorPane.getChildren().clear();
         Label errorText = new Label(message);
         this.errorPane.getChildren().add(errorText);
-        this.errorPane.setStyle("-fx-padding: 20; -fx-border-color: #eeeff0");
+        this.errorPane.setStyle("-fx-padding: 15; -fx-border-color: #eeeff0");
     }
 
 }
