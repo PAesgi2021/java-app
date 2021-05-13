@@ -35,20 +35,28 @@ public class createTaskController {
         if (this.titleEntry.getText().equals("") || this.deadLine.getValue() == null) {
             errorAlert.setHeaderText("Error");
             errorAlert.setContentText("you should complete");
-            errorAlert.showAndWait();
+            errorAlert.show();
+            if(this.titleEntry.getText().equals("")) {
+                this.titleEntry.setStyle("-fx-border-color: red");
+            }
+            if(this.deadLine.getValue() == null) {
+                this.deadLine.setStyle("-fx-border-color: red");
+            }
             return;
         }
+
         if (!isSizeContentValid(this.contentEntry.getText())){
             errorAlert.setHeaderText("Error");
             errorAlert.setContentText("Limited to 1000 char");
-            errorAlert.showAndWait();
+            errorAlert.show();
             this.contentEntry.setStyle("-fx-border-color: red");
             return;
         }
         if(!isDateValid(this.deadLine.getValue().atStartOfDay())){
             errorAlert.setHeaderText("Error");
             errorAlert.setContentText("Select a valid date the deadline can't be before now");
-            errorAlert.showAndWait();
+            errorAlert.show();
+            this.deadLine.setStyle("-fx-border-color: red");
             return;
         }
 

@@ -225,6 +225,7 @@ public class TodolistController {
 
     public void showCreateListView() throws IOException {
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
         stage.showAndWait();
         this.refreshAction();
@@ -234,7 +235,6 @@ public class TodolistController {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
-        FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();
     }
@@ -252,6 +252,7 @@ public class TodolistController {
 
     public void profilAccessView() throws IOException {
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/profil/Profil.fxml"));
         FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
