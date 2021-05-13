@@ -26,12 +26,12 @@ public class createListController {
 
     public void createListAction() throws IOException {
 
+        boolean res = FileUtils.confirmationAlert("Add list", "Are you sure ?");
         if (!this.titleEntry.getText().equals("")) {
-
-            if(FileUtils.confirmationAlert("Confirme bg","t'es sur tu veux créer ca bg")) {
-                this.instance.getTodolistService().addTodolist(this.titleEntry.getText());
-                closeBtnAction();
-            }
+                if(res) {
+                    this.instance.getTodolistService().addTodolist(this.titleEntry.getText());
+                    FileUtils.close(this.titleEntry);
+                }
         } else {
             FileUtils.showAlert("NAME ERROR", "You should enter a list name", Alert.AlertType.ERROR);
         }

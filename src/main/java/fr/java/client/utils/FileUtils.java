@@ -42,7 +42,10 @@ public class FileUtils {
         errorAlert.setContentText(body);
         errorAlert.showAndWait();
 
-        return errorAlert.getResult().equals("OK");
+        if(errorAlert.getResult().getText() == "OK"){
+            return true;
+        }
+        return errorAlert.getResult().getText().equals("OK");
     }
 
     public static void closeWhenLoseFocus(Stage stage) {

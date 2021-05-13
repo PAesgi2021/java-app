@@ -29,7 +29,7 @@
         <Text fontSmoothingType="LCD" layoutX="13.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0"
               text="Enter list name" textAlignment="CENTER" wrappingWidth="383.3046875">
             <font>
-                <Font name="Calibri Bold" size="24.0"/>
+                <Font name="System Bold" size="24.0"/>
             </font>
         </Text>
         <Button onAction="#createListAction" layoutX="123.0" layoutY="193.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0"

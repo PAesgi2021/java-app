@@ -25,28 +25,17 @@ public class TaskConfigController {
     Todolist currentTodolist;
     Task currentTask;
 
-    @FXML
-    TextField titleTask;
-    @FXML
-    TextArea descriptionTask;
-    @FXML
-    TextFlow titleTaskTextFlow;
-    @FXML
-    TextFlow descriptionTaskTextFlow;
-    @FXML
-    CheckBox lockCheckbox;
-    @FXML
-    Button saveBtn;
-    @FXML
-    CheckBox statusCheckbox;
-    @FXML
-    Pane headerTaskConfig;
-    @FXML
-    Label nbCharDescription;
-    @FXML
-    VBox component;
-    @FXML
-    Label textComplete;
+    @FXML TextField titleTask;
+    @FXML TextArea descriptionTask;
+    @FXML TextFlow titleTaskTextFlow;
+    @FXML TextFlow descriptionTaskTextFlow;
+    @FXML CheckBox lockCheckbox;
+    @FXML Button saveBtn;
+    @FXML CheckBox statusCheckbox;
+    @FXML Pane headerTaskConfig;
+    @FXML Label nbCharDescription;
+    @FXML VBox component;
+    @FXML Label textComplete;
     @FXML Pane actionPane;
 
 

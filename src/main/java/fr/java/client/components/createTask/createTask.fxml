@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="447.0" prefWidth="605.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.createTask.createTaskController">
     <children>
-        <Button fx:id="closeButton" onAction="#closeBtnAction" layoutX="568.0" layoutY="14.0" mnemonicParsing="false" prefHeight="24.0" prefWidth="24.0" wrapText="true" AnchorPane.bottomAnchor="409.0" AnchorPane.leftAnchor="568.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
+        <Button fx:id="closeButton" layoutX="568.0" layoutY="14.0" mnemonicParsing="false" onAction="#closeBtnAction" prefHeight="24.0" prefWidth="24.0" wrapText="true" AnchorPane.bottomAnchor="409.0" AnchorPane.leftAnchor="568.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="14.0">
             <font>
                 <Font size="1.0" />
             </font>
@@ -18,17 +19,19 @@
                 </Text>
             </graphic>
         </Button>
-        <TextField fx:id="titleEntry" layoutX="130.0" layoutY="147.0" prefHeight="54.0" prefWidth="346.0" text="" />
-      <TextArea fx:id="contentEntry" layoutX="130.0" layoutY="224.0" prefHeight="117.0" prefWidth="346.0" text="" />
-      <Text fontSmoothingType="LCD" layoutX="66.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create task" textAlignment="CENTER" wrappingWidth="473.3671875">
-         <font>
-            <Font name="Comic Sans MS Bold" size="24.0" />
-         </font>
-      </Text>
-        <Button onAction="#createTaskAction" layoutX="220.0" layoutY="352.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" text="Validate">
+        <Text fontSmoothingType="LCD" layoutX="66.0" layoutY="111.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Create task" textAlignment="CENTER" wrappingWidth="473.3671875">
+            <font>
+                <Font name="System Bold" size="24.0" />
+            </font>
+        </Text>
+        <TextField fx:id="titleEntry" layoutX="130.0" layoutY="147.0" prefHeight="54.0" prefWidth="346.0" promptText="Title" text="" />
+      <TextArea fx:id="contentEntry" layoutX="130.0" layoutY="224.0" onKeyTyped="#updateCharContent" prefHeight="117.0" prefWidth="346.0" promptText="Description" text="" />
+        <Button layoutX="220.0" layoutY="352.0" mnemonicParsing="false" onAction="#createTaskAction" prefHeight="25.0" prefWidth="166.0" text="Validate">
             <font>
                 <Font size="15.0" />
             </font>
         </Button>
+      <Label fx:id="nbCharContent" layoutX="445.0" layoutY="344.0" styleClass="nbCharContent" text="0/1000" />
+      <DatePicker fx:id="deadLine" layoutX="130.0" layoutY="89.0" prefHeight="25.0" prefWidth="97.0" />
     </children>
 </AnchorPane>
