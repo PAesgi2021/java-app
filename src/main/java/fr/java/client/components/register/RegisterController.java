@@ -32,36 +32,31 @@ public class RegisterController {
 
         // use case: wrong e-mail
         if (this.emailEntry.getText().isEmpty()) {
-//            this.showError("adresse e-mail incorrect");
-            this.delete();
+            this.showError("adresse e-mail incorrect");
             return;
         }
 
         // use case: wrong firstname
         if (this.firstnameEntry.getText().isEmpty()) {
-//            this.showError("prénom incorrect");
-            this.delete();
+            this.showError("prénom incorrect");
             return;
         }
 
         // use case: wrong lastname
         if (this.lastnameEntry.getText().isEmpty()) {
-//            this.showError("nom incorrect");
-            this.delete();
+            this.showError("nom incorrect");
             return;
         }
 
         // use case: wrong dob
         if (this.dobEntry.getValue() == null) {
-//            this.showError("date de naissance incorrect");
-            this.delete();
+            this.showError("date de naissance incorrect");
             return;
         }
 
         // use case: wrong password
         if (this.passwordEntry.getText().isEmpty()) {
-//            this.showError("password incorrect");
-            this.delete();
+            this.showError("password incorrect");
             return;
         }
 
@@ -88,6 +83,7 @@ public class RegisterController {
     }
 
     public void showError(String message) {
+        this.errorPane.getChildren().clear();
         Label errorText = new Label(message);
         this.errorPane.getChildren().add(errorText);
         this.errorPane.setStyle("-fx-padding: 20; -fx-border-color: #eeeff0");

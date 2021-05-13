@@ -1,6 +1,7 @@
 package fr.java.client.components.profil;
 
 import fr.java.client.services.Instance;
+import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -56,8 +57,8 @@ public class ProfilController {
     public void saveBtnAction() {
         this.instance.getUserService().getUser().setUsername(this.usernameEntry.getText());
         this.instance.getUserService().getUser().setPassword(this.passwordEntry.getText());
-        this.instance.getUserService().getUser().setAlias(this.aliasEntry.getText());
-        this.instance.getUserService().getUser().setAge(Integer.parseInt(this.ageEntry.getText()));
+//        this.instance.getUserService().getUser().setAlias(this.aliasEntry.getText());
+//        this.instance.getUserService().getUser().setAge(Integer.parseInt(this.ageEntry.getText()));
         FileUtils.close(this.usernameEntry);
     }
 }
