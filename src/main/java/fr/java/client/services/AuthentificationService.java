@@ -29,7 +29,7 @@ public class AuthentificationService {
         //code provisoire pour test en local
         if (username.equals("root") && password.equals("root")) {
             this.isAuthenticated = true;
-            return new User("root", "root", "toto", 25, Roles.Administrator);
+            return new User("root", "root", "toto", Roles.Administrator);
         }
         throw new Exception("Authentification failed.");
     }

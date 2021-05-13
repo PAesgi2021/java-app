@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.login.LoginController">
+    <top>
+        <StackPane prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <children>
+                <Label style="-fx-text-fill: #253858;" text="Trello">
+                    <font>
+                        <Font name="System Bold" size="35.0" />
+                    </font>
+                </Label>
+            </children>
+        </StackPane>
+    </top>
+    <center>
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="400.0" spacing="20.0" style="-fx-padding: 40; -fx-border-color: #eeeff0; -fx-background-color: white; -fx-border-radius: 3;" BorderPane.alignment="CENTER">
+            <children>
+                <StackPane prefHeight="86.0" prefWidth="318.0">
+                    <children>
+                        <VBox maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="CENTER">
+                            <children>
+                                <Label maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-text-fill: #5e6c84; -fx-font-size: 16;" text="Connectez-vous pour continuer vers :" />
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #5e6c84; -fx-font-size: 16; -fx-font-weight: bolder;" text="Trello">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            <StackPane fx:id="errorPane" />
+                <StackPane prefHeight="74.0" prefWidth="318.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+                            <children>
+                                <TextField fx:id="emailEntry" promptText="Saisir l'adresse e-mail" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </TextField>
+                                <PasswordField fx:id="passwordEntry" promptText="Saisir le mot de passe" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </PasswordField>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+                <StackPane prefHeight="82.0" prefWidth="318.0">
+                    <children>
+                        <Button fx:id="connectionBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: #0052cc; -fx-text-fill: white; -fx-padding: 10; -fx-font-weight: bolder; -fx-font-size: 14;" text="Continuer">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                </StackPane>
+                <StackPane prefHeight="72.0" prefWidth="318.0">
+                    <children>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Separator />
+                                <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
+                                    <children>
+                                        <Button fx:id="registerBtn" onAction="#showRegisterView" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #0052CC;" text="Créer un compte">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </Button>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            </children>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@LoginView.css" />
+    </stylesheets>
+    <bottom>
+        <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity">
+                    <children>
+                        <Separator prefWidth="400.0" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #0052cc;" text="ESGI">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021" />
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </bottom>
+</BorderPane>

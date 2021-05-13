@@ -1,12 +1,6 @@
 package fr.java.client.components.profil;
 
-import fr.java.client.entities.Todolist;
-import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
-import fr.java.client.utils.FileUtils;
-import fr.java.client.utils.types.Roles;
-import fr.java.client.utils.types.TaskStatusType;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
@@ -31,8 +25,8 @@ public class ProfilController {
     protected void initialize() {
         usernameEntry.setText(this.instance.getUserService().getUser().getUsername());
         passwordEntry.setText(this.instance.getUserService().getUser().getPassword());
-        aliasEntry.setText(this.instance.getUserService().getUser().getAlias());
-        ageEntry.setText(this.instance.getUserService().getUser().getAge()+"");
+        aliasEntry.setText(this.instance.getUserService().getUser().getFirstname());
+//        ageEntry.setText(this.instance.getUserService().getUser().getAge()+"");
         roleEntry.setText(this.instance.getUserService().getUser().getRoles()+"");
     }
 

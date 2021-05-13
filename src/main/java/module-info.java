@@ -12,6 +12,7 @@ module fr.java.client {
     exports fr.java.client.services;
     exports fr.java.client.components.login;
     exports fr.java.client.components.taskConfig;
+    exports fr.java.client.components.register;
 
     // opens
     opens fr.java.client.components.createList;
@@ -21,4 +22,5 @@ module fr.java.client {
     opens fr.java.client.components.login;
     opens fr.java.client.components.taskConfig;
     opens fr.java.client.components.profil;
+    opens fr.java.client.components.register;
 }

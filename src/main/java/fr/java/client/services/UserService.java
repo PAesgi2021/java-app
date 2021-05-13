@@ -30,6 +30,7 @@ public class UserService {
             return false;
         }
     }
+
     public boolean logout() {
         try {
             this.user = null;

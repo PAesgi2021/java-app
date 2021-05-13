@@ -3,22 +3,31 @@ package fr.java.client.entities;
 
 import fr.java.client.utils.types.Roles;
 
+import java.time.LocalDateTime;
+
 public class User {
 
     String username;
     String password;
-    String alias;
-    int    age;
+    String firstname;
+    String lastname;
+    LocalDateTime dob;
     Roles  roles;
 
-    public User(String username, String password, String alias, int age, Roles roles) {
+    public User(String username, String password, String alias, Roles roles) {
         this.username = username;
         this.password = password;
-        this.alias = alias;
-        this.age = age;
+        this.firstname = alias;
         this.roles = roles;
     }
 
+    public User(String username, String password, String firstname, String lastname, LocalDateTime dob) {
+        this.username = username;
+        this.password = password;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.dob = dob;
+    }
 
     public String getUsername() {
         return username;
@@ -36,20 +45,28 @@ public class User {
         this.password = password;
     }
 
-    public String getAlias() {
-        return alias;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setAlias(String alias) {
-        this.alias = alias;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public int getAge() {
-        return age;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public LocalDateTime getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDateTime dob) {
+        this.dob = dob;
     }
 
     public Roles getRoles() {
