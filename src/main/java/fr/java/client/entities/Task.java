@@ -13,17 +13,17 @@ public class Task {
     private TaskStatusType status;
     private int limitDescription;
 
-    public Task(String title, String description) {
+    public Task(String title, String description, LocalDateTime deadLine) {
         this.title = title;
         this.description = description;
-        this.deadLine = LocalDateTime.now().plusDays(10);
+        this.deadLine = deadLine;
         this.status = TaskStatusType.todo;
         this.limitDescription = 1000;
     }
 
-    public Task(String title) {
+    public Task(String title, LocalDateTime deadLine) {
         this.title = title;
-        this.deadLine = LocalDateTime.now().plusDays(10);
+        this.deadLine = deadLine;
         this.status = TaskStatusType.todo;
         this.limitDescription = 1000;
     }
@@ -43,6 +43,7 @@ public class Task {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
     public LocalDateTime getDeadLine() {
         return deadLine;

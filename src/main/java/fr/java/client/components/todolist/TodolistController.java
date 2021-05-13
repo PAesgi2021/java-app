@@ -219,7 +219,8 @@ public class TodolistController {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        stage.showAndWait();
+        FileUtils.close(this.listsHBox);
+        stage.show();
     }
 
     public void showCreateListView() throws IOException {
@@ -231,7 +232,9 @@ public class TodolistController {
 
     public void showCreateTaskView() throws IOException {
         Stage stage = new Stage();
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
+        FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();
     }

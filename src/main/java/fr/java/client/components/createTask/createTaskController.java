@@ -30,39 +30,43 @@ public class createTaskController {
     }
 
     public void createTaskAction(ActionEvent actionEvent) {
-        deadLine();
         Alert errorAlert = new Alert(Alert.AlertType.ERROR);
-        boolean res = isSizeContentValid(this.contentEntry.getText());
 
-        if (!this.titleEntry.getText().equals("") && !this.contentEntry.getText().equals("")) {
-            if(res){
-                this.instance.getTodolistService().getCurrentTodolist().addTask(new Task(this.titleEntry.getText(), this.contentEntry.getText()));
-                this.closeBtnAction();
-            } else {
-                errorAlert.setHeaderText("Error");
-                errorAlert.setContentText("Limited to 1000 char");
-                errorAlert.showAndWait();
-            }
-
-        } else {
+        if (this.titleEntry.getText().equals("") || this.deadLine.getValue() == null) {
             errorAlert.setHeaderText("Error");
             errorAlert.setContentText("you should complete");
             errorAlert.showAndWait();
+            return;
         }
+        if (!isSizeContentValid(this.contentEntry.getText())){
+            errorAlert.setHeaderText("Error");
+            errorAlert.setContentText("Limited to 1000 char");
+            errorAlert.showAndWait();
+            this.contentEntry.setStyle("-fx-border-color: red");
+            return;
+        }
+        if(!isDateValid(this.deadLine.getValue().atStartOfDay())){
+            errorAlert.setHeaderText("Error");
+            errorAlert.setContentText("Select a valid date the deadline can't be before now");
+            errorAlert.showAndWait();
+            return;
+        }
+
+        this.instance.getTodolistService().getCurrentTodolist().addTask(new Task(this.titleEntry.getText(), this.contentEntry.getText(), this.deadLine.getValue().atStartOfDay()));
+        this.closeBtnAction();
+
     }
 
     public void updateCharContent() {
         this.nbCharContent.setText(this.contentEntry.getLength() + "/" + "1000");
     }
 
-
     public boolean isSizeContentValid(String str) {
         return str.length() < 1000;
     }
 
-    public void deadLine() {
-        LocalDateTime deadline = this.deadLine.getValue().atStartOfDay();
-        System.out.println(deadline);
+    public boolean isDateValid(LocalDateTime deadLine) {
+        return this.deadLine.getValue().atStartOfDay().isAfter(LocalDateTime.now());
     }
 
 }

@@ -6,6 +6,7 @@ import fr.java.client.entities.User;
 import fr.java.client.utils.types.Roles;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +23,14 @@ public class TodolistService {
         this.addTodolist("TO-DO");
         this.addTodolist("prout");
 
-        this.todolists.get(0).addTask(new Task("title", "miamiamiamaimaima"));
-        this.todolists.get(0).addTask(new Task("title", "miamiamiamaimaima"));
-        this.todolists.get(0).addTask(new Task("title", "miamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaima"));
-        this.todolists.get(0).addTask(new Task("title", "prouuuuuuuut"));
-        this.todolists.get(1).addTask(new Task("title", "prouuuuuuuut"));
-        this.todolists.get(2).addTask(new Task("title", "prouuuuuuuut"));
-        this.todolists.get(2).addTask(new Task("title"));
-        this.todolists.get(2).addTask(new Task("title", "prouuuuuuuut"));
+        this.todolists.get(0).addTask(new Task("title", "miamiamiamaimaima", LocalDateTime.now()));
+        this.todolists.get(0).addTask(new Task("title", "miamiamiamaimaima", LocalDateTime.now()));
+        this.todolists.get(0).addTask(new Task("title", "miamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaimamiamiamiamaimaima", LocalDateTime.now()));
+        this.todolists.get(0).addTask(new Task("title", "prouuuuuuuut", LocalDateTime.now()));
+        this.todolists.get(1).addTask(new Task("title", "prouuuuuuuut", LocalDateTime.now()));
+        this.todolists.get(2).addTask(new Task("title", "prouuuuuuuut", LocalDateTime.now()));
+        this.todolists.get(2).addTask(new Task("title", LocalDateTime.now()));
+        this.todolists.get(2).addTask(new Task("title", "prouuuuuuuut", LocalDateTime.now()));
     }
 
 
