@@ -1,11 +1,13 @@
 package fr.java.client.utils;
 
+import fr.java.client.services.Instance;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.MenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -99,4 +101,22 @@ public class FileUtils {
         imgView.setFitWidth(width);
         return imgView;
     }
+
+    public static String getAcronymUser() {
+        Instance instance = Instance.getInstance();
+        if (instance.getUserService().getUser().getFirstname() != null && instance.getUserService().getUser().getLastname() != null) {
+            String firstLetterFirstname = instance.getUserService().getUser().getFirstname().substring(0, 1).toUpperCase();
+            String firstLetterLastname = instance.getUserService().getUser().getLastname().substring(0, 1).toUpperCase();
+            return firstLetterFirstname + firstLetterLastname;
+        }
+        return "XX";
+    }
+
+    public static void showView(Node node, String path) throws IOException {
+        Stage stage = new Stage();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/" + path));
+        FileUtils.close(node);
+        stage.show();
+    }
+
 }

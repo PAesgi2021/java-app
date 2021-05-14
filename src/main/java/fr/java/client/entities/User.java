@@ -27,6 +27,7 @@ public class User {
         this.firstname = firstname;
         this.lastname = lastname;
         this.dob = dob;
+        this.roles = Roles.Client;
     }
 
     public String getUsername() {

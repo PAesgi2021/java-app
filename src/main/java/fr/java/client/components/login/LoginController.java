@@ -5,9 +5,7 @@ import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -40,14 +38,7 @@ public class LoginController {
             return;
         }
 
-        showToDoListView();
-    }
-
-    private void showToDoListView() throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/todolist/TodolistView.fxml"));
-        FileUtils.close(this.errorPane);
-        stage.show();
+        FileUtils.showView(this.connectionBtn, "todolist/TodolistView.fxml");
     }
 
     public void showRegisterView() throws IOException {
@@ -57,5 +48,7 @@ public class LoginController {
         stage.show();
     }
 
-
+    public void onEnter() throws IOException {
+        this.signIn();
+    }
 }

@@ -17,7 +17,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/register/Register.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/Login.fxml"));
         stage.setTitle("JAVA-APP");
         stage.show();
     }

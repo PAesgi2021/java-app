@@ -21,12 +21,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-               <Button onAction="#profilAccessView" layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="saveBtn" text="Profile">
+               <Button onAction="#showProfileAccessView" layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="saveBtn" text="Profile">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-               <Text layoutX="580.0" layoutY="30.0" styleClass="titleLogoPage" text="Paesgi" textAlignment="CENTER">
+               <Text layoutX="580.0" layoutY="30.0" styleClass="titleLogoPage" text="PAESGI" textAlignment="CENTER">
                    <font>
                        <Font name="Leelawadee UI Bold" size="25.0" />
                    </font>

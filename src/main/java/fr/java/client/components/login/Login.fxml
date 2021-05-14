@@ -45,7 +45,7 @@
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </TextField>
-                                <PasswordField fx:id="passwordEntry" promptText="Saisir le mot de passe" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                <PasswordField fx:id="passwordEntry" onAction="#onEnter" promptText="Saisir le mot de passe" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>

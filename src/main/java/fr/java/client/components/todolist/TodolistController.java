@@ -250,13 +250,11 @@ public class TodolistController {
         this.refreshAction();
     }
 
-    public void profilAccessView() throws IOException {
+    public void showProfileAccessView() throws IOException {
         Stage stage = new Stage();
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/profil/Profil.fxml"));
-        FileUtils.closeWhenLoseFocus(stage);
-        stage.showAndWait();
-        this.refreshAction();
+        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/profile/Profile.fxml"));
+        FileUtils.close(this.component);
+        stage.show();
     }
 
     public HBox createTaskDoneHeader(Task task, StackPane banner) throws MalformedURLException {
