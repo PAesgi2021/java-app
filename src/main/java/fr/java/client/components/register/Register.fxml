@@ -39,31 +39,31 @@
                     <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
-                                <TextField fx:id="emailEntry" promptText="Saisir votre adresse e-mail" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                <TextField fx:id="emailEntry" promptText="Saisir votre adresse e-mail" styleClass="registerEntries">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </TextField>
                                 <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
                                     <children>
-                                        <TextField fx:id="firstnameEntry" promptText="Saisir votre prénom" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                        <TextField fx:id="firstnameEntry" promptText="Saisir votre prénom" styleClass="registerEntries">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </TextField>
-                                        <TextField fx:id="lastnameEntry" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Saisir votre prénom" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                        <TextField fx:id="lastnameEntry" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Saisir votre prénom" styleClass="registerEntries">
                                             <cursor>
                                                 <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </TextField>
                                     </children>
                                 </HBox>
-                                <DatePicker fx:id="dobEntry" maxWidth="1.7976931348623157E308" promptText="Saisir votre date de naissance" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                <DatePicker fx:id="dobEntry" maxWidth="1.7976931348623157E308" promptText="Saisir votre date de naissance" styleClass="registerEntries">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </DatePicker>
-                                <PasswordField fx:id="passwordEntry" promptText="Créer un mot de passe" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                <PasswordField fx:id="passwordEntry" promptText="Créer un mot de passe" styleClass="registerEntries">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -74,7 +74,7 @@
                 </StackPane>
                 <StackPane prefHeight="82.0" prefWidth="318.0">
                     <children>
-                        <Button fx:id="registerBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#register" style="-fx-background-color: #0052cc; -fx-text-fill: white; -fx-padding: 10; -fx-font-weight: bolder; -fx-font-size: 14;" text="S'incrire">
+                        <Button fx:id="registerBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#register" styleClass="registerBtn" text="S'incrire">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -88,7 +88,7 @@
                                 <Separator />
                                 <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
                                     <children>
-                                        <Button fx:id="redirectLoginBtn" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showLoginView" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #0052CC;" text="Vous avez déjà un compte ? Connectez-vous">
+                                        <Button fx:id="redirectLoginBtn" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showLoginView" styleClass="redirectLoginBtn" text="Vous avez déjà un compte ? Connectez-vous">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>

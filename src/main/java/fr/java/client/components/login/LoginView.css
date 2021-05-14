@@ -71,3 +71,36 @@
 .registerBtn:hover {
     -fx-background-color: #5997ca;
 }
+
+.continueBtn {
+    -fx-background-color: #0052cc;
+    -fx-text-fill: white;
+    -fx-padding: 10;
+    -fx-font-weight: bolder;
+    -fx-font-size: 14;
+}
+
+.continueBtn:hover {
+    -fx-opacity: 0.9;
+}
+
+.createBtn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #0052CC;
+}
+
+.createBtn:hover {
+    -fx-opacity: 0.6;
+}
+
+.loginEntries {
+    -fx-background-color: #fafbfc;
+    -fx-border-color: #dfe1e6;
+    -fx-border-radius: 2;
+    -fx-padding: 8;
+}
+
+.loginEntries:hover {
+    -fx-background-color: #ebecf0;
+}

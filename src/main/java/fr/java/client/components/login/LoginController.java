@@ -1,7 +1,10 @@
 package fr.java.client.components.login;
 
+import fr.java.client.entities.Todolist;
+import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
+import fr.java.client.utils.types.TaskStatusType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
@@ -13,13 +16,7 @@ import java.io.IOException;
 
 
 public class LoginController {
-
-    //Injection
     Instance instance = Instance.getInstance();
-
-//    @FXML TextField         tfUsername;
-//    @FXML TextField         tfPassword;
-//    @FXML ProgressIndicator pgConnection;
 
     @FXML TextField emailEntry;
     @FXML PasswordField passwordEntry;
@@ -27,6 +24,13 @@ public class LoginController {
     @FXML Button registerBtn;
     @FXML StackPane errorPane;
 
+    @FXML
+    protected void initialize() {
+        User user = this.instance.getUserService().getUser();
+        if (user != null) {
+            this.emailEntry.setText(user.getUsername());
+        }
+    }
 
     public void signIn() throws IOException {
 

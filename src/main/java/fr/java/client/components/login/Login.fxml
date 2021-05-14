@@ -40,12 +40,12 @@
                     <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0">
                             <children>
-                                <TextField fx:id="emailEntry" promptText="Saisir l'adresse e-mail" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                <TextField fx:id="emailEntry" promptText="Saisir l'adresse e-mail" styleClass="loginEntries">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </TextField>
-                                <PasswordField fx:id="passwordEntry" onAction="#onEnter" promptText="Saisir le mot de passe" style="-fx-background-color: #fafbfc; -fx-border-color: #dfe1e6; -fx-border-radius: 2; -fx-padding: 8;">
+                                <PasswordField fx:id="passwordEntry" onAction="#onEnter" promptText="Saisir le mot de passe" styleClass="loginEntries">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -56,7 +56,7 @@
                 </StackPane>
                 <StackPane prefHeight="82.0" prefWidth="318.0">
                     <children>
-                        <Button fx:id="connectionBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" style="-fx-background-color: #0052cc; -fx-text-fill: white; -fx-padding: 10; -fx-font-weight: bolder; -fx-font-size: 14;" text="Continuer">
+                        <Button fx:id="connectionBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" styleClass="continueBtn" text="Continuer">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -70,7 +70,7 @@
                                 <Separator />
                                 <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
                                     <children>
-                                        <Button fx:id="registerBtn" onAction="#showRegisterView" alignment="CENTER_RIGHT" mnemonicParsing="false" style="-fx-background-color: transparent; -fx-border-color: transparent; -fx-text-fill: #0052CC;" text="Créer un compte">
+                                        <Button fx:id="registerBtn" onAction="#showRegisterView" alignment="CENTER_RIGHT" mnemonicParsing="false" styleClass="createBtn" text="Créer un compte">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>

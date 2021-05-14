@@ -58,26 +58,23 @@ public class RegisterController {
             return;
         }
 
-        // create a new user
-        this.instance.getUserService().getAuthentificationService().addUser(new User(
+        User registeredUser = new User(
                 this.emailEntry.getText(),
                 this.passwordEntry.getText(),
                 this.firstnameEntry.getText(),
                 this.lastnameEntry.getText(),
-                this.dobEntry.getValue().atStartOfDay()));
-        showToDoListView();
+                this.dobEntry.getValue().atStartOfDay()
+        );
+
+        // create a new user and update current user
+        this.instance.getUserService().getAuthentificationService().addUser(registeredUser);
+        this.instance.getUserService().setUser(registeredUser);
+        FileUtils.showView(this.errorPane, "/login/Login.fxml");
     }
 
     public void showLoginView() throws IOException {
         Stage stage = new Stage();
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/Login.fxml"));
-        FileUtils.close(this.errorPane);
-        stage.show();
-    }
-
-    private void showToDoListView() throws IOException {
-        Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/todolist/TodolistView.fxml"));
         FileUtils.close(this.errorPane);
         stage.show();
     }
