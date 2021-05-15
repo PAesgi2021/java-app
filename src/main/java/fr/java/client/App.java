@@ -2,11 +2,6 @@ package fr.java.client;
 
 import fr.java.client.utils.FileUtils;
 import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 

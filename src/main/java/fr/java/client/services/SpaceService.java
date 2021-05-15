@@ -3,8 +3,7 @@ package fr.java.client.services;
 import fr.java.client.entities.Space;
 import fr.java.client.entities.User;
 import fr.java.client.utils.types.Roles;
-
-import java.time.LocalDate;
+import fr.java.client.utils.types.SpaceTab;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,8 @@ public class SpaceService {
     private final TodolistService todolistService;
 
     private List<Space> spaces;
-    private Space currentSpace;
+    private Space    currentSpace;
+    private SpaceTab spaceTab;
 
     private SpaceService() {
         this.spaces = new ArrayList<>();
@@ -63,5 +63,12 @@ public class SpaceService {
         return todolistService;
     }
 
+    public SpaceTab getSpaceTab() {
+        return spaceTab;
+    }
+
+    public void setSpaceTab(SpaceTab spaceTab) {
+        this.spaceTab = spaceTab;
+    }
 
 }
