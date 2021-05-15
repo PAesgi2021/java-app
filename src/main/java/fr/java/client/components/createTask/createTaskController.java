@@ -61,7 +61,7 @@ public class createTaskController {
             return;
         }
 
-        this.instance.getTodolistService().getCurrentTodolist().addTask(new Task(this.titleEntry.getText(), this.contentEntry.getText(), this.deadLine.getValue().atStartOfDay()));
+        this.instance.getSpaceService().getTodolistService().getCurrentTodolist().addTask(new Task(this.titleEntry.getText(), this.contentEntry.getText(), this.deadLine.getValue().atStartOfDay()));
         FileUtils.close(this.titleEntry);
 
     }

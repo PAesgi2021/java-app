@@ -14,15 +14,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class createListController {
-
     Instance instance = Instance.getInstance();
 
     @FXML TextField titleEntry;
     @FXML Pane errorPane;
     @FXML Text errorTitle;
-
-
-
 
     public void createListAction() throws IOException {
 

@@ -13,6 +13,9 @@ module fr.java.client {
     exports fr.java.client.components.login;
     exports fr.java.client.components.taskConfig;
     exports fr.java.client.components.register;
+    exports fr.java.client.components.space;
+    exports fr.java.client.components.spaceCard;
+    exports fr.java.client.components.createSpace;
 
     // opens
     opens fr.java.client.components.createList;
@@ -23,4 +26,8 @@ module fr.java.client {
     opens fr.java.client.components.taskConfig;
     opens fr.java.client.components.profile;
     opens fr.java.client.components.register;
+    opens fr.java.client.components.space;
+    opens fr.java.client.components.spaceCard;
+    opens fr.java.client.components.createSpace;
+
 }

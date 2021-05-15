@@ -1,10 +1,8 @@
 package fr.java.client.components.login;
 
-import fr.java.client.entities.Todolist;
 import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
-import fr.java.client.utils.types.TaskStatusType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
@@ -42,7 +40,7 @@ public class LoginController {
             return;
         }
 
-        FileUtils.showView(this.connectionBtn, "todolist/TodolistView.fxml");
+        FileUtils.showView(this.connectionBtn, "space/Space.fxml");
     }
 
     public void showRegisterView() throws IOException {

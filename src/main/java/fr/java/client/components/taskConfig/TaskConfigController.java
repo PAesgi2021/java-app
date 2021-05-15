@@ -41,8 +41,8 @@ public class TaskConfigController {
 
     @FXML
     protected void initialize() {
-        this.currentTodolist = this.instance.getTodolistService().getCurrentTodolist();
-        this.currentTask = this.instance.getTodolistService().getCurrentTask();
+        this.currentTodolist = this.instance.getSpaceService().getTodolistService().getCurrentTodolist();
+        this.currentTask = this.instance.getSpaceService().getTodolistService().getCurrentTask();
 
         // retrieve data from task to put on the fields
         this.titleTask.setText(this.currentTask.getTitle());
@@ -147,11 +147,11 @@ public class TaskConfigController {
     }
 
     public void updateNbCharDescription() {
-        this.nbCharDescription.setText(this.descriptionTask.getLength() + "/" + this.instance.getTodolistService().getCurrentTask().getLimitDescription());
+        this.nbCharDescription.setText(this.descriptionTask.getLength() + "/" + this.instance.getSpaceService().getTodolistService().getCurrentTask().getLimitDescription());
     }
 
     public boolean isSizeDescriptionValid(String str) {
-        return str.length() < this.instance.getTodolistService().getCurrentTask().getLimitDescription();
+        return str.length() < this.instance.getSpaceService().getTodolistService().getCurrentTask().getLimitDescription();
     }
 
 }

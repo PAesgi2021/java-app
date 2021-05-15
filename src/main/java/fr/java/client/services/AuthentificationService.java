@@ -3,6 +3,7 @@ package fr.java.client.services;
 import fr.java.client.entities.User;
 import fr.java.client.utils.types.Roles;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,8 +18,8 @@ public class AuthentificationService {
 
     private AuthentificationService() {
         this.users = new ArrayList<>();
-        this.users.add(new User("root", "root", "root", "root", LocalDateTime.now()));
-        this.users.add(new User("admin", "admin", "admin", "admin", LocalDateTime.now()));
+        this.users.add(new User("root", "root", "root", "root", LocalDate.now()));
+        this.users.add(new User("admin", "admin", "admin", "admin", LocalDate.now()));
         this.isAuthenticated = false;
     }
 

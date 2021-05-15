@@ -6,9 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.MenuButton;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -119,4 +117,14 @@ public class FileUtils {
         stage.show();
     }
 
+    public static void setUpNavbarImg(Button homeBtn, MenuButton settingsMenu, MenuItem profileMenu, MenuItem logoutMenu) throws MalformedURLException {
+        URL urlHome = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/home.png");
+        URL urlAccount = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/account.png");
+        URL urlLogout = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/logout.png");
+        URL urlSettings = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/settings.png");
+        homeBtn.setGraphic(FileUtils.createViewImg(urlHome, 15, 15));
+        settingsMenu.setGraphic(FileUtils.createViewImg(urlSettings, 15, 15));
+        logoutMenu.setGraphic(FileUtils.createViewImg(urlLogout, 15, 15));
+        profileMenu.setGraphic(FileUtils.createViewImg(urlAccount, 15, 15));
+    }
 }

@@ -63,7 +63,7 @@ public class RegisterController {
                 this.passwordEntry.getText(),
                 this.firstnameEntry.getText(),
                 this.lastnameEntry.getText(),
-                this.dobEntry.getValue().atStartOfDay()
+                this.dobEntry.getValue()
         );
 
         // create a new user and update current user

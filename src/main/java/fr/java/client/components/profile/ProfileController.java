@@ -5,6 +5,7 @@ import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -24,7 +25,7 @@ public class ProfileController {
     @FXML TextField roleEntry;
     @FXML Button saveEntry;
     @FXML Button homeBtn;
-    @FXML MenuButton menu;
+    @FXML MenuButton settingsMenu;
     @FXML MenuItem logoutMenu;
     @FXML MenuItem profileMenu;
     
@@ -36,16 +37,10 @@ public class ProfileController {
         this.passwordEntry.setText(this.instance.getUserService().getUser().getPassword());
         this.firstnameEntry.setText(this.instance.getUserService().getUser().getFirstname());
         this.lastnameEntry.setText(this.instance.getUserService().getUser().getLastname());
-        this.dobEntry.setValue(this.instance.getUserService().getUser().getDob().toLocalDate());
+        this.dobEntry.setValue(this.instance.getUserService().getUser().getDob());
         this.roleEntry.setText(this.instance.getUserService().getUser().getRoles()+"");
 
-        URL urlHome = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/home.png");
-        URL urlAccount = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/account.png");
-        URL urlLogout = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/logout.png");
-        this.homeBtn.setGraphic(FileUtils.createViewImg(urlHome, 15, 15));
-        this.menu.setGraphic(FileUtils.createViewImg(urlAccount, 15, 15));
-        this.logoutMenu.setGraphic(FileUtils.createViewImg(urlLogout, 15, 15));
-        this.profileMenu.setGraphic(FileUtils.createViewImg(urlAccount, 15, 15));
+        FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
     }
 
 //    public void checkUpdateAccess() {
@@ -70,7 +65,7 @@ public class ProfileController {
         this.instance.getUserService().getUser().setPassword(this.passwordEntry.getText());
         this.instance.getUserService().getUser().setFirstname(this.firstnameEntry.getText());
         this.instance.getUserService().getUser().setLastname(this.lastnameEntry.getText());
-        this.instance.getUserService().getUser().setDob(this.dobEntry.getValue().atStartOfDay());
+        this.instance.getUserService().getUser().setDob(this.dobEntry.getValue());
 
         FileUtils.showView(this.usernameEntry, "todolist/TodolistView.fxml");
     }

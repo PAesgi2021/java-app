@@ -1,0 +1,36 @@
+.scroll-pane {
+    -fx-background-color: white;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: white;
+}
+
+.newSpaceBtn {
+    -fx-background-color: #1f75cb;
+}
+
+.newSpaceBtn:hover {
+    -fx-opacity: 0.9;
+}
+
+.spaceMenuItemBtn {
+    -fx-background-color: transparent;
+    -fx-text-fill: #666666;
+}
+
+.spaceMenuItemBtn:hover {
+    -fx-text-fill: black;
+}
+
+.selectedBtn {
+    -fx-text-fill: white;
+    -fx-background-color: #9797d7;
+    -fx-background-radius: 5;
+}
+
+.badgeNumberSpaces {
+    -fx-background-color: #f0f0f0;
+    -fx-background-radius: 50;
+    -fx-padding: 2;
+}
