@@ -5,6 +5,7 @@ import fr.java.client.entities.User;
 import fr.java.client.utils.types.Roles;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,7 +27,7 @@ public class SpaceService {
         this.addSpace(new Space("space_1", "private", "Touriste", new User("root", "root", "henri", "name", Roles.Administrator)));
         this.addSpace(new Space("lol", "public", "Developer", new User("root", "root", "ahme", "", Roles.Client)));
 
-        User myUser = new User("root", "root", "root", "root", LocalDate.now());
+        User myUser = new User("root", "root", "root", "root", LocalDateTime.now());
         Space testIsPresentWithRoot = new Space("space_1", "private", "Touriste", myUser);
         this.addSpace(testIsPresentWithRoot);
 

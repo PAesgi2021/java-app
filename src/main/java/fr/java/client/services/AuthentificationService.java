@@ -18,8 +18,8 @@ public class AuthentificationService {
 
     private AuthentificationService() {
         this.users = new ArrayList<>();
-        this.users.add(new User("root", "root", "root", "root", LocalDate.now()));
-        this.users.add(new User("admin", "admin", "admin", "admin", LocalDate.now()));
+        this.users.add(new User("root", "root", "root", "root", LocalDateTime.now()));
+        this.users.add(new User("admin", "admin", "admin", "admin", LocalDateTime.now()));
         this.isAuthenticated = false;
     }
 

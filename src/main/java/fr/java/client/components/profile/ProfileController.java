@@ -37,7 +37,7 @@ public class ProfileController {
         this.passwordEntry.setText(this.instance.getUserService().getUser().getPassword());
         this.firstnameEntry.setText(this.instance.getUserService().getUser().getFirstname());
         this.lastnameEntry.setText(this.instance.getUserService().getUser().getLastname());
-        this.dobEntry.setValue(this.instance.getUserService().getUser().getDob());
+        this.dobEntry.setValue(this.instance.getUserService().getUser().getDob().toLocalDate());
         this.roleEntry.setText(this.instance.getUserService().getUser().getRoles()+"");
 
         FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
@@ -65,7 +65,7 @@ public class ProfileController {
         this.instance.getUserService().getUser().setPassword(this.passwordEntry.getText());
         this.instance.getUserService().getUser().setFirstname(this.firstnameEntry.getText());
         this.instance.getUserService().getUser().setLastname(this.lastnameEntry.getText());
-        this.instance.getUserService().getUser().setDob(this.dobEntry.getValue());
+        this.instance.getUserService().getUser().setDob(this.dobEntry.getValue().atStartOfDay());
 
         FileUtils.showView(this.usernameEntry, "todolist/TodolistView.fxml");
     }

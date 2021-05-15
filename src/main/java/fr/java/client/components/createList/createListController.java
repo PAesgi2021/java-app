@@ -27,7 +27,7 @@ public class createListController {
             return;
         }
 
-        this.instance.getTodolistService().addTodolist(this.titleEntry.getText());
+        this.instance.getSpaceService().getTodolistService().addTodolist(this.titleEntry.getText());
         FileUtils.close(this.titleEntry);
     }
 

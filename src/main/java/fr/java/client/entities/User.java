@@ -13,7 +13,7 @@ public class User {
     String password;
     String firstname;
     String lastname;
-    LocalDate dob;
+    LocalDateTime dob;
     Roles  roles;
 
     public User(String username, String password, String firstname, String lastname, Roles roles) {
@@ -24,7 +24,7 @@ public class User {
         this.roles = roles;
     }
 
-    public User(String username, String password, String firstname, String lastname, LocalDate dob) {
+    public User(String username, String password, String firstname, String lastname, LocalDateTime dob) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -65,11 +65,11 @@ public class User {
         this.lastname = lastname;
     }
 
-    public LocalDate getDob() {
+    public LocalDateTime getDob() {
         return dob;
     }
 
-    public void setDob(LocalDate dob) {
+    public void setDob(LocalDateTime dob) {
         this.dob = dob;
     }
 
