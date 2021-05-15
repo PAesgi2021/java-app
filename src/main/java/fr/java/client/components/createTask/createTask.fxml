@@ -19,11 +19,11 @@
       </Pane>
       <Pane prefHeight="50.0" prefWidth="500.0">
          <children>
-            <Pane fx:id="errorPane" layoutX="97.0" layoutY="1.0" prefHeight="45.0" prefWidth="307.0" styleClass="errorPane">
+            <Pane fx:id="errorPane" layoutX="97.0" layoutY="4.0" prefHeight="40.0" prefWidth="307.0" styleClass="errorPane">
                <children>
-                  <Text fx:id="errorGeneral" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous devez remplir les champs suivants..." textAlignment="CENTER" visible="false" wrappingWidth="307.0" />
-                  <Text fx:id="errorChar" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous êtes limité a 1000 caractères..." textAlignment="CENTER" visible="false" wrappingWidth="307.0" />
-                  <Text fx:id="errorDate" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Séléctionnez une date postérieur..." textAlignment="CENTER" visible="false" wrappingWidth="307.0" />
+                  <Text fx:id="errorGeneral" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous devez remplir les champs suivants..." textAlignment="CENTER" visible="false" wrappingWidth="307.0" />
+                  <Text fx:id="errorChar" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vous êtes limité a 1000 caractères..." textAlignment="CENTER" visible="false" wrappingWidth="307.0" />
+                  <Text fx:id="errorDate" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Séléctionnez une date postérieur..." textAlignment="CENTER" visible="false" wrappingWidth="307.0" />
                </children>
             </Pane>
          </children>
