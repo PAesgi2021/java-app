@@ -34,11 +34,11 @@ public class createTaskController {
         this.errorGeneral.setVisible(false);
         this.errorChar.setVisible(false);
         this.errorDate.setVisible(false);
-        this.errorPane.setStyle("-fx-border-color: transparant");
+        this.errorPane.setStyle("-fx-background-color: transparant");
 
         if (this.titleEntry.getText().equals("") || this.deadLine.getValue() == null) {
             this.errorGeneral.setVisible(true);
-            this.errorPane.setStyle("-fx-border-color: red");
+            this.errorPane.setStyle("-fx-background-color: white");
             if(this.titleEntry.getText().equals("")) {
                 this.titleEntry.setStyle("-fx-border-color: red");
             }
@@ -50,13 +50,13 @@ public class createTaskController {
 
         if (!isSizeContentValid(this.contentEntry.getText())){
             this.errorChar.setVisible(true);
-            this.errorPane.setStyle("-fx-border-color: red");
+            this.errorPane.setStyle("-fx-background-color: white");
             this.contentEntry.setStyle("-fx-border-color: red");
             return;
         }
         if(!isDateValid(this.deadLine.getValue().atStartOfDay())){
             this.errorDate.setVisible(true);
-            this.errorPane.setStyle("-fx-border-color: red");
+            this.errorPane.setStyle("-fx-background-color: white");
             this.deadLine.setStyle("-fx-border-color: red");
             return;
         }
