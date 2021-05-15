@@ -4,6 +4,7 @@ import fr.java.client.entities.Space;
 import fr.java.client.entities.User;
 import fr.java.client.utils.types.Roles;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,29 +18,17 @@ public class SpaceService {
 
     private SpaceService() {
         this.spaces = new ArrayList<>();
-        this.addSpace(new Space("space_1", new User("root", "root", "henri", "name", Roles.Administrator), "private", "Touriste"));
-        this.addSpace(new Space("lol", new User("root", "root", "ahme", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("miam", new User("root", "root", "mika", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("gg", new User("root", "root", "test", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("pace_5", new User("root", "root", "prout", "", Roles.Client), "private", "Toilette"));
-        this.addSpace(new Space("space_1", new User("root", "root", "henri", "name", Roles.Administrator), "private", "Touriste"));
-        this.addSpace(new Space("lol", new User("root", "root", "ahme", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("miam", new User("root", "root", "mika", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("gg", new User("root", "root", "test", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("pace_5", new User("root", "root", "prout", "", Roles.Client), "private", "Toilette"));
-        this.addSpace(new Space("space_1", new User("root", "root", "henri", "name", Roles.Administrator), "private", "Touriste"));
-        this.addSpace(new Space("lol", new User("root", "root", "ahme", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("miam", new User("root", "root", "mika", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("gg", new User("root", "root", "test", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("pace_5", new User("root", "root", "prout", "", Roles.Client), "private", "Toilette"));this.addSpace(new Space("space_1", new User("root", "root", "henri", "name", Roles.Administrator), "private", "Touriste"));
-        this.addSpace(new Space("lol", new User("root", "root", "ahme", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("miam", new User("root", "root", "mika", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("gg", new User("root", "root", "test", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("pace_5", new User("root", "root", "prout", "", Roles.Client), "private", "Toilette"));this.addSpace(new Space("space_1", new User("root", "root", "henri", "name", Roles.Administrator), "private", "Touriste"));
-        this.addSpace(new Space("lol", new User("root", "root", "ahme", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("miam", new User("root", "root", "mika", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("gg", new User("root", "root", "test", "", Roles.Client), "public", "Developer"));
-        this.addSpace(new Space("pace_5", new User("root", "root", "prout", "", Roles.Client), "private", "Toilette"));
+        this.addSpace(new Space("space_1", "private", "Touriste",  new User("root", "root", "henri", "name", Roles.Administrator)));
+        this.addSpace(new Space("lol", "public", "Developer", new User("root", "root", "ahme", "", Roles.Client)));
+        this.addSpace(new Space("miam", "public", "Developer", new User("root", "root", "mika", "", Roles.Client)));
+        this.addSpace(new Space("gg", "public", "Developer", new User("root", "root", "test", "", Roles.Client)));
+        this.addSpace(new Space("pace_5", "private", "Toilette", new User("root", "root", "prout", "", Roles.Client)));
+        this.addSpace(new Space("space_1", "private", "Touriste", new User("root", "root", "henri", "name", Roles.Administrator)));
+        this.addSpace(new Space("lol", "public", "Developer", new User("root", "root", "ahme", "", Roles.Client)));
+
+        User myUser = new User("root", "root", "root", "root", LocalDate.now());
+        Space testIsPresentWithRoot = new Space("space_1", "private", "Touriste", myUser);
+        this.addSpace(testIsPresentWithRoot);
 
 
         this.todolistService = TodolistService.getInstance();

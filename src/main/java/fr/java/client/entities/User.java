@@ -5,6 +5,7 @@ import fr.java.client.utils.types.Roles;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class User {
 
@@ -74,5 +75,30 @@ public class User {
 
     public Roles getRoles() {
         return roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", dob=" + dob +
+                ", roles=" + roles +
+                '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && Objects.equals(dob, user.dob) && roles == user.roles;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(username, password, firstname, lastname, dob, roles);
     }
 }

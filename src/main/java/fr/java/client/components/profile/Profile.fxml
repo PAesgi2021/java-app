@@ -40,7 +40,7 @@
                     <children>
                         <HBox alignment="CENTER_RIGHT" spacing="5.0">
                             <children>
-                                <MenuButton fx:id="menu" alignment="CENTER" mnemonicParsing="false" style="-fx-padding: 0;" styleClass="trelloBtn" textFill="WHITE">
+                                <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-padding: 0;" styleClass="trelloBtn" textFill="WHITE">
                                     <items>
                                         <MenuItem fx:id="profileMenu" mnemonicParsing="false" styleClass="menuItemCustom" text="Profile" />
                                         <MenuItem fx:id="logoutMenu" onAction="#logout" mnemonicParsing="false" styleClass="menuItemLogout" text="LOGOUT" />

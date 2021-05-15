@@ -1,5 +1,6 @@
 package fr.java.client.entities;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +8,23 @@ public class Space {
 
     private String name;
     private User author;
-    private String access;
+    private String visibility;
     private String tag;
+    private String description;
+    private LocalDateTime lastUpdatedDate;
     private List<User> users;
     private List<Todolist> todolists;
 
-    public Space(String title, User author, String access, String tag) {
+    public Space(String title, String visibility, String tag, User author) {
         this.name = title;
         this.author = author;
-        this.access = access;
+        this.visibility = visibility;
         this.tag = tag;
+        this.lastUpdatedDate = LocalDateTime.now();
+
         this.users = new ArrayList<>();
         this.todolists = new ArrayList<>();
+        this.addUser(author);
     }
 
     public void addUser(User user) {
@@ -45,12 +51,12 @@ public class Space {
         this.author = author;
     }
 
-    public String getAccess() {
-        return access;
+    public String getVisibility() {
+        return visibility;
     }
 
-    public void setAccess(String access) {
-        this.access = access;
+    public void setVisibility(String visibility) {
+        this.visibility = visibility;
     }
 
     public String getTag() {
@@ -59,6 +65,22 @@ public class Space {
 
     public void setTag(String tag) {
         this.tag = tag;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public LocalDateTime getLastUpdatedDate() {
+        return lastUpdatedDate;
+    }
+
+    public void setLastUpdatedDate(LocalDateTime lastUpdatedDate) {
+        this.lastUpdatedDate = lastUpdatedDate;
     }
 
     public List<User> getUsers() {

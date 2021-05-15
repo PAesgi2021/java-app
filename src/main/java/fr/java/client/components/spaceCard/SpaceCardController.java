@@ -6,8 +6,6 @@ import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 import java.net.MalformedURLException;
@@ -54,7 +52,7 @@ public class SpaceCardController {
     }
 
     public void imgAccessManagement(Space space) throws MalformedURLException {
-        if (space.getAccess().equals("public")) {
+        if (space.getVisibility().equals("public")) {
             URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/globale.png");
             this.accessImgPane.getChildren().add(FileUtils.createViewImg(url, 15, 15));
         } else {

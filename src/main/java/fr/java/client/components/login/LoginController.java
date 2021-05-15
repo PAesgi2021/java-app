@@ -40,7 +40,7 @@ public class LoginController {
             return;
         }
 
-        FileUtils.showView(this.connectionBtn, "todolist/TodolistView.fxml");
+        FileUtils.showView(this.connectionBtn, "space/Space.fxml");
     }
 
     public void showRegisterView() throws IOException {
