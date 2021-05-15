@@ -15,11 +15,11 @@ public class User {
     LocalDate dob;
     Roles  roles;
 
-
-    public User(String username, String password, String alias, Roles roles) {
+    public User(String username, String password, String firstname, String lastname, Roles roles) {
         this.username = username;
         this.password = password;
-        this.firstname = alias;
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.roles = roles;
     }
 

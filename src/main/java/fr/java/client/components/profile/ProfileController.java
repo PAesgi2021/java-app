@@ -36,7 +36,7 @@ public class ProfileController {
         this.passwordEntry.setText(this.instance.getUserService().getUser().getPassword());
         this.firstnameEntry.setText(this.instance.getUserService().getUser().getFirstname());
         this.lastnameEntry.setText(this.instance.getUserService().getUser().getLastname());
-        this.dobEntry.setValue(this.instance.getUserService().getUser().getDob().toLocalDate());
+        this.dobEntry.setValue(this.instance.getUserService().getUser().getDob());
         this.roleEntry.setText(this.instance.getUserService().getUser().getRoles()+"");
 
         URL urlHome = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/home.png");
@@ -70,7 +70,7 @@ public class ProfileController {
         this.instance.getUserService().getUser().setPassword(this.passwordEntry.getText());
         this.instance.getUserService().getUser().setFirstname(this.firstnameEntry.getText());
         this.instance.getUserService().getUser().setLastname(this.lastnameEntry.getText());
-        this.instance.getUserService().getUser().setDob(this.dobEntry.getValue().atStartOfDay());
+        this.instance.getUserService().getUser().setDob(this.dobEntry.getValue());
 
         FileUtils.showView(this.usernameEntry, "todolist/TodolistView.fxml");
     }

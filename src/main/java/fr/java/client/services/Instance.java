@@ -1,20 +1,16 @@
 package fr.java.client.services;
 
-import fr.java.client.entities.Todolist;
-
-import java.util.List;
-
 public class Instance {
 
 
     private final UserService userService;
-    private final TodolistService todolistService;
+    private final SpaceService spaceService;
     private static Instance instance;
 
 
     private Instance() {
         this.userService = UserService.getInstance();
-        this.todolistService = TodolistService.getInstance();
+        this.spaceService = SpaceService.getInstance();
     }
 
     public static Instance getInstance() {
@@ -30,8 +26,7 @@ public class Instance {
         return userService;
     }
 
-    public TodolistService getTodolistService() {
-        return todolistService;
+    public SpaceService getSpaceService() {
+        return spaceService;
     }
-
 }

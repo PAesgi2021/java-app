@@ -43,7 +43,7 @@ public class TodolistController {
 
     @FXML
     protected void initialize() {
-        for (Todolist todolist : this.instance.getTodolistService().getTodolists()) {
+        for (Todolist todolist : this.instance.getSpaceService().getTodolistService().getTodolists()) {
             addList(todolist, TaskStatusType.todo);
         }
     }
@@ -87,7 +87,7 @@ public class TodolistController {
             btnAddTask.getStyleClass().add("btnActionList");
             btnAddTask.setOnAction(actionEvent -> {
                 try {
-                    this.instance.getTodolistService().setCurrentTodolist(todolist);
+                    this.instance.getSpaceService().getTodolistService().setCurrentTodolist(todolist);
                     this.showCreateTaskView();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -99,7 +99,7 @@ public class TodolistController {
             btnDeleteList.setCursor(Cursor.HAND);
             btnDeleteList.getStyleClass().add("btnActionList");
             btnDeleteList.setOnAction(e -> {
-                instance.getTodolistService().getTodolists().remove(todolist);
+                instance.getSpaceService().getTodolistService().getTodolists().remove(todolist);
                 this.refreshAction();
             });
 
@@ -188,8 +188,8 @@ public class TodolistController {
             //  + show TaskConfigView
             card.setOnMouseClicked(event -> {
                 try {
-                    this.instance.getTodolistService().setCurrentTodolist(todolist);
-                    this.instance.getTodolistService().setCurrentTask(task);
+                    this.instance.getSpaceService().getTodolistService().setCurrentTodolist(todolist);
+                    this.instance.getSpaceService().getTodolistService().setCurrentTask(task);
                     this.showTaskConfigView();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -203,7 +203,7 @@ public class TodolistController {
     public void refreshAction() {
         this.listsHBox.getChildren().removeAll(this.listsHBox.getChildren());
         if (this.showDoneTasks.isSelected()) {
-            for (Todolist todolist : this.instance.getTodolistService().getTodolists()) {
+            for (Todolist todolist : this.instance.getSpaceService().getTodolistService().getTodolists()) {
                 addList(todolist, TaskStatusType.done);
             }
         } else {

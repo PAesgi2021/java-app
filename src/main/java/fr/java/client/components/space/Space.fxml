@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: white;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.java.client.components.space.SpaceController">
+    <top>
+        <BorderPane prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <left>
+                <StackPane prefWidth="450.0" style="-fx-background-color: #292961; -fx-padding: 5;"
+                           BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color: #292961;">
+                            <children>
+                                <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeAction"
+                                        style="-fx-background-color: white;" textFill="#292961">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </left>
+            <center>
+                <StackPane prefWidth="380.0" style="-fx-background-color: #292961;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label styleClass="titleLogoPage" text="PAESGI" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+            </center>
+            <right>
+                <StackPane prefWidth="450.0" style="-fx-background-color: #292961; -fx-padding: 5;"
+                           BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_RIGHT" spacing="5.0" style="-fx-background-color: #292961;">
+                            <children>
+                                <MenuButton fx:id="menu" alignment="CENTER" mnemonicParsing="false"
+                                            style="-fx-background-color: white;" textFill="#292961">
+                                    <items>
+                                        <MenuItem fx:id="profileMenu" mnemonicParsing="false"
+                                                  styleClass="menuItemCustom" text="Profile"/>
+                                        <MenuItem fx:id="logoutMenu" mnemonicParsing="false" onAction="#logout"
+                                                  styleClass="menuItemLogout" text="LOGOUT"/>
+                                    </items>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </MenuButton>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </right>
+        </BorderPane>
+    </top>
+    <bottom>
+        <StackPane prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity">
+                    <children>
+                        <Separator prefWidth="400.0"/>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               style="-fx-text-fill: #0052cc;" text="ESGI">
+                            <font>
+                                <Font name="System Bold" size="30.0"/>
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021"/>
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </bottom>
+
+    <stylesheets>
+        <URL value="@../profile/Profile.css"/>
+    </stylesheets>
+    <center>
+        <VBox maxWidth="-Infinity" prefWidth="650.0" spacing="10.0" style="-fx-padding: 20;"
+              BorderPane.alignment="CENTER">
+            <children>
+                <StackPane>
+                    <children>
+                        <Label text="Space" StackPane.alignment="CENTER_LEFT">
+                            <font>
+                                <Font size="24.0"/>
+                            </font>
+                        </Label>
+                        <Button mnemonicParsing="false" style="-fx-background-color: #1f75cb;" text="New project"
+                                textFill="WHITE" StackPane.alignment="CENTER_RIGHT">
+                            <font>
+                                <Font size="14.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </StackPane>
+                <Separator prefWidth="200.0"/>
+                <BorderPane>
+                    <left>
+                        <HBox maxWidth="-Infinity" prefHeight="30.0" prefWidth="322.0" spacing="5.0"
+                              BorderPane.alignment="CENTER">
+                            <children>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;"
+                                        text="Your spaces">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <graphic>
+                                        <Label maxWidth="-Infinity" prefWidth="4.0"
+                                               style="-fx-background-color: #f0f0f0; -fx-background-radius: 50; -fx-padding: 2;"
+                                               text="0"/>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;"
+                                        text="Favorite">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                    <graphic>
+                                        <Label maxWidth="-Infinity" prefWidth="4.0"
+                                               style="-fx-background-color: #f0f0f0; -fx-background-radius: 50; -fx-padding: 2;"
+                                               text="0"/>
+                                    </graphic>
+                                </Button>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;"
+                                        text="Explore">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </left>
+                    <center>
+                        <HBox maxWidth="-Infinity" prefWidth="300.0" spacing="10.0" BorderPane.alignment="CENTER">
+                            <children>
+                                <TextField prefWidth="180.0" promptText="Filter by ..."/>
+                                <MenuButton mnemonicParsing="false" text="Sort by">
+                                    <items>
+                                        <MenuItem mnemonicParsing="false" text="Username"/>
+                                        <MenuItem mnemonicParsing="false" text="Spacename"/>
+                                        <MenuItem mnemonicParsing="false" text="Tag"/>
+                                    </items>
+                                </MenuButton>
+                            </children>
+                        </HBox>
+                    </center>
+                </BorderPane>
+                <Separator prefWidth="200.0"/>
+                <BorderPane>
+                    <center>
+                        <HBox BorderPane.alignment="CENTER">
+                            <children>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="All">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Button>
+                                <Button mnemonicParsing="false" style="-fx-background-color: transparent;"
+                                        text="Personal">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </center>
+                </BorderPane>
+                <Separator prefWidth="200.0"/>
+                <ScrollPane>
+                    <content>
+                        <VBox fx:id="spacesContainer"/>
+                    </content>
+                </ScrollPane>
+            </children>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@Space.css"/>
+    </stylesheets>
+</BorderPane>
