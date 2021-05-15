@@ -227,7 +227,8 @@ public class TodolistController {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
-        stage.showAndWait();
+        stage.show();
+        FileUtils.closeWhenLoseFocus(stage);
         this.refreshAction();
     }
 
@@ -235,7 +236,8 @@ public class TodolistController {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
-        stage.showAndWait();
+        stage.show();
+        FileUtils.closeWhenLoseFocus(stage);
         this.refreshAction();
     }
 

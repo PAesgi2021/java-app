@@ -1,5 +1,5 @@
 .headerPane {
-    -fx-background-color: #57cd64;
+    -fx-background-color: #d9bc48;
 }
 
 .titleLogoPage {
@@ -13,10 +13,7 @@
     -fx-opacity: 0.8;
 }
 
-.nbCharContent {
-    -fx-opacity: 0.5;
-}
 
 .footerPane {
-    -fx-background-color: #57cd64;
+    -fx-background-color: #d9bc48;
 }

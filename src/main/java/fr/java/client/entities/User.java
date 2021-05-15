@@ -3,6 +3,7 @@ package fr.java.client.entities;
 
 import fr.java.client.utils.types.Roles;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class User {
@@ -11,8 +12,9 @@ public class User {
     String password;
     String firstname;
     String lastname;
-    LocalDateTime dob;
+    LocalDate dob;
     Roles  roles;
+
 
     public User(String username, String password, String alias, Roles roles) {
         this.username = username;
@@ -21,7 +23,7 @@ public class User {
         this.roles = roles;
     }
 
-    public User(String username, String password, String firstname, String lastname, LocalDateTime dob) {
+    public User(String username, String password, String firstname, String lastname, LocalDate dob) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
@@ -62,11 +64,11 @@ public class User {
         this.lastname = lastname;
     }
 
-    public LocalDateTime getDob() {
+    public LocalDate getDob() {
         return dob;
     }
 
-    public void setDob(LocalDateTime dob) {
+    public void setDob(LocalDate dob) {
         this.dob = dob;
     }
 

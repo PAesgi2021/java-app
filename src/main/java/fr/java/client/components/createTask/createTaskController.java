@@ -1,16 +1,18 @@
 package fr.java.client.components.createTask;
 
 import fr.java.client.entities.Task;
-import fr.java.client.entities.Todolist;
+
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
+
+import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.IOException;
+
 import java.time.LocalDateTime;
 
 public class createTaskController {
@@ -19,23 +21,24 @@ public class createTaskController {
 
     @FXML TextField titleEntry;
     @FXML TextArea contentEntry;
-    @FXML Button closeButton;
     @FXML Label nbCharContent;
     @FXML DatePicker deadLine;
+    @FXML Text errorGeneral;
+    @FXML Text errorChar;
+    @FXML Text errorDate;
+    @FXML Pane errorPane;
 
 
-    public void closeBtnAction() {
-        Stage stage = (Stage) this.closeButton.getScene().getWindow();
-        stage.close();
-    }
 
     public void createTaskAction(ActionEvent actionEvent) {
-        Alert errorAlert = new Alert(Alert.AlertType.ERROR);
+        this.errorGeneral.setVisible(false);
+        this.errorChar.setVisible(false);
+        this.errorDate.setVisible(false);
+        this.errorPane.setStyle("-fx-border-color: transparant");
 
         if (this.titleEntry.getText().equals("") || this.deadLine.getValue() == null) {
-            errorAlert.setHeaderText("Error");
-            errorAlert.setContentText("you should complete");
-            errorAlert.show();
+            this.errorGeneral.setVisible(true);
+            this.errorPane.setStyle("-fx-border-color: red");
             if(this.titleEntry.getText().equals("")) {
                 this.titleEntry.setStyle("-fx-border-color: red");
             }
@@ -46,22 +49,20 @@ public class createTaskController {
         }
 
         if (!isSizeContentValid(this.contentEntry.getText())){
-            errorAlert.setHeaderText("Error");
-            errorAlert.setContentText("Limited to 1000 char");
-            errorAlert.show();
+            this.errorChar.setVisible(true);
+            this.errorPane.setStyle("-fx-border-color: red");
             this.contentEntry.setStyle("-fx-border-color: red");
             return;
         }
         if(!isDateValid(this.deadLine.getValue().atStartOfDay())){
-            errorAlert.setHeaderText("Error");
-            errorAlert.setContentText("Select a valid date the deadline can't be before now");
-            errorAlert.show();
+            this.errorDate.setVisible(true);
+            this.errorPane.setStyle("-fx-border-color: red");
             this.deadLine.setStyle("-fx-border-color: red");
             return;
         }
 
         this.instance.getTodolistService().getCurrentTodolist().addTask(new Task(this.titleEntry.getText(), this.contentEntry.getText(), this.deadLine.getValue().atStartOfDay()));
-        this.closeBtnAction();
+        FileUtils.close(this.titleEntry);
 
     }
 
@@ -75,6 +76,10 @@ public class createTaskController {
 
     public boolean isDateValid(LocalDateTime deadLine) {
         return this.deadLine.getValue().atStartOfDay().isAfter(LocalDateTime.now());
+    }
+
+    public void closeWindow() {
+        FileUtils.close(this.titleEntry);
     }
 
 }
