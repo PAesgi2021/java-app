@@ -2,6 +2,7 @@ package fr.java.client.components.profile;
 
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
@@ -28,7 +29,8 @@ public class ProfileController {
     @FXML MenuButton settingsMenu;
     @FXML MenuItem logoutMenu;
     @FXML MenuItem profileMenu;
-    
+    @FXML Button backBtn;
+
     @FXML
     protected void initialize() throws MalformedURLException {
         this.acronymLabel.setText(FileUtils.getAcronymUser());
@@ -41,24 +43,10 @@ public class ProfileController {
         this.roleEntry.setText(this.instance.getUserService().getUser().getRoles()+"");
 
         FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
-    }
+        URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/previous.png");
+        this.backBtn.setGraphic(FileUtils.createViewImg(url, 15, 15));
 
-//    public void checkUpdateAccess() {
-//        if(this.updateProfil.isSelected()) {
-//            this.usernameEntry.setDisable(false);
-//            this.passwordEntry.setDisable(false);
-//            this.aliasEntry.setDisable(false);
-//            this.ageEntry.setDisable(false);
-//            this.saveBtn.setVisible(true);
-//        } else {
-//            this.usernameEntry.setDisable(true);
-//            this.passwordEntry.setDisable(true);
-//            this.aliasEntry.setDisable(true);
-//            this.ageEntry.setDisable(true);
-//            this.saveBtn.setVisible(false);
-//        }
-//
-//    }
+    }
 
     public void saveBtnAction() throws IOException {
         this.instance.getUserService().getUser().setUsername(this.usernameEntry.getText());
@@ -71,10 +59,18 @@ public class ProfileController {
     }
 
     public void homeAction() throws IOException {
-        FileUtils.showView(this.usernameEntry, "todolist/TodolistView.fxml");
+        FileUtils.showView(this.usernameEntry, "space/Space.fxml");
     }
 
     public void logout() throws IOException {
-        FileUtils.showView(this.usernameEntry, "login/Login.fxml");
+        FileUtils.logout(this.usernameEntry);
+    }
+
+    public void backAction() throws IOException {
+        if (this.instance.getSpaceService().getCurrentSpace() == null) {
+            FileUtils.showView(this.usernameEntry, "space/Space.fxml");
+            return;
+        }
+        FileUtils.showView(this.usernameEntry, "todolist/TodolistView.fxml");
     }
 }

@@ -1,5 +1,6 @@
 package fr.java.client.components.createList;
 
+import fr.java.client.entities.Todolist;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
@@ -27,7 +28,7 @@ public class createListController {
             return;
         }
 
-        this.instance.getSpaceService().getTodolistService().addTodolist(this.titleEntry.getText());
+        this.instance.getSpaceService().getCurrentSpace().getTodolists().add(new Todolist(this.titleEntry.getText()));
         FileUtils.close(this.titleEntry);
     }
 

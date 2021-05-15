@@ -5,66 +5,79 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxWidth="-Infinity" prefWidth="580.0" style="-fx-padding: 5; -fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.spaceCard.SpaceCardController">
-   <left>
-      <HBox spacing="5.0" BorderPane.alignment="CENTER">
-         <children>
-            <StackPane>
-               <children>
-                  <Button fx:id="acronymSpaceBtn" maxHeight="-Infinity" maxWidth="-Infinity" mnemonicParsing="false" prefHeight="48.0" prefWidth="46.0" style="-fx-padding: 5; -fx-border-color: #f5f5f5; -fx-border-radius: 10; -fx-background-color: #e3f2fd; -fx-background-radius: 10;" text="D">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Button>
-               </children>
-            </StackPane>
-            <StackPane>
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <children>
-                  <Button fx:id="spaceBtn" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: transparent;" text="nameSpace">
-                     <graphic>
-                        <Label fx:id="usernameLabel" text="username /">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                     </graphic>
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                  </Button>
-               </children>
-            </StackPane>
-            <StackPane>
-               <children>
-                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
-                     <children>
-                        <StackPane fx:id="accessImgPane">
-                           <children>
-                           </children>
-                        </StackPane>
-                        <Label fx:id="tagSpace" style="-fx-border-color: #dbdbdb; -fx-border-radius: 15; -fx-padding: 5;" text="Developer">
-                           <font>
-                              <Font size="10.0" />
-                           </font>
-                        </Label>
-                     </children>
-                  </HBox>
-               </children>
-            </StackPane>
-         </children>
-      </HBox>
-   </left>
-   <right>
-      <Label fx:id="updatedInfoBtn" text="Updated 0 days ago" BorderPane.alignment="CENTER" />
-   </right>
-   <bottom>
-      <Separator prefWidth="200.0" BorderPane.alignment="CENTER">
-         <BorderPane.margin>
-            <Insets top="10.0" />
-         </BorderPane.margin>
-      </Separator>
-   </bottom>
+<?import java.net.URL?>
+<BorderPane maxWidth="-Infinity" prefWidth="580.0" style="-fx-padding: 5; -fx-background-color: white;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.java.client.components.spaceCard.SpaceCardController">
+    <left>
+        <HBox spacing="5.0" BorderPane.alignment="CENTER">
+            <children>
+                <StackPane>
+                    <children>
+                        <Button fx:id="acronymSpaceBtn" onAction="#showTodolistView" maxHeight="-Infinity" maxWidth="-Infinity"
+                                mnemonicParsing="false" prefHeight="48.0" prefWidth="46.0" styleClass="allBtn"
+                                style="-fx-padding: 5;-fx-border-color: #f5f5f5;-fx-border-radius: 10;-fx-background-color: #e3f2fd;-fx-background-radius: 10;"
+                                text="D">
+                            <font>
+                                <Font size="20.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </StackPane>
+                <StackPane>
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <children>
+                        <Button fx:id="spaceBtn" onAction="#showTodolistView" alignment="CENTER" mnemonicParsing="false"
+                                style="-fx-background-color: transparent;" styleClass="allBtn" text="nameSpace">
+                            <graphic>
+                                <Label fx:id="usernameLabel" text="username /">
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Label>
+                            </graphic>
+                            <font>
+                                <Font name="System Bold" size="14.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </StackPane>
+                <StackPane>
+                    <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" spacing="5.0">
+                            <children>
+                                <StackPane fx:id="accessImgPane">
+                                    <children>
+                                    </children>
+                                </StackPane>
+                                <Label fx:id="tagSpace"
+                                       style="-fx-border-color: #dbdbdb; -fx-border-radius: 15; -fx-padding: 5;"
+                                       text="Developer">
+                                    <font>
+                                        <Font size="10.0"/>
+                                    </font>
+                                </Label>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </children>
+        </HBox>
+    </left>
+    <right>
+        <Label fx:id="updatedInfoBtn" text="Updated 0 days ago" BorderPane.alignment="CENTER"/>
+    </right>
+    <bottom>
+        <Separator prefWidth="200.0" BorderPane.alignment="CENTER">
+            <BorderPane.margin>
+                <Insets top="10.0"/>
+            </BorderPane.margin>
+        </Separator>
+    </bottom>
+
+    <stylesheets>
+        <URL value="@SpaceCard.css"/>
+    </stylesheets>
 </BorderPane>

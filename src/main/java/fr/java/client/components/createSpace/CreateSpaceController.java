@@ -56,19 +56,23 @@ public class CreateSpaceController {
 
     public void createSpaceAction() throws IOException {
 
+        // refresh errors indications
+        this.spaceNameEntry.getStyleClass().remove("errorHighlighter");
+        this.tagNameEntry.getStyleClass().remove("errorHighlighter");
+        this.publicVisibility.getStyleClass().remove("errorHighlighter");
+        this.privateVisibility.getStyleClass().remove("errorHighlighter");
+
         if (this.spaceNameEntry.getText().isEmpty()) {
             this.showError("Space name is required");
             this.spaceNameEntry.getStyleClass().add("errorHighlighter");
             return;
         }
-        this.spaceNameEntry.getStyleClass().remove("errorHighlighter");
 
         if (this.tagNameEntry.getText().isEmpty()) {
             this.showError("Space tag is required");
             this.tagNameEntry.getStyleClass().add("errorHighlighter");
             return;
         }
-        this.tagNameEntry.getStyleClass().remove("errorHighlighter");
 
         if (this.spaceVisibility == null) {
             this.showError("Space visibility is required");
@@ -76,8 +80,6 @@ public class CreateSpaceController {
             this.privateVisibility.getStyleClass().add("errorHighlighter");
             return;
         }
-        this.publicVisibility.getStyleClass().remove("errorHighlighter");
-        this.privateVisibility.getStyleClass().remove("errorHighlighter");
 
         // after error cases
         // create a new Space and update the currentSpace
@@ -98,5 +100,9 @@ public class CreateSpaceController {
         Label errorText = new Label(message);
         this.errorPane.getChildren().add(errorText);
         this.errorPane.setStyle("-fx-padding: 15; -fx-border-color: #eeeff0");
+    }
+
+    public void cancelAction() throws IOException {
+        FileUtils.showView(this.cancel, "space/Space.fxml");
     }
 }

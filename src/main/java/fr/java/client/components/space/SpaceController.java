@@ -4,6 +4,7 @@ import fr.java.client.entities.Space;
 import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
@@ -33,15 +34,15 @@ public class SpaceController {
     @FXML Separator lastSeparator;
     @FXML Button homeBtn;
     @FXML MenuButton settingsMenu;
-    @FXML MenuItem profileMenu;
-    @FXML MenuItem logoutMenu;
+    @FXML MenuItem profileMenuItem;
+    @FXML MenuItem logoutMenuItem;
     @FXML Label numberExploreSpaces;
 
     @FXML
     public void initialize() throws IOException {
-        this.allSpaceAction();
+        this.yourSpacesAction();
         this.updateBadgesNumber();
-        FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
+        FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenuItem, this.logoutMenuItem);
     }
 
     private void createSpaceCard(Space space) throws IOException {
@@ -108,7 +109,9 @@ public class SpaceController {
         this.spacesContainer.getChildren().clear();
         for (int i = this.spaces.size()-1; i > 0; i--) {
             Space space = this.spaces.get(i);
-            this.createSpaceCard(space);
+            if (space.getVisibility() == "public") {
+                this.createSpaceCard(space);
+            }
         }
     }
 
@@ -134,7 +137,7 @@ public class SpaceController {
     }
 
     public void logout() throws IOException {
-        FileUtils.showView(this.allSpacesBtn, "login/Login.fxml");
+        FileUtils.logout(this.allSpacesBtn);
     }
 
     public void homeAction() throws IOException {
@@ -154,7 +157,19 @@ public class SpaceController {
             }
         }
 
+        int countExploreSpaces = 0;
+        for (int i = this.spaces.size()-1; i > 0; i--) {
+            Space space = this.spaces.get(i);
+            if (space.getVisibility() == "public") {
+                countExploreSpaces++;
+            }
+        }
+
         this.yourNumberSpaces.setText(countYourSpaces + "");
-        this.numberExploreSpaces.setText(this.spaces.size() + "");
+        this.numberExploreSpaces.setText(countExploreSpaces + "");
+    }
+
+    public void profileAction() throws IOException {
+        FileUtils.showView(this.allSpacesBtn, "profile/Profile.fxml");
     }
 }

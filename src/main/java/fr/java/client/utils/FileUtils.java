@@ -127,4 +127,10 @@ public class FileUtils {
         logoutMenu.setGraphic(FileUtils.createViewImg(urlLogout, 15, 15));
         profileMenu.setGraphic(FileUtils.createViewImg(urlAccount, 15, 15));
     }
+
+    public static void logout(Node node) throws IOException {
+        Instance instance = Instance.getInstance();
+        instance.getSpaceService().setCurrentSpace(null);
+        FileUtils.showView(node, "login/Login.fxml");
+    }
 }

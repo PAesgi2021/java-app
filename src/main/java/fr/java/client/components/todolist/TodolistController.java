@@ -43,7 +43,7 @@ public class TodolistController {
 
     @FXML
     protected void initialize() {
-        for (Todolist todolist : this.instance.getSpaceService().getTodolistService().getTodolists()) {
+        for (Todolist todolist : this.instance.getSpaceService().getCurrentSpace().getTodolists()) {
             addList(todolist, TaskStatusType.todo);
         }
     }
@@ -99,7 +99,7 @@ public class TodolistController {
             btnDeleteList.setCursor(Cursor.HAND);
             btnDeleteList.getStyleClass().add("btnActionList");
             btnDeleteList.setOnAction(e -> {
-                instance.getSpaceService().getTodolistService().getTodolists().remove(todolist);
+                instance.getSpaceService().getCurrentSpace().getTodolists().remove(todolist);
                 this.refreshAction();
             });
 
@@ -203,7 +203,7 @@ public class TodolistController {
     public void refreshAction() {
         this.listsHBox.getChildren().removeAll(this.listsHBox.getChildren());
         if (this.showDoneTasks.isSelected()) {
-            for (Todolist todolist : this.instance.getSpaceService().getTodolistService().getTodolists()) {
+            for (Todolist todolist : this.instance.getSpaceService().getCurrentSpace().getTodolists()) {
                 addList(todolist, TaskStatusType.done);
             }
         } else {
@@ -211,16 +211,9 @@ public class TodolistController {
         }
     }
 
-    public void showLoginView(ActionEvent actionEvent) {
+    public void logout() throws IOException {
         instance.getUserService().logout();
-        Stage stage = new Stage();
-        try {
-            stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/Login.fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        FileUtils.close(this.listsHBox);
-        stage.show();
+        FileUtils.logout(this.component);
     }
 
     public void showCreateListView() throws IOException {

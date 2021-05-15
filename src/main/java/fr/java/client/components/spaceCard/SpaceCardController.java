@@ -3,11 +3,13 @@ package fr.java.client.components.spaceCard;
 import fr.java.client.entities.Space;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
 
+import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
@@ -52,12 +54,16 @@ public class SpaceCardController {
     }
 
     public void imgAccessManagement(Space space) throws MalformedURLException {
+        URL url;
         if (space.getVisibility().equals("public")) {
-            URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/globale.png");
-            this.accessImgPane.getChildren().add(FileUtils.createViewImg(url, 15, 15));
+            url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/globale.png");
         } else {
-            URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/cadenas.png");
-            this.accessImgPane.getChildren().add(FileUtils.createViewImg(url, 15, 15));
+            url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/cadenas.png");
         }
+        this.accessImgPane.getChildren().add(FileUtils.createViewImg(url, 15, 15));
+    }
+
+    public void showTodolistView() throws IOException {
+        FileUtils.showView(this.accessImgPane, "todolist/TodolistView.fxml");
     }
 }

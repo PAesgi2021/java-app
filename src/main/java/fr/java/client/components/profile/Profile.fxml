@@ -18,7 +18,11 @@
                                         <Font name="System Bold" size="12.0" />
                                     </font>
                                 </Button>
-                                <CheckBox mnemonicParsing="false" styleClass="trelloBtn" text="CheckBox" textFill="WHITE" />
+                                <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backAction" styleClass="trelloBtn" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
                             </children>
                         </HBox>
                     </children>

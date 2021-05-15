@@ -16,7 +16,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-               <Button fx:id="btLogout" layoutX="1186.0" layoutY="8.0" onAction="#showLoginView" prefHeight="25.0" prefWidth="80.0" styleClass="deleteBtn" text="Logout">
+               <Button fx:id="btLogout" layoutX="1186.0" layoutY="8.0" onAction="#logout" prefHeight="25.0" prefWidth="80.0" styleClass="deleteBtn" text="Logout">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

@@ -21,7 +21,6 @@ public class Instance {
         return instance;
     }
 
-
     public UserService getUserService() {
         return userService;
     }

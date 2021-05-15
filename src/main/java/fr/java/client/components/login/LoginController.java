@@ -37,6 +37,8 @@ public class LoginController {
             Label errorText = new Label("adresse e-mail et/ou mot de passe incorrects");
             this.errorPane.getChildren().add(errorText);
             this.errorPane.setStyle("-fx-padding: 20; -fx-border-color: #eeeff0");
+            this.emailEntry.setStyle("-fx-border-color: red");
+            this.passwordEntry.setStyle("-fx-border-color: red");
             return;
         }
 
