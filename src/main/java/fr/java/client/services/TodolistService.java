@@ -9,7 +9,6 @@ import java.util.List;
 public class TodolistService {
     private static TodolistService instance;
 
-//    private List<Todolist> todolists;
     private Todolist currentTodolist;
     private Task currentTask;
 

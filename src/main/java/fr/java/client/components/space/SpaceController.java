@@ -69,7 +69,7 @@ public class SpaceController {
 
         // show only the spaces if the user is a collaborator
         this.spacesContainer.getChildren().clear();
-        for (int i = this.spaces.size() - 1; i > 0; i--) {
+        for (int i = this.spaces.size()-1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (this.isUserPresent(space, user)) {
                 this.createSpaceCard(space);
@@ -82,7 +82,7 @@ public class SpaceController {
 
         // show only the spaces if the user is the author
         this.spacesContainer.getChildren().clear();
-        for (int i = this.spaces.size() - 1; i > 0; i--) {
+        for (int i = this.spaces.size()-1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (space.getAuthor() == user) {
                 this.createSpaceCard(space);
@@ -116,7 +116,7 @@ public class SpaceController {
 
         // show all existing spaces
         this.spacesContainer.getChildren().clear();
-        for (int i = this.spaces.size() - 1; i > 0; i--) {
+        for (int i = this.spaces.size()-1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (space.getVisibility() == "public") {
                 this.createSpaceCard(space);
@@ -150,7 +150,7 @@ public class SpaceController {
     }
 
     public void homeAction() throws IOException {
-        FileUtils.showView(this.allSpacesBtn, "space/Space.fxml");
+        // isEmpty
     }
 
     public void newSpaceAction() throws IOException {
@@ -159,7 +159,7 @@ public class SpaceController {
 
     public void updateBadgesNumber() {
         int countYourSpaces = 0;
-        for (int i = this.spaces.size() - 1; i > 0; i--) {
+        for (int i = this.spaces.size()-1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (this.isUserPresent(space, user)) {
                 countYourSpaces++;
@@ -167,7 +167,7 @@ public class SpaceController {
         }
 
         int countExploreSpaces = 0;
-        for (int i = this.spaces.size()-1; i > 0; i--) {
+        for (int i = this.spaces.size()-1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (space.getVisibility() == "public") {
                 countExploreSpaces++;
@@ -189,7 +189,7 @@ public class SpaceController {
                                 if (!isUserPresent(space, user) && instance.getSpaceService().getSpaceTab() == SpaceTab.Personal) {
                                     continue;
                                 }
-                                // compare la saisie du text field avec les noms des espaces
+                                // search by namespace
                                 if (space.getName().toLowerCase().contains(tfFilter.getText().toLowerCase())) {
                                     try {
                                         this.createSpaceCard(space);
@@ -205,7 +205,7 @@ public class SpaceController {
                                 if (!isUserPresent(space, user) && instance.getSpaceService().getSpaceTab() == SpaceTab.Personal) {
                                     continue;
                                 }
-                                // compare la saisie du text field avec les tags
+                                // search by tag
                                 if (space.getTag().toLowerCase().contains(tfFilter.getText().toLowerCase())) {
                                     try {
                                         this.createSpaceCard(space);

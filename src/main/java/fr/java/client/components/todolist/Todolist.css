@@ -55,23 +55,6 @@
 
 /********** header **********/
 
-.showDoneTasks {
-    -fx-text-fill: white;
-    -fx-font-size: 13px;
-}
-
-.saveBtn {
-    -fx-background-color: #4e97c2;
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 14px;
-    -fx-border-color: transparent;
-    -fx-font-weight: bolder;
-}
-
-.saveBtn:hover {
-    -fx-background-color: #3588b9;
-}
-
 .deleteBtn {
     -fx-background-color: #c62424;
     -fx-text-fill: #ffffff;
@@ -85,10 +68,7 @@
 }
 
 .titleLogoPage {
-    -fx-font-size: 20px;
-    -fx-font-weight: bolder;
     -fx-opacity: 0.3;
-    -fx-fill: white;
 }
 
 .titleLogoPage:hover {
@@ -119,4 +99,22 @@
     -fx-spacing: 7px;
     -fx-padding: 7px;
     -fx-min-width: 210px;
+}
+
+.trelloBtn {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #424242;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-padding: 5;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.trelloBtn:hover {
+    -fx-background-color: #d2d2d2;
+}
+
+.theme {
+    -fx-background-color: #5aafc1;
 }

@@ -23,18 +23,18 @@ public class SpaceCardController {
     @FXML StackPane accessImgPane;
     @FXML Label tagSpace;
     @FXML Label updatedInfoBtn;
-
+    Space space;
     @FXML
     protected void initialize() throws MalformedURLException {
-        Space space = this.instance.getSpaceService().getCurrentSpace();
-        String firstLetterProjectName = space.getName().substring(0, 1).toUpperCase();
+        this.space = this.instance.getSpaceService().getCurrentSpace();
+        String firstLetterProjectName = this.space.getName().substring(0, 1).toUpperCase();
 
         this.acronymSpaceBtn.setText(firstLetterProjectName);
         this.acronymSpaceBtn.setStyle(randomColor());
-        this.spaceBtn.setText(space.getName());
-        this.usernameLabel.setText(space.getAuthor().getFirstname().toLowerCase() + space.getAuthor().getLastname().toLowerCase() + " /");
-        imgAccessManagement(space);
-        this.tagSpace.setText(space.getTag());
+        this.spaceBtn.setText(this.space.getName());
+        this.usernameLabel.setText(this.space.getAuthor().getFirstname().toLowerCase() + space.getAuthor().getLastname().toLowerCase() + " /");
+        imgAccessManagement(this.space);
+        this.tagSpace.setText(this.space.getTag());
         //TODO updatedInfoBtn
     }
 
@@ -64,6 +64,8 @@ public class SpaceCardController {
     }
 
     public void showTodolistView() throws IOException {
-        FileUtils.showView(this.accessImgPane, "todolist/TodolistView.fxml");
+        this.instance.getSpaceService().setCurrentSpace(this.space);
+        FileUtils.showView(this.accessImgPane, "todolist/Todolist.fxml");
     }
+
 }

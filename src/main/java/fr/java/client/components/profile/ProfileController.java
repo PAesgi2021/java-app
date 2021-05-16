@@ -71,6 +71,6 @@ public class ProfileController {
             FileUtils.showView(this.usernameEntry, "space/Space.fxml");
             return;
         }
-        FileUtils.showView(this.usernameEntry, "todolist/TodolistView.fxml");
+        FileUtils.showView(this.usernameEntry, "todolist/Todolist.fxml");
     }
 }

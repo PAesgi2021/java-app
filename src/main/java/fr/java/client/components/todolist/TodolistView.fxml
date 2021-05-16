@@ -11,7 +11,7 @@
     <children>
         <Pane prefHeight="54.0" prefWidth="1280" styleClass="headerTodolistView">
            <children>
-               <Button layoutX="14.0" layoutY="8.0" onAction="#showCreateListView" prefHeight="25.0" prefWidth="120.0" styleClass="saveBtn" text="Create list">
+               <Button layoutX="14.0" layoutY="8.0" onAction="#createListAction" prefHeight="25.0" prefWidth="120.0" styleClass="saveBtn" text="Create list">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -21,7 +21,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-               <Button onAction="#showProfileAccessView" layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="saveBtn" text="Profile">
+               <Button onAction="#profileAction" layoutX="1100.0" layoutY="8.0" prefHeight="25.0" prefWidth="80.0" styleClass="saveBtn" text="Profile">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>

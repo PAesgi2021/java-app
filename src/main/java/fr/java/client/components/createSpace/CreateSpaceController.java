@@ -38,10 +38,12 @@ public class CreateSpaceController {
         FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
     }
 
-    public void logout(ActionEvent actionEvent) {
+    public void logout() throws IOException {
+        FileUtils.logout(this.cancel);
     }
 
-    public void homeAction(ActionEvent actionEvent) {
+    public void homeAction() throws IOException {
+        FileUtils.showView(this.cancel, "space/Space.fxml");
     }
 
     public void privateVisibilityAction() {
