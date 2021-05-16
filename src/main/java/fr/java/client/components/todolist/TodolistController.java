@@ -38,11 +38,13 @@ public class TodolistController {
     @FXML MenuItem logoutMenuItem;
     @FXML MenuButton sortedBtn;
     @FXML TextField searchEntry;
+    @FXML Label spaceNameLabel;
     private String sortSelected;
 
     @FXML
     protected void initialize() throws MalformedURLException {
         this.showAllTodolist();
+        this.spaceNameLabel.setText("Welcome to the Space : " + this.instance.getSpaceService().getCurrentSpace().getName().toUpperCase());
         FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenuItem, this.logoutMenuItem);
     }
 
