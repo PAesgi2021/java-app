@@ -51,8 +51,8 @@
                             <children>
                                 <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: white;" textFill="#292961">
                                     <items>
-                                        <MenuItem fx:id="profileMenuItem" onAction="#profileAction" mnemonicParsing="false" styleClass="menuItemCustom" text="Profile" />
-                                        <MenuItem fx:id="logoutMenuItem" mnemonicParsing="false" onAction="#logout" styleClass="menuItemLogout" text="LOGOUT" />
+                                        <MenuItem fx:id="profileMenu" onAction="#profileAction" mnemonicParsing="false" styleClass="menuItemCustom" text="Profile" />
+                                        <MenuItem fx:id="logoutMenu" mnemonicParsing="false" onAction="#logout" styleClass="menuItemLogout" text="LOGOUT" />
                                     </items>
                                     <font>
                                         <Font name="System Bold" size="12.0" />

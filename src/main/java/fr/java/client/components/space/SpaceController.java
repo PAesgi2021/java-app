@@ -179,7 +179,7 @@ public class SpaceController {
     }
 
     public void filterSpace() {
-        tfFilter.setOnKeyPressed( event -> {
+        tfFilter.setOnKeyTyped( event -> {
                     if (tfFilter.getText().length() > 0) {
                         if (selectedFilter.getText().equals("Spacename")) {
                             this.spacesContainer.getChildren().clear();
