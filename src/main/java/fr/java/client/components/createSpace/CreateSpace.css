@@ -1,0 +1,20 @@
+.errorHighlighter {
+    -fx-border-color: red;
+}
+
+.allBtn:hover {
+    -fx-opacity: 0.9;
+}
+
+.cancelBtn {
+    -fx-background-color: transparent;
+    -fx-border-color: #bfbfbf;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.cancelBtn:hover {
+    -fx-background-color: #323232;
+    -fx-border-color: #323232;
+    -fx-text-fill: white;
+}

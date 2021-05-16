@@ -1,0 +1,88 @@
+.manageTask {
+    -fx-background-color: #ffffff;
+}
+
+.scrollPaneText {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.scrollPaneText > .viewport {
+    -fx-background-color: transparent;
+}
+
+.trans {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.statusBtn {
+    -fx-border-color: transparent;
+    -fx-border-radius: 0;
+    -fx-background-color: #469746;
+    -fx-text-fill: #ffffff;
+}
+
+.statusTaskCheckbox {
+    -fx-effect: dropshadow(one-pass-box, rgba(186, 186, 186, 0.8), 2, 0, 0, 0);
+    -fx-border-color: transparent;
+    -fx-border-radius: 25px;
+    -fx-font-weight: bolder;
+    -fx-text-fill: white;
+    -fx-padding: 6px;
+    -fx-background-radius: 2px;
+    -fx-pref-width: 150px;
+}
+
+.lockCheckbox {
+    -fx-text-fill: #2964af;
+    -fx-font-weight: bolder;
+    -fx-font-size: 10px;
+    -fx-padding: 8px;
+    -fx-background-color: #eaecf0;
+    -fx-background-radius: 3px;
+}
+
+.statusPane {
+    -fx-border-radius: 25px;
+    -fx-border-color: #6f6f6f;
+}
+
+.TaskConfigBanner {
+    -fx-pref-height: 100px;
+    -fx-background-color: #ef7564;
+}
+
+.saveBtn {
+    -fx-border-color: #bf8a6a;
+    -fx-border-radius: 0;
+    -fx-background-color: white;
+    -fx-text-fill: #bf8a6a;
+    -fx-font-size: 10px;
+    -fx-font-weight: bolder;
+}
+
+.saveBtn:hover {
+    -fx-background-color: #bf8a6a;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+.deleteBtn {
+    -fx-border-color: #cb2109;
+    -fx-border-radius: 0;
+    -fx-background-color: white;
+    -fx-text-fill: #cb2109;
+    -fx-font-size: 10px;
+    -fx-font-weight: bolder;
+}
+
+.deleteBtn:hover {
+    -fx-background-color: #bd1c1c;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+.nbCharLabel {
+    -fx-opacity: 0.5;
+}

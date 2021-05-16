@@ -1,0 +1,120 @@
+/********** all **********/
+
+.bg-trans {
+    -fx-background-color: transparent;
+}
+
+.border-trans {
+    -fx-border-color: transparent;
+}
+
+.rounded {
+    -fx-background-radius: 5px;
+    -fx-border-radius: 5px;
+}
+
+/********** TASK CARD **********/
+
+.taskCard {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(one-pass-box, rgba(186, 186, 186, 0.8), 2, 0, 0, 0);
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+}
+
+.taskCard:hover {
+    -fx-background-color: #f4f5f7;
+}
+
+.btnActionList {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-font-size: 10px;
+}
+
+.taskHeader {
+    -fx-padding: 5px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.taskBody {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+}
+
+.todoTaskBanner {
+    -fx-pref-height: 25px;
+    -fx-background-color: #ef7564;
+}
+
+.doneTaskBanner {
+    -fx-pref-height: 25px;
+    -fx-background-color: #7bc86c;
+}
+
+/********** header **********/
+
+.deleteBtn {
+    -fx-background-color: #c62424;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.deleteBtn:hover {
+    -fx-background-color: #bd1c1c;
+}
+
+.titleLogoPage {
+    -fx-opacity: 0.3;
+}
+
+.titleLogoPage:hover {
+    -fx-opacity: 0.8;
+}
+
+/********** body **********/
+
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 50px;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.headerTodolistView {
+    -fx-background-color: #026aa7;
+}
+
+.todolistCard {
+    -fx-background-color: #ebecf0;
+    -fx-font-size: 12px;
+}
+
+.todolistCardBody {
+    -fx-spacing: 7px;
+    -fx-padding: 7px;
+    -fx-min-width: 210px;
+}
+
+.trelloBtn {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #424242;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-padding: 5;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+}
+
+.trelloBtn:hover {
+    -fx-background-color: #d2d2d2;
+}
+
+.theme {
+    -fx-background-color: #1f75cb;
+}

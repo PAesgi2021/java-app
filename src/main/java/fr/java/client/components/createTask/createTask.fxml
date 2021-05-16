@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="310.0" prefWidth="500.0" style="-fx-padding: 3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.createTask.createTaskController">
+   <children>
+      <Pane prefHeight="50.0" prefWidth="500.0" styleClass="headerPane">
+         <children>
+            <Text layoutX="207.0" layoutY="32.0" styleClass="titleLogoPage" text="ADD TASK" textAlignment="CENTER">
+               <font>
+                  <Font name="Leelawadee UI Bold" size="25.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+      <Pane prefHeight="185.0" prefWidth="494.0">
+         <children>
+            <TextArea fx:id="contentEntry" layoutY="62.0" onKeyTyped="#updateCharContent" prefHeight="130.0" prefWidth="493.0" promptText="Enter the task content..." />
+            <TextField fx:id="titleEntry" layoutY="29.0" prefHeight="30.0" prefWidth="250.0" promptText="Enter a task name..." text="" />
+            <DatePicker fx:id="deadLine" layoutX="251.0" layoutY="29.0" prefHeight="30.0" prefWidth="120.0" promptText="Select deadline" />
+         </children>
+      </Pane>
+      <Pane prefHeight="60.0" prefWidth="494.0">
+         <children>
+            <Button layoutX="1.0" layoutY="29.0" mnemonicParsing="false" onAction="#createTaskAction" prefHeight="25.0" prefWidth="130.0" text="Add task" />
+            <Label fx:id="nbCharContent" layoutX="444.0" layoutY="6.0" prefHeight="17.0" prefWidth="58.0" styleClass="nbCharContent" text="0/1000" />
+            <Button layoutX="423.0" layoutY="29.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="25.0" prefWidth="69.0" text="Cancel" />
+         </children>
+      </Pane>
+      <Pane prefHeight="10.0" prefWidth="500.0" styleClass="footerPane" />
+   </children>
+   <stylesheets>
+      <URL value="@createTask.css" />
+   </stylesheets>
+</VBox>

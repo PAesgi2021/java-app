@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.profile.ProfileController">
+    <top>
+        <BorderPane prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <left>
+                <StackPane prefWidth="450.0" style="-fx-background-color: #026aa7;" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-padding: 5;">
+                            <children>
+                                <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeAction" styleClass="trelloBtn" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                                <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backAction" styleClass="trelloBtn" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </left>
+            <center>
+                <StackPane prefWidth="380.0" style="-fx-background-color: #026aa7;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label styleClass="titleLogoPage" text="PAESGI" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+            </center>
+            <right>
+                <StackPane prefWidth="450.0" style="-fx-background-color: #026aa7; -fx-padding: 5;" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_RIGHT" spacing="5.0">
+                            <children>
+                                <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-padding: 0;" styleClass="trelloBtn" textFill="WHITE">
+                                    <items>
+                                        <MenuItem fx:id="profileMenu" mnemonicParsing="false" styleClass="menuItemCustom" text="Profile" />
+                                        <MenuItem fx:id="logoutMenu" mnemonicParsing="false" onAction="#logout" styleClass="menuItemLogout" text="LOGOUT" />
+                                    </items>
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </MenuButton>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </right>
+            <bottom>
+                <StackPane prefHeight="150.0" style="-fx-background-color: #f4f5f7;" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER" spacing="10.0">
+                            <children>
+                                <Label fx:id="acronymLabel" style="-fx-padding: 7; -fx-background-radius: 50; -fx-background-color: #00875a;" text="PN" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="20.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="nameLabel" text="Prénom Nom">
+                                    <font>
+                                        <Font size="24.0" />
+                                    </font>
+                                </Label>
+                                <Label fx:id="usernameLabel" text="\@username" textFill="#5e6c84" />
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </bottom>
+        </BorderPane>
+    </top>
+    <center>
+        <VBox maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
+            <children>
+                <StackPane style="-fx-padding: 35;">
+                    <children>
+                        <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="500.0" spacing="15.0">
+                            <children>
+                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" style="-fx-background-color: #f7f0fa;" />
+                                <StackPane alignment="CENTER_LEFT">
+                                    <children>
+                                        <VBox spacing="5.0">
+                                            <children>
+                                                <Label text="About you">
+                                                    <font>
+                                                        <Font name="System Bold" size="20.0" />
+                                                    </font>
+                                                </Label>
+                                                <Separator prefWidth="200.0" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </StackPane>
+                                <HBox maxWidth="-Infinity" prefWidth="500.0" spacing="10.0">
+                                    <children>
+                                        <VBox maxWidth="-Infinity" prefWidth="250.0">
+                                            <children>
+                                                <Label text="Username">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="usernameEntry" maxWidth="1.7976931348623157E308" styleClass="userEntries" />
+                                            </children>
+                                        </VBox>
+                                        <VBox maxWidth="-Infinity" prefWidth="250.0">
+                                            <children>
+                                                <Label text="Password">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="passwordEntry" styleClass="userEntries" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox maxWidth="-Infinity" prefWidth="500.0" spacing="10.0">
+                                    <children>
+                                        <VBox maxWidth="-Infinity" prefWidth="250.0">
+                                            <children>
+                                                <Label text="Firstname">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="firstnameEntry" maxWidth="1.7976931348623157E308" styleClass="userEntries" />
+                                            </children>
+                                        </VBox>
+                                        <VBox maxWidth="-Infinity" prefWidth="250.0">
+                                            <children>
+                                                <Label text="Lastname">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="lastnameEntry" styleClass="userEntries" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <HBox maxWidth="-Infinity" prefWidth="500.0" spacing="10.0">
+                                    <children>
+                                        <VBox maxWidth="-Infinity" prefWidth="250.0">
+                                            <children>
+                                                <Label text="Date of birthday">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <DatePicker fx:id="dobEntry" disable="true" maxWidth="1.7976931348623157E308" styleClass="userEntries" />
+                                            </children>
+                                        </VBox>
+                                        <VBox maxWidth="-Infinity" prefWidth="250.0">
+                                            <children>
+                                                <Label text="Roles">
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextField fx:id="roleEntry" disable="true" styleClass="userEntries" />
+                                            </children>
+                                        </VBox>
+                                    </children>
+                                </HBox>
+                                <StackPane style="-fx-padding: 15;">
+                                    <children>
+                                        <Button fx:id="saveEntry" mnemonicParsing="false" onAction="#saveBtnAction" prefWidth="300.0" style="-fx-background-color: #5AAC44;" text="Save" textFill="WHITE">
+                                            <font>
+                                                <Font size="14.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            </children>
+        </VBox>
+    </center>
+    <bottom>
+        <StackPane prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+            <children>
+                <VBox maxHeight="-Infinity" maxWidth="-Infinity">
+                    <children>
+                        <Separator prefWidth="400.0" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #0052cc;" text="ESGI">
+                            <font>
+                                <Font name="System Bold" size="30.0" />
+                            </font>
+                        </Label>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021" />
+                    </children>
+                </VBox>
+            </children>
+        </StackPane>
+    </bottom>
+
+    <stylesheets>
+        <URL value="@Profile.css" />
+    </stylesheets>
+</BorderPane>

@@ -1,0 +1,61 @@
+.profilBanner {
+    -fx-background-color: #ef7564;
+}
+
+.saveBtn {
+    -fx-border-color: #bf8a6a;
+    -fx-border-radius: 0;
+    -fx-background-color: white;
+    -fx-text-fill: #bf8a6a;
+    -fx-font-size: 10px;
+    -fx-font-weight: bolder;
+}
+
+.saveBtn:hover {
+    -fx-background-color: #bf8a6a;
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+.userEntries {
+    -fx-background-color: #fafbfc;
+    -fx-border-color: #e1e3e8;
+}
+
+.userEntries:hover {
+    -fx-background-color: #ebecf0;
+}
+
+.trelloBtn {
+    -fx-text-fill: white;
+    -fx-background-color: #4e97c2;
+    -fx-padding: 6;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+}
+
+.trelloBtn:hover {
+    -fx-background-color: #3588b9;
+}
+
+.titleLogoPage {
+    -fx-opacity: 0.3;
+}
+
+.titleLogoPage:hover {
+    -fx-opacity: 0.8;
+}
+
+.menuItemCustom {
+    -fx-padding: 10;
+    -fx-font-weight: bolder;
+}
+
+.menuItemLogout {
+    -fx-padding: 10;
+    -fx-font-weight: bolder;
+}
+
+.menuItemLogout:hover {
+    -fx-background-color: #d04141;
+}

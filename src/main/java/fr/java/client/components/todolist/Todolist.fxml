@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="component" prefHeight="700.0" prefWidth="1280.0" styleClass="theme" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.todolist.TodolistController">
+    <top>
+        <BorderPane prefWidth="1280.0" style="-fx-background-color: #026aa7;" BorderPane.alignment="CENTER">
+            <left>
+                <StackPane prefWidth="450.0" style="-fx-padding: 5;" styleClass="theme" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" spacing="5.0" styleClass="theme">
+                            <children>
+                                <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeAction" style="-fx-background-color: white;" textFill="#292961">
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </Button>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </left>
+            <center>
+                <StackPane prefWidth="380.0" styleClass="theme" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label styleClass="titleLogoPage" text="PAESGI" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="16.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </StackPane>
+            </center>
+            <right>
+                <StackPane prefWidth="450.0" style="-fx-padding: 5;" styleClass="theme" BorderPane.alignment="CENTER">
+                    <children>
+                        <HBox alignment="CENTER_RIGHT" spacing="5.0" styleClass="theme">
+                            <children>
+                                <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: white;" textFill="#292961">
+                                    <items>
+                                        <MenuItem fx:id="profileMenuItem" mnemonicParsing="false" onAction="#profileAction" styleClass="menuItemCustom" text="Profile" />
+                                        <MenuItem fx:id="logoutMenuItem" mnemonicParsing="false" onAction="#logout" styleClass="menuItemLogout" text="LOGOUT" />
+                                    </items>
+                                    <font>
+                                        <Font name="System Bold" size="12.0" />
+                                    </font>
+                                </MenuButton>
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </right>
+        </BorderPane>
+    </top>
+    <center>
+        <VBox maxHeight="1.7976931348623157E308" BorderPane.alignment="CENTER">
+            <children>
+                <VBox spacing="15.0" style="-fx-padding: 10; -fx-background-color: #f3f3f3;">
+                    <children>
+                  <StackPane>
+                     <children>
+                        <Label fx:id="spaceNameLabel" style="-fx-padding: 5;" text="mySpace" textFill="#404040">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </StackPane>
+                        <StackPane>
+                            <children>
+                                <Separator maxWidth="-Infinity" prefWidth="600.0" />
+                            </children>
+                        </StackPane>
+                        <StackPane>
+                            <children>
+                                <StackPane maxWidth="-Infinity" prefWidth="600.0" StackPane.alignment="CENTER">
+                                    <children>
+                                        <HBox alignment="CENTER_LEFT" maxWidth="-Infinity" prefHeight="32.0" prefWidth="286.0" spacing="10.0" StackPane.alignment="CENTER_LEFT">
+                                            <children>
+                                                <Button mnemonicParsing="false" onAction="#createListAction" styleClass="trelloBtn" text="+ add List" />
+                                                <StackPane>
+                                                    <children>
+                                                        <CheckBox fx:id="showDoneTasks" mnemonicParsing="false" onAction="#refreshAction" styleClass="trelloBtn" text="show done Task" />
+                                                    </children>
+                                                </StackPane>
+                                            </children>
+                                        </HBox>
+                                        <HBox maxWidth="-Infinity" spacing="10.0" StackPane.alignment="CENTER_RIGHT">
+                                            <children>
+                                                <StackPane>
+                                                    <children>
+                                                        <TextField fx:id="searchEntry" disable="true" onKeyTyped="#searchAction" promptText="Choose a sort -&gt;" style="-fx-padding: 7;" />
+                                                    </children>
+                                                </StackPane>
+                                                <StackPane>
+                                                    <children>
+                                                        <MenuButton fx:id="sortedBtn" mnemonicParsing="false" style="-fx-padding: 0;" styleClass="trelloBtn" text="Sort by">
+                                                            <items>
+                                                                <MenuItem mnemonicParsing="false" onAction="#menuItemSortedAction" text="List Title" />
+                                                                <MenuItem mnemonicParsing="false" onAction="#menuItemSortedAction" text="Task Title" />
+                                                            </items>
+                                                        </MenuButton>
+                                                    </children>
+                                                </StackPane>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </StackPane>
+                    </children>
+                </VBox>
+                <StackPane styleClass="theme">
+                    <children>
+                        <VBox maxHeight="1.7976931348623157E308">
+                            <children>
+                                <ScrollPane maxHeight="1.7976931348623157E308" styleClass="todolistScrollPane">
+                                    <content>
+                                        <HBox fx:id="listsHBox" spacing="5" styleClass="bg-trans, border-trans" />
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+            </children>
+        </VBox>
+    </center>
+
+    <stylesheets>
+        <URL value="@../todolist/Todolist.css" />
+    </stylesheets>
+</BorderPane>

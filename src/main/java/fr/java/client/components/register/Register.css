@@ -1,0 +1,32 @@
+.registerBtn {
+    -fx-background-color: #0052cc;
+    -fx-text-fill: white;
+    -fx-padding: 10;
+    -fx-font-weight: bolder;
+    -fx-font-size: 14;
+}
+
+.registerBtn:hover {
+    -fx-opacity: 0.9;
+}
+
+.redirectLoginBtn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #0052CC;
+}
+
+.redirectLoginBtn:hover {
+    -fx-opacity: 0.6;
+}
+
+.registerEntries {
+    -fx-background-color: #fafbfc;
+    -fx-border-color: #dfe1e6;
+    -fx-border-radius: 2;
+    -fx-padding: 8;
+}
+
+.registerEntries:hover {
+    -fx-background-color: #ebecf0;
+}

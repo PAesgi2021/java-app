@@ -1,0 +1,106 @@
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-padding: 50px;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.bg-trans {
+    -fx-background-color: transparent;
+}
+
+.border-trans {
+    -fx-border-color: transparent;
+}
+
+
+.taskCard {
+    -fx-background-color: white;
+}
+
+.taskCard:hover {
+    -fx-background-color: #f8e9a0;
+}
+
+.btnActionList {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+    -fx-font-size: 10px;
+}
+
+
+
+.taskHeader {
+    -fx-padding: 5px;
+    -fx-background-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.taskBody {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+}
+.tferror {
+    -fx-text-box-border: red ;
+    -fx-focus-color: red ;
+}
+
+.signinBtn {
+    -fx-background-color: #2ECC40;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.signinBtn:hover {
+
+    -fx-background-color: #63d26e;
+}
+
+.registerBtn {
+    -fx-background-color: #0074D9;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-border-color: transparent;
+    -fx-font-weight: bolder;
+}
+
+.registerBtn:hover {
+    -fx-background-color: #5997ca;
+}
+
+.continueBtn {
+    -fx-background-color: #0052cc;
+    -fx-text-fill: white;
+    -fx-padding: 10;
+    -fx-font-weight: bolder;
+    -fx-font-size: 14;
+}
+
+.continueBtn:hover {
+    -fx-opacity: 0.9;
+}
+
+.createBtn {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #0052CC;
+}
+
+.createBtn:hover {
+    -fx-opacity: 0.6;
+}
+
+.loginEntries {
+    -fx-background-color: #fafbfc;
+    -fx-border-color: #dfe1e6;
+    -fx-border-radius: 2;
+    -fx-padding: 8;
+}
+
+.loginEntries:hover {
+    -fx-background-color: #ebecf0;
+}
