@@ -5,57 +5,69 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="component" opacity="0.9" prefHeight="449.0" prefWidth="649.0" styleClass="manageTask" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.taskConfig.TaskConfigController">
+<VBox fx:id="component" opacity="0.9" prefHeight="449.0" prefWidth="649.0" styleClass="manageTask"
+      xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="fr.java.client.components.taskConfig.TaskConfigController">
     <children>
-        <Pane fx:id="headerTaskConfig" styleClass="TaskConfigBanner" />
+        <Pane fx:id="headerTaskConfig" styleClass="TaskConfigBanner"/>
         <Pane prefHeight="321.0" prefWidth="618.0">
             <children>
                 <ScrollPane layoutX="17.0" layoutY="53.0" styleClass="scrollPaneText">
                     <content>
-                        <TextFlow fx:id="titleTaskTextFlow" maxWidth="430.0" prefHeight="38.0" prefWidth="443.0" style="-fx-background-color: white" visible="true" />
+                        <TextFlow fx:id="titleTaskTextFlow" maxWidth="430.0" prefHeight="38.0" prefWidth="443.0"
+                                  style="-fx-background-color: white" visible="true"/>
                     </content>
                 </ScrollPane>
                 <ScrollPane layoutX="17.0" layoutY="132.0" styleClass="scrollPaneText">
                     <content>
-                        <TextFlow fx:id="descriptionTaskTextFlow" maxWidth="430.0" prefHeight="149.0" prefWidth="443.0" style="-fx-background-color: white" visible="true" />
+                        <TextFlow fx:id="descriptionTaskTextFlow" maxWidth="430.0" prefHeight="149.0" prefWidth="443.0"
+                                  style="-fx-background-color: white" visible="true"/>
                     </content>
                 </ScrollPane>
-                <TextField fx:id="titleTask" layoutX="19.0" layoutY="49.0" prefHeight="38.0" prefWidth="443.0" visible="false" />
-                <TextArea fx:id="descriptionTask" layoutX="19.0" layoutY="132.0" onKeyTyped="#updateNbCharDescription" prefHeight="149.0" prefWidth="443.0" visible="false" />
+                <TextField fx:id="titleTask" layoutX="19.0" layoutY="49.0" prefHeight="38.0" prefWidth="443.0"
+                           visible="false"/>
+                <TextArea fx:id="descriptionTask" layoutX="19.0" layoutY="132.0" onKeyTyped="#updateNbCharDescription"
+                          prefHeight="149.0" prefWidth="443.0" visible="false"/>
                 <Label layoutX="19.0" layoutY="22.0" text="TO DO">
                     <font>
-                        <Font name="System Bold" size="18.0" />
+                        <Font name="System Bold" size="18.0"/>
                     </font>
                 </Label>
                 <Label layoutX="18.0" layoutY="103.0" text="Description:">
                     <font>
-                        <Font name="System Bold" size="13.0" />
+                        <Font name="System Bold" size="13.0"/>
                     </font>
                 </Label>
-            <Pane fx:id="actionPane" layoutX="507.0" layoutY="89.0" prefHeight="90.0" prefWidth="129.0">
-               <children>
-                      <CheckBox fx:id="lockCheckbox" layoutY="19.0" mnemonicParsing="false" onAction="#checkFieldAccess" prefHeight="15.0" prefWidth="129.0" styleClass="lockCheckbox" text="EDIT" />
-                      <Label opacity="0.83" text="ACTIONS" />
-                      <Button fx:id="saveBtn" layoutY="56.0" mnemonicParsing="false" onAction="#saveBtnAction" prefHeight="32.0" prefWidth="129.0" styleClass="saveBtn" text="SAVE" visible="false" />
-               </children>
-            </Pane>
-            <Label fx:id="nbCharDescription" layoutX="412.0" layoutY="289.0" styleClass="nbCharLabel" text="0/1000" />
+                <Pane fx:id="actionPane" layoutX="507.0" layoutY="89.0" prefHeight="90.0" prefWidth="129.0">
+                    <children>
+                        <CheckBox fx:id="lockCheckbox" layoutY="19.0" mnemonicParsing="false"
+                                  onAction="#checkFieldAccess" prefHeight="15.0" prefWidth="129.0"
+                                  styleClass="lockCheckbox" text="EDIT"/>
+                        <Label opacity="0.83" text="ACTIONS"/>
+                        <Button fx:id="saveBtn" layoutY="56.0" mnemonicParsing="false" onAction="#saveBtnAction"
+                                prefHeight="32.0" prefWidth="129.0" styleClass="saveBtn" text="SAVE" visible="false"/>
+                    </children>
+                </Pane>
+                <Label fx:id="nbCharDescription" layoutX="412.0" layoutY="289.0" styleClass="nbCharLabel"
+                       text="0/1000"/>
             </children>
         </Pane>
         <Pane prefHeight="58.0" prefWidth="618.0">
             <children>
-                <CheckBox fx:id="statusCheckbox" layoutX="14.0" layoutY="9.0" mnemonicParsing="false" onAction="#updateStatusCheckboxDynamically" styleClass="statusTaskCheckbox" text="CheckBox" />
-                <Button layoutX="561.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteBtnAction" prefHeight="32.0" prefWidth="74.0" styleClass="deleteBtn" text="DELETE" />
-            <Label fx:id="textComplete" layoutX="13.0" layoutY="-5.0" text="COMPLETE">
-               <font>
-                  <Font name="System Bold" size="8.0" />
-               </font>
-            </Label>
+                <CheckBox fx:id="statusCheckbox" layoutX="14.0" layoutY="9.0" mnemonicParsing="false"
+                          onAction="#updateStatusCheckboxDynamically" styleClass="statusTaskCheckbox" text="CheckBox"/>
+                <Button layoutX="561.0" layoutY="12.0" mnemonicParsing="false" onAction="#deleteBtnAction"
+                        prefHeight="32.0" prefWidth="74.0" styleClass="deleteBtn" text="DELETE"/>
+                <Label fx:id="textComplete" layoutX="13.0" layoutY="-5.0" text="COMPLETE">
+                    <font>
+                        <Font name="System Bold" size="8.0"/>
+                    </font>
+                </Label>
             </children>
         </Pane>
     </children>
 
     <stylesheets>
-        <URL value="@TaskConfig.css" />
+        <URL value="@TaskConfig.css"/>
     </stylesheets>
 </VBox>

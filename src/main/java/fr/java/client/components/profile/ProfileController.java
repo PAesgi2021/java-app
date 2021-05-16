@@ -55,7 +55,7 @@ public class ProfileController {
         this.instance.getUserService().getUser().setLastname(this.lastnameEntry.getText());
         this.instance.getUserService().getUser().setDob(this.dobEntry.getValue().atStartOfDay());
 
-        FileUtils.showView(this.usernameEntry, "todolist/TodolistView.fxml");
+        this.backAction();
     }
 
     public void homeAction() throws IOException {

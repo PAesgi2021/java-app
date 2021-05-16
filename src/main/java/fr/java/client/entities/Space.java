@@ -90,4 +90,18 @@ public class Space {
     public List<Todolist> getTodolists() {
         return todolists;
     }
+
+    @Override
+    public String toString() {
+        return "Space{" +
+                "name='" + name + '\'' +
+                ", author=" + author +
+                ", visibility='" + visibility + '\'' +
+                ", tag='" + tag + '\'' +
+                ", description='" + description + '\'' +
+                ", lastUpdatedDate=" + lastUpdatedDate +
+                ", users=" + users +
+                ", todolists=" + todolists +
+                '}';
+    }
 }

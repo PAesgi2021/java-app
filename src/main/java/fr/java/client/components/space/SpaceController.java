@@ -62,6 +62,7 @@ public class SpaceController {
                         .toURL()
         );
         this.spacesContainer.getChildren().add(mainPane);
+        this.instance.getSpaceService().setCurrentSpace(null);
     }
 
     public void allSpaceAction() throws IOException {

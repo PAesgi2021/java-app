@@ -54,7 +54,6 @@ public class TodolistController {
 
     /**
      * create a list of task component
-     *
      * @param todolist
      * @param status
      */
@@ -135,6 +134,9 @@ public class TodolistController {
      */
     public void addTask(Todolist todolist, VBox listView, TaskStatusType status) {
         for (Task task : todolist.getTasks()) {
+
+            //TODO need to be refacto
+            if (!this.isValidSortedByTaskTitle(task)) continue;
 
             // separate todoTask and doneTask
             if (task.getStatus() != status) {
@@ -318,5 +320,16 @@ public class TodolistController {
         }
 
         return false;
+    }
+
+    public boolean isValidSortedByTaskTitle(Task task) {
+        if (this.sortSelected != null && this.sortSelected.equals("Task Title")) {
+            if (task.getTitle().contains(this.searchEntry.getText())) {
+                return true;
+            }
+            return false;
+        }
+
+        return true;
     }
 }

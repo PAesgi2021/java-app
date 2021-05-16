@@ -5,7 +5,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.profile.ProfileController">
+<BorderPane prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: white;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.java.client.components.profile.ProfileController">
     <top>
         <BorderPane prefWidth="1280.0" BorderPane.alignment="CENTER">
             <left>
@@ -13,14 +15,16 @@
                     <children>
                         <HBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-padding: 5;">
                             <children>
-                                <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeAction" styleClass="trelloBtn" textFill="WHITE">
+                                <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeAction"
+                                        styleClass="trelloBtn" textFill="WHITE">
                                     <font>
-                                        <Font name="System Bold" size="12.0" />
+                                        <Font name="System Bold" size="12.0"/>
                                     </font>
                                 </Button>
-                                <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backAction" styleClass="trelloBtn" textFill="WHITE">
+                                <Button fx:id="backBtn" mnemonicParsing="false" onAction="#backAction"
+                                        styleClass="trelloBtn" textFill="WHITE">
                                     <font>
-                                        <Font name="System Bold" size="12.0" />
+                                        <Font name="System Bold" size="12.0"/>
                                     </font>
                                 </Button>
                             </children>
@@ -33,25 +37,29 @@
                     <children>
                         <Label styleClass="titleLogoPage" text="PAESGI" textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="16.0" />
+                                <Font name="System Bold" size="16.0"/>
                             </font>
                         </Label>
                     </children>
                 </StackPane>
             </center>
             <right>
-                <StackPane prefWidth="450.0" style="-fx-background-color: #026aa7; -fx-padding: 5;" BorderPane.alignment="CENTER">
+                <StackPane prefWidth="450.0" style="-fx-background-color: #026aa7; -fx-padding: 5;"
+                           BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="CENTER_RIGHT" spacing="5.0">
                             <children>
-                                <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-padding: 0;" styleClass="trelloBtn" textFill="WHITE">
+                                <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false"
+                                            style="-fx-padding: 0;" styleClass="trelloBtn" textFill="WHITE">
                                     <items>
-                                        <MenuItem fx:id="profileMenu" mnemonicParsing="false" styleClass="menuItemCustom" text="Profile" />
-                                        <MenuItem fx:id="logoutMenu" onAction="#logout" mnemonicParsing="false" styleClass="menuItemLogout" text="LOGOUT" />
+                                        <MenuItem fx:id="profileMenu" mnemonicParsing="false"
+                                                  styleClass="menuItemCustom" text="Profile"/>
+                                        <MenuItem fx:id="logoutMenu" onAction="#logout" mnemonicParsing="false"
+                                                  styleClass="menuItemLogout" text="LOGOUT"/>
                                     </items>
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
                                 </MenuButton>
                             </children>
                         </HBox>
@@ -63,17 +71,19 @@
                     <children>
                         <HBox alignment="CENTER" spacing="10.0">
                             <children>
-                                <Label fx:id="acronymLabel" style="-fx-padding: 7; -fx-background-radius: 50; -fx-background-color: #00875a;" text="PN" textFill="WHITE">
+                                <Label fx:id="acronymLabel"
+                                       style="-fx-padding: 7; -fx-background-radius: 50; -fx-background-color: #00875a;"
+                                       text="PN" textFill="WHITE">
                                     <font>
-                                        <Font name="System Bold" size="20.0" />
+                                        <Font name="System Bold" size="20.0"/>
                                     </font>
                                 </Label>
                                 <Label fx:id="nameLabel" text="Prénom Nom">
                                     <font>
-                                        <Font size="24.0" />
+                                        <Font size="24.0"/>
                                     </font>
                                 </Label>
-                                <Label fx:id="usernameLabel" text="\@username" textFill="#5e6c84" />
+                                <Label fx:id="usernameLabel" text="\@username" textFill="#5e6c84"/>
                             </children>
                         </HBox>
                     </children>
@@ -88,17 +98,18 @@
                     <children>
                         <VBox alignment="CENTER" maxWidth="-Infinity" prefWidth="500.0" spacing="15.0">
                             <children>
-                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0" prefWidth="500.0" style="-fx-background-color: #f7f0fa;" />
+                                <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="100.0"
+                                           prefWidth="500.0" style="-fx-background-color: #f7f0fa;"/>
                                 <StackPane alignment="CENTER_LEFT">
                                     <children>
                                         <VBox spacing="5.0">
                                             <children>
                                                 <Label text="À propos">
                                                     <font>
-                                                        <Font name="System Bold" size="20.0" />
+                                                        <Font name="System Bold" size="20.0"/>
                                                     </font>
                                                 </Label>
-                                                <Separator prefWidth="200.0" />
+                                                <Separator prefWidth="200.0"/>
                                             </children>
                                         </VBox>
                                     </children>
@@ -109,20 +120,21 @@
                                             <children>
                                                 <Label text="Nom d'utilisateur">
                                                     <font>
-                                                        <Font size="14.0" />
+                                                        <Font size="14.0"/>
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="usernameEntry" maxWidth="1.7976931348623157E308" styleClass="userEntries" />
+                                                <TextField fx:id="usernameEntry" maxWidth="1.7976931348623157E308"
+                                                           styleClass="userEntries"/>
                                             </children>
                                         </VBox>
                                         <VBox maxWidth="-Infinity" prefWidth="250.0">
                                             <children>
                                                 <Label text="Mot de passe">
                                                     <font>
-                                                        <Font size="14.0" />
+                                                        <Font size="14.0"/>
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="passwordEntry" styleClass="userEntries" />
+                                                <TextField fx:id="passwordEntry" styleClass="userEntries"/>
                                             </children>
                                         </VBox>
                                     </children>
@@ -133,20 +145,21 @@
                                             <children>
                                                 <Label text="Prénom">
                                                     <font>
-                                                        <Font size="14.0" />
+                                                        <Font size="14.0"/>
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="firstnameEntry" maxWidth="1.7976931348623157E308" styleClass="userEntries" />
+                                                <TextField fx:id="firstnameEntry" maxWidth="1.7976931348623157E308"
+                                                           styleClass="userEntries"/>
                                             </children>
                                         </VBox>
                                         <VBox maxWidth="-Infinity" prefWidth="250.0">
                                             <children>
                                                 <Label text="Nom">
                                                     <font>
-                                                        <Font size="14.0" />
+                                                        <Font size="14.0"/>
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="lastnameEntry" styleClass="userEntries" />
+                                                <TextField fx:id="lastnameEntry" styleClass="userEntries"/>
                                             </children>
                                         </VBox>
                                     </children>
@@ -157,29 +170,32 @@
                                             <children>
                                                 <Label text="Date de naissance">
                                                     <font>
-                                                        <Font size="14.0" />
+                                                        <Font size="14.0"/>
                                                     </font>
                                                 </Label>
-                                                <DatePicker fx:id="dobEntry" maxWidth="1.7976931348623157E308" styleClass="userEntries" />
+                                                <DatePicker fx:id="dobEntry" maxWidth="1.7976931348623157E308"
+                                                            styleClass="userEntries"/>
                                             </children>
                                         </VBox>
                                         <VBox maxWidth="-Infinity" prefWidth="250.0">
                                             <children>
                                                 <Label text="Roles">
                                                     <font>
-                                                        <Font size="14.0" />
+                                                        <Font size="14.0"/>
                                                     </font>
                                                 </Label>
-                                                <TextField fx:id="roleEntry" disable="true" styleClass="userEntries" />
+                                                <TextField fx:id="roleEntry" disable="true" styleClass="userEntries"/>
                                             </children>
                                         </VBox>
                                     </children>
                                 </HBox>
                                 <StackPane style="-fx-padding: 15;">
                                     <children>
-                                        <Button fx:id="saveEntry" mnemonicParsing="false" onAction="#saveBtnAction" prefWidth="300.0" style="-fx-background-color: #5AAC44;" text="Enregistrer" textFill="WHITE">
+                                        <Button fx:id="saveEntry" mnemonicParsing="false" onAction="#saveBtnAction"
+                                                prefWidth="300.0" style="-fx-background-color: #5AAC44;"
+                                                text="Enregistrer" textFill="WHITE">
                                             <font>
-                                                <Font size="14.0" />
+                                                <Font size="14.0"/>
                                             </font>
                                         </Button>
                                     </children>
@@ -196,13 +212,15 @@
             <children>
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity">
                     <children>
-                        <Separator prefWidth="400.0" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #0052cc;" text="ESGI">
+                        <Separator prefWidth="400.0"/>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               style="-fx-text-fill: #0052cc;" text="ESGI">
                             <font>
-                                <Font name="System Bold" size="30.0" />
+                                <Font name="System Bold" size="30.0"/>
                             </font>
                         </Label>
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021"/>
                     </children>
                 </VBox>
             </children>
@@ -210,6 +228,6 @@
     </bottom>
 
     <stylesheets>
-        <URL value="@Profile.css" />
+        <URL value="@Profile.css"/>
     </stylesheets>
 </BorderPane>

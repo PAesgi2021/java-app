@@ -15,17 +15,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.space.SpaceController">
+<BorderPane prefHeight="700.0" prefWidth="1280.0" style="-fx-background-color: white;"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="fr.java.client.components.space.SpaceController">
     <top>
         <BorderPane prefWidth="1280.0" BorderPane.alignment="CENTER">
             <left>
-                <StackPane prefWidth="450.0" style="-fx-background-color: #292961; -fx-padding: 5;" BorderPane.alignment="CENTER">
+                <StackPane prefWidth="450.0" style="-fx-background-color: #292961; -fx-padding: 5;"
+                           BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="CENTER_LEFT" spacing="5.0" style="-fx-background-color: #292961;">
                             <children>
-                                <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeAction" style="-fx-background-color: white;" textFill="#292961">
+                                <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#homeAction"
+                                        style="-fx-background-color: white;" textFill="#292961">
                                     <font>
-                                        <Font name="System Bold" size="12.0" />
+                                        <Font name="System Bold" size="12.0"/>
                                     </font>
                                 </Button>
                             </children>
@@ -38,24 +42,28 @@
                     <children>
                         <Label styleClass="titleLogoPage" text="PAESGI" textFill="WHITE">
                             <font>
-                                <Font name="System Bold" size="16.0" />
+                                <Font name="System Bold" size="16.0"/>
                             </font>
                         </Label>
                     </children>
                 </StackPane>
             </center>
             <right>
-                <StackPane prefWidth="450.0" style="-fx-background-color: #292961; -fx-padding: 5;" BorderPane.alignment="CENTER">
+                <StackPane prefWidth="450.0" style="-fx-background-color: #292961; -fx-padding: 5;"
+                           BorderPane.alignment="CENTER">
                     <children>
                         <HBox alignment="CENTER_RIGHT" spacing="5.0" style="-fx-background-color: #292961;">
                             <children>
-                                <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false" style="-fx-background-color: white;" textFill="#292961">
+                                <MenuButton fx:id="settingsMenu" alignment="CENTER" mnemonicParsing="false"
+                                            style="-fx-background-color: white;" textFill="#292961">
                                     <items>
-                                        <MenuItem fx:id="profileMenu" onAction="#profileAction" mnemonicParsing="false" styleClass="menuItemCustom" text="Profile" />
-                                        <MenuItem fx:id="logoutMenu" mnemonicParsing="false" onAction="#logout" styleClass="menuItemLogout" text="LOGOUT" />
+                                        <MenuItem fx:id="profileMenu" onAction="#profileAction" mnemonicParsing="false"
+                                                  styleClass="menuItemCustom" text="Profile"/>
+                                        <MenuItem fx:id="logoutMenu" mnemonicParsing="false" onAction="#logout"
+                                                  styleClass="menuItemLogout" text="LOGOUT"/>
                                     </items>
                                     <font>
-                                        <Font name="System Bold" size="12.0" />
+                                        <Font name="System Bold" size="12.0"/>
                                     </font>
                                 </MenuButton>
                             </children>
@@ -70,13 +78,15 @@
             <children>
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity">
                     <children>
-                        <Separator prefWidth="400.0" />
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #0052cc;" text="ESGI">
+                        <Separator prefWidth="400.0"/>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               style="-fx-text-fill: #0052cc;" text="ESGI">
                             <font>
-                                <Font name="System Bold" size="30.0" />
+                                <Font name="System Bold" size="30.0"/>
                             </font>
                         </Label>
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+                               style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021"/>
                     </children>
                 </VBox>
             </children>
@@ -84,55 +94,65 @@
     </bottom>
 
     <stylesheets>
-        <URL value="@../profile/Profile.css" />
+        <URL value="@../profile/Profile.css"/>
     </stylesheets>
     <center>
-        <VBox maxWidth="-Infinity" prefWidth="650.0" spacing="10.0" style="-fx-padding: 20;" BorderPane.alignment="CENTER">
+        <VBox maxWidth="-Infinity" prefWidth="650.0" spacing="10.0" style="-fx-padding: 20;"
+              BorderPane.alignment="CENTER">
             <children>
                 <StackPane>
                     <children>
                         <Label text="Space" StackPane.alignment="CENTER_LEFT">
                             <font>
-                                <Font size="24.0" />
+                                <Font size="24.0"/>
                             </font>
                         </Label>
-                        <Button fx:id="newSpace" mnemonicParsing="false" onAction="#newSpaceAction" styleClass="newSpaceBtn" text="New Space" textFill="WHITE" StackPane.alignment="CENTER_RIGHT">
+                        <Button fx:id="newSpace" mnemonicParsing="false" onAction="#newSpaceAction"
+                                styleClass="newSpaceBtn" text="New Space" textFill="WHITE"
+                                StackPane.alignment="CENTER_RIGHT">
                             <font>
-                                <Font size="14.0" />
+                                <Font size="14.0"/>
                             </font>
                             <cursor>
-                                <Cursor fx:constant="HAND" />
+                                <Cursor fx:constant="HAND"/>
                             </cursor>
                         </Button>
                     </children>
                 </StackPane>
-                <Separator prefWidth="200.0" />
+                <Separator prefWidth="200.0"/>
                 <BorderPane>
                     <left>
-                        <HBox maxWidth="-Infinity" prefHeight="30.0" prefWidth="322.0" spacing="5.0" BorderPane.alignment="CENTER">
+                        <HBox maxWidth="-Infinity" prefHeight="30.0" prefWidth="322.0" spacing="5.0"
+                              BorderPane.alignment="CENTER">
                             <children>
-                                <Button fx:id="yourSpacesBtn" mnemonicParsing="false" onAction="#yourSpacesAction" styleClass="spaceMenuItemBtn" text="Your spaces">
+                                <Button fx:id="yourSpacesBtn" mnemonicParsing="false" onAction="#yourSpacesAction"
+                                        styleClass="spaceMenuItemBtn" text="Your spaces">
                                     <font>
-                                        <Font size="14.0" />
+                                        <Font size="14.0"/>
                                     </font>
                                     <graphic>
-                                        <Label fx:id="yourNumberSpaces" maxWidth="-Infinity" styleClass="badgeNumberSpaces" text="0" />
+                                        <Label fx:id="yourNumberSpaces" maxWidth="-Infinity"
+                                               styleClass="badgeNumberSpaces" text="0"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="favoriteSpacesBtn" disable="true" mnemonicParsing="false" onAction="#favoriteSpacesAction" styleClass="spaceMenuItemBtn" text="Favorite">
+                                <Button fx:id="favoriteSpacesBtn" disable="true" mnemonicParsing="false"
+                                        onAction="#favoriteSpacesAction" styleClass="spaceMenuItemBtn" text="Favorite">
                                     <font>
-                                        <Font size="14.0" />
+                                        <Font size="14.0"/>
                                     </font>
                                     <graphic>
-                                        <Label fx:id="numberFavoriteSpaces" maxWidth="-Infinity" styleClass="badgeNumberSpaces" text="0" />
+                                        <Label fx:id="numberFavoriteSpaces" maxWidth="-Infinity"
+                                               styleClass="badgeNumberSpaces" text="0"/>
                                     </graphic>
                                 </Button>
-                                <Button fx:id="exploreSpacesBtn" mnemonicParsing="false" onAction="#exploreSpacesAction" styleClass="spaceMenuItemBtn" text="Explore">
+                                <Button fx:id="exploreSpacesBtn" mnemonicParsing="false" onAction="#exploreSpacesAction"
+                                        styleClass="spaceMenuItemBtn" text="Explore">
                                     <font>
-                                        <Font size="14.0" />
+                                        <Font size="14.0"/>
                                     </font>
                                     <graphic>
-                                        <Label fx:id="numberExploreSpaces" maxWidth="-Infinity" styleClass="badgeNumberSpaces" text="0" />
+                                        <Label fx:id="numberExploreSpaces" maxWidth="-Infinity"
+                                               styleClass="badgeNumberSpaces" text="0"/>
                                     </graphic>
                                 </Button>
                             </children>
@@ -143,15 +163,17 @@
                             <children>
                                 <StackPane>
                                     <children>
-                                        <TextField fx:id="tfFilter" prefWidth="180.0" promptText="Filter by ..." />
+                                        <TextField fx:id="tfFilter" prefWidth="180.0" promptText="Filter by ..."/>
                                     </children>
                                 </StackPane>
                                 <StackPane>
                                     <children>
                                         <MenuButton fx:id="mbSort" mnemonicParsing="false" text="Sort by">
                                             <items>
-                                                <MenuItem mnemonicParsing="false" text="Spacename" onAction="#selectedMenuItemAction" />
-                                                <MenuItem mnemonicParsing="false" text="Tag" onAction="#selectedMenuItemAction" />
+                                                <MenuItem mnemonicParsing="false" text="Spacename"
+                                                          onAction="#selectedMenuItemAction"/>
+                                                <MenuItem mnemonicParsing="false" text="Tag"
+                                                          onAction="#selectedMenuItemAction"/>
                                             </items>
                                         </MenuButton>
                                     </children>
@@ -160,29 +182,31 @@
                         </HBox>
                     </center>
                 </BorderPane>
-                <Separator prefWidth="200.0" />
+                <Separator prefWidth="200.0"/>
                 <BorderPane>
                     <center>
                         <HBox fx:id="yourSpacesMenuBtnHBox" BorderPane.alignment="CENTER">
                             <children>
-                                <Button fx:id="allSpacesBtn" mnemonicParsing="false" onAction="#allSpaceAction" styleClass="spaceMenuItemBtn" text="All">
+                                <Button fx:id="allSpacesBtn" mnemonicParsing="false" onAction="#allSpaceAction"
+                                        styleClass="spaceMenuItemBtn" text="All">
                                     <font>
-                                        <Font size="14.0" />
+                                        <Font size="14.0"/>
                                     </font>
                                 </Button>
-                                <Button fx:id="personalSpacesBtn" mnemonicParsing="false" onAction="#personalSpaceAction" styleClass="spaceMenuItemBtn" text="Personal">
+                                <Button fx:id="personalSpacesBtn" mnemonicParsing="false"
+                                        onAction="#personalSpaceAction" styleClass="spaceMenuItemBtn" text="Personal">
                                     <font>
-                                        <Font size="14.0" />
+                                        <Font size="14.0"/>
                                     </font>
                                 </Button>
                             </children>
                         </HBox>
                     </center>
                 </BorderPane>
-                <Separator fx:id="lastSeparator" prefWidth="200.0" />
+                <Separator fx:id="lastSeparator" prefWidth="200.0"/>
                 <ScrollPane>
                     <content>
-                        <VBox fx:id="spacesContainer" />
+                        <VBox fx:id="spacesContainer"/>
                     </content>
                 </ScrollPane>
             </children>
@@ -190,6 +214,6 @@
     </center>
 
     <stylesheets>
-        <URL value="@Space.css" />
+        <URL value="@Space.css"/>
     </stylesheets>
 </BorderPane>

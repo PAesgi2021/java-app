@@ -27,6 +27,7 @@ public class SpaceCardController {
     @FXML
     protected void initialize() throws MalformedURLException {
         this.space = this.instance.getSpaceService().getCurrentSpace();
+
         String firstLetterProjectName = this.space.getName().substring(0, 1).toUpperCase();
 
         this.acronymSpaceBtn.setText(firstLetterProjectName);
@@ -65,6 +66,7 @@ public class SpaceCardController {
 
     public void showTodolistView() throws IOException {
         this.instance.getSpaceService().setCurrentSpace(this.space);
+        System.out.println(this.instance.getSpaceService().getCurrentSpace().toString());
         FileUtils.showView(this.accessImgPane, "todolist/Todolist.fxml");
     }
 
