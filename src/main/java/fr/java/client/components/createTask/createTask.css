@@ -5,12 +5,7 @@
 .titleLogoPage {
     -fx-font-size: 20px;
     -fx-font-weight: bolder;
-    -fx-opacity: 0.3;
-    -fx-fill: white;
-}
-
-.titleLogoPage:hover {
-    -fx-opacity: 0.8;
+    -fx-background-color: black;
 }
 
 .nbCharContent {
