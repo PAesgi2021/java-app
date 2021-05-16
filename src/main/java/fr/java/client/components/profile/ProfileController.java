@@ -1,5 +1,6 @@
 package fr.java.client.components.profile;
 
+import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import javafx.event.ActionEvent;
@@ -30,17 +31,20 @@ public class ProfileController {
     @FXML MenuItem logoutMenu;
     @FXML MenuItem profileMenu;
     @FXML Button backBtn;
-
+    private User user;
+    
     @FXML
     protected void initialize() throws MalformedURLException {
+        this.user = this.instance.getUserService().getUser();
         this.acronymLabel.setText(FileUtils.getAcronymUser());
-        this.nameLabel.setText(this.instance.getUserService().getUser().getFirstname() + " " + this.instance.getUserService().getUser().getLastname());
-        this.usernameEntry.setText(this.instance.getUserService().getUser().getUsername());
-        this.passwordEntry.setText(this.instance.getUserService().getUser().getPassword());
-        this.firstnameEntry.setText(this.instance.getUserService().getUser().getFirstname());
-        this.lastnameEntry.setText(this.instance.getUserService().getUser().getLastname());
-        this.dobEntry.setValue(this.instance.getUserService().getUser().getDob().toLocalDate());
-        this.roleEntry.setText(this.instance.getUserService().getUser().getRoles()+"");
+        this.nameLabel.setText(this.user.getFirstname() + " " + this.user.getLastname());
+        this.usernameEntry.setText(this.user.getUsername());
+        this.passwordEntry.setText(this.user.getPassword());
+        this.firstnameEntry.setText(this.user.getFirstname());
+        this.lastnameEntry.setText(this.user.getLastname());
+        this.dobEntry.setValue(this.user.getDob().toLocalDate());
+        this.roleEntry.setText(this.user.getRoles()+"");
+        this.usernameLabel.setText("/ @" + user.getFirstname().toLowerCase() + user.getLastname().toLowerCase());
 
         FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
         URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/previous.png");

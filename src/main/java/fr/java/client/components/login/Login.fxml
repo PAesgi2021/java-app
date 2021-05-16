@@ -6,59 +6,48 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0"
-            prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="fr.java.client.components.login.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.login.LoginController">
     <top>
         <StackPane prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
             <children>
                 <Label style="-fx-text-fill: #253858;" text="PAESGI">
                     <font>
-                        <Font name="System Bold" size="35.0"/>
+                        <Font name="System Bold" size="35.0" />
                     </font>
                 </Label>
             </children>
         </StackPane>
     </top>
     <center>
-        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="400.0" spacing="20.0"
-              style="-fx-padding: 40; -fx-border-color: #eeeff0; -fx-background-color: white; -fx-border-radius: 3;"
-              BorderPane.alignment="CENTER">
+        <VBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="400.0" spacing="20.0" style="-fx-padding: 40; -fx-border-color: #eeeff0; -fx-background-color: white; -fx-border-radius: 3;" BorderPane.alignment="CENTER">
             <children>
                 <StackPane prefHeight="86.0" prefWidth="318.0">
                     <children>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="CENTER">
                             <children>
-                                <Label maxHeight="-Infinity" maxWidth="-Infinity"
-                                       style="-fx-text-fill: #5e6c84; -fx-font-size: 16;"
-                                       text="Connectez-vous pour continuer vers :"/>
-                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308"
-                                       maxWidth="1.7976931348623157E308"
-                                       style="-fx-text-fill: #5e6c84; -fx-font-size: 16; -fx-font-weight: bolder;"
-                                       text="PAESGI">
+                                <Label maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-text-fill: #5e6c84; -fx-font-size: 16;" text="Log in to continue to :" />
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #5e6c84; -fx-font-size: 16; -fx-font-weight: bolder;" text="PAESGI">
                                     <font>
-                                        <Font name="System Bold" size="12.0"/>
+                                        <Font name="System Bold" size="12.0" />
                                     </font>
                                 </Label>
                             </children>
                         </VBox>
                     </children>
                 </StackPane>
-                <StackPane fx:id="errorPane"/>
+                <StackPane fx:id="errorPane" />
                 <StackPane prefHeight="74.0" prefWidth="318.0">
                     <children>
                         <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0">
                             <children>
-                                <TextField fx:id="emailEntry" promptText="Saisir l'adresse e-mail"
-                                           styleClass="loginEntries">
+                                <TextField fx:id="emailEntry" promptText="Enter your username/e-mail" styleClass="loginEntries">
                                     <cursor>
-                                        <Cursor fx:constant="HAND"/>
+                                        <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </TextField>
-                                <PasswordField fx:id="passwordEntry" onAction="#onEnter"
-                                               promptText="Saisir le mot de passe" styleClass="loginEntries">
+                                <PasswordField fx:id="passwordEntry" onAction="#onEnter" promptText="Enter your password" styleClass="loginEntries">
                                     <cursor>
-                                        <Cursor fx:constant="HAND"/>
+                                        <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </PasswordField>
                             </children>
@@ -67,10 +56,9 @@
                 </StackPane>
                 <StackPane prefHeight="82.0" prefWidth="318.0">
                     <children>
-                        <Button fx:id="connectionBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false"
-                                onAction="#signIn" styleClass="continueBtn" text="Continuer">
+                        <Button fx:id="connectionBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" styleClass="continueBtn" text="Login">
                             <cursor>
-                                <Cursor fx:constant="HAND"/>
+                                <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
                     </children>
@@ -79,17 +67,15 @@
                     <children>
                         <VBox prefHeight="200.0" prefWidth="100.0">
                             <children>
-                                <Separator/>
+                                <Separator />
                                 <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
                                     <children>
-                                        <Button fx:id="registerBtn" onAction="#showRegisterView"
-                                                alignment="CENTER_RIGHT" mnemonicParsing="false" styleClass="createBtn"
-                                                text="Créer un compte">
+                                        <Button fx:id="registerBtn" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showRegisterView" styleClass="createBtn" text="Create an account">
                                             <font>
-                                                <Font size="14.0"/>
+                                                <Font size="14.0" />
                                             </font>
                                             <cursor>
-                                                <Cursor fx:constant="HAND"/>
+                                                <Cursor fx:constant="HAND" />
                                             </cursor>
                                         </Button>
                                     </children>
@@ -103,22 +89,20 @@
     </center>
 
     <stylesheets>
-        <URL value="@LoginView.css"/>
+        <URL value="@LoginView.css" />
     </stylesheets>
     <bottom>
         <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
             <children>
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity">
                     <children>
-                        <Separator prefWidth="400.0"/>
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                               style="-fx-text-fill: #0052cc;" text="ESGI">
+                        <Separator prefWidth="400.0" />
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #0052cc;" text="ESGI">
                             <font>
-                                <Font name="System Bold" size="30.0"/>
+                                <Font name="System Bold" size="30.0" />
                             </font>
                         </Label>
-                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
-                               style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021"/>
+                        <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #6B778C;" text="Projet annuel 2020 - 2021" />
                     </children>
                 </VBox>
             </children>
