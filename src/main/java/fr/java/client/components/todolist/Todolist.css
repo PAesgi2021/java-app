@@ -93,7 +93,7 @@
 }
 
 .todolistCard {
-    -fx-background-color: #2b83de;
+    -fx-background-color: #7b99af;
     -fx-font-size: 12px;
 }
 
@@ -118,5 +118,5 @@
 }
 
 .theme {
-    -fx-background-color: #1f75cb;
+    -fx-background-color: #7b99af;
 }

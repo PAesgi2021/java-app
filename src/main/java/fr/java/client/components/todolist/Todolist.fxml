@@ -129,7 +129,7 @@
                             <children>
                                 <ScrollPane maxHeight="1.7976931348623157E308" styleClass="todolistScrollPane">
                                     <content>
-                                        <HBox fx:id="listsHBox" spacing="5" styleClass="bg-trans, border-trans" />
+                                        <HBox fx:id="listsHBox" spacing="10" styleClass="bg-trans, border-trans" />
                                     </content>
                                 </ScrollPane>
                             </children>

@@ -49,7 +49,6 @@ public class createTaskController {
 
         this.instance.getSpaceService().getTodolistService().getCurrentTodolist().addTask(new Task(this.titleEntry.getText(), this.contentEntry.getText(), this.deadLine.getValue().atStartOfDay()));
         FileUtils.close(this.titleEntry);
-
     }
 
     public void updateCharContent() {

@@ -120,7 +120,7 @@ public class TodolistController {
 
         // final component
         VBox list = new VBox();
-        list.setStyle("-fx-pref-width: 250px");
+        list.setStyle("-fx-pref-width: 250px; -fx-effect: dropshadow(one-pass-box, rgba(167,167,167,0.8), 10, 0, 0, 0);");
         list.getChildren().add(listHeader);
         list.getChildren().add(listBody);
         list.getChildren().add(listFooter);
