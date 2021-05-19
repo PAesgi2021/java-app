@@ -67,8 +67,8 @@ public class TodolistController {
         StackPane listHeader = new StackPane();
         listHeader.getStyleClass().add("todolistCard");
 
-        Label titleLabel = new Label(todolist.getTitle());
-        titleLabel.setStyle("-fx-font-weight: bolder; -fx-text-fill: #4e4b4b; -fx-padding: 10px;");
+        Label titleLabel = new Label(todolist.getTitle().toUpperCase());
+        titleLabel.setStyle("-fx-font-weight: bolder; -fx-text-fill: white; -fx-padding: 10px;");
         listHeader.getChildren().add(titleLabel);
         listHeader.setAlignment(titleLabel, Pos.CENTER_LEFT);
 

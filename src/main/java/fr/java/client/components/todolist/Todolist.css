@@ -30,6 +30,12 @@
     -fx-border-color: transparent;
     -fx-background-color: transparent;
     -fx-font-size: 10px;
+    -fx-text-fill: white;
+    -fx-opacity: 0.5;
+}
+
+.btnActionList:hover {
+    -fx-opacity: 1;
 }
 
 .taskHeader {
@@ -86,12 +92,8 @@
     -fx-background-color: transparent;
 }
 
-.headerTodolistView {
-    -fx-background-color: #026aa7;
-}
-
 .todolistCard {
-    -fx-background-color: #ebecf0;
+    -fx-background-color: #2b83de;
     -fx-font-size: 12px;
 }
 
