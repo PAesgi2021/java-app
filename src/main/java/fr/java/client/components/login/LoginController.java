@@ -11,10 +11,12 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URI;
 
 
 public class LoginController {
     Instance instance = Instance.getInstance();
+    LoginAsync loginAsync = new LoginAsync();
 
     @FXML TextField emailEntry;
     @FXML PasswordField passwordEntry;
@@ -42,6 +44,11 @@ public class LoginController {
             return;
         }
 
+        try {
+            System.out.println(loginAsync.getTest().getTest());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         FileUtils.showView(this.connectionBtn, "space/Space.fxml");
     }
 
