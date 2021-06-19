@@ -1,31 +1,17 @@
 package fr.java.client.components.login;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.util.concurrent.CompletableFuture;
-import com.google.gson.Gson;
+import fr.java.client.services.AsyncService;
 
 public class LoginAsync {
-    HttpClient client = HttpClient.newHttpClient();
+    private final String LOGIN_URL = "/login";
+    private final String TEST_URL  = "/test";
 
-    HttpResponse<String> doGETAsync(URI uri) throws Exception {
-        var request = HttpRequest.newBuilder(uri)
-                                 .header("Accept", "application/json")
-                                 .build();
+    private final AsyncService asyncService = AsyncService.getInstance();
 
-        CompletableFuture<HttpResponse<String>> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                                                                 .toCompletableFuture();
-
-
-       return response.get();
-    }
 
     LoginDTO getTest() throws Exception {
-        return new Gson().fromJson(doGETAsync(URI.create("http://localhost:3000/test")).body(), LoginDTO.class);
+        return asyncService.get(TEST_URL, LoginDTO.class);
     }
-
 
 
 }
