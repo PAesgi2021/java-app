@@ -42,7 +42,6 @@ public class ProfileController {
         this.passwordEntry.setText(this.user.getPassword());
         this.firstnameEntry.setText(this.user.getFirstname());
         this.lastnameEntry.setText(this.user.getLastname());
-        this.dobEntry.setValue(this.user.getDob().toLocalDate());
         this.roleEntry.setText(this.user.getRoles()+"");
         this.usernameLabel.setText("/ @" + user.getFirstname().toLowerCase() + user.getLastname().toLowerCase());
 
@@ -57,7 +56,6 @@ public class ProfileController {
         this.instance.getUserService().getUser().setPassword(this.passwordEntry.getText());
         this.instance.getUserService().getUser().setFirstname(this.firstnameEntry.getText());
         this.instance.getUserService().getUser().setLastname(this.lastnameEntry.getText());
-        this.instance.getUserService().getUser().setDob(this.dobEntry.getValue().atStartOfDay());
 
         this.backAction();
     }

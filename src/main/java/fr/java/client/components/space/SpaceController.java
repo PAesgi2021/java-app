@@ -16,9 +16,11 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class SpaceController {
+    SpaceAsync spaceAsync = new SpaceAsync();
     Instance    instance = Instance.getInstance();
     List<Space> spaces   = this.instance.getSpaceService().getSpaces();
     User        user     = this.instance.getUserService().getUser();
@@ -45,11 +47,12 @@ public class SpaceController {
 
     @FXML
     public void initialize() throws IOException {
-        this.yourSpacesAction();
-        this.updateBadgesNumber();
-        FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
-        tfFilter.setDisable(true);
-        filterSpace();
+            this.yourSpacesAction();
+            this.updateBadgesNumber();
+            FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
+            tfFilter.setDisable(true);
+            filterSpace();
+
     }
 
     private void createSpaceCard(Space space) throws IOException {
@@ -72,9 +75,7 @@ public class SpaceController {
         this.spacesContainer.getChildren().clear();
         for (int i = this.spaces.size()-1; i >= 0; i--) {
             Space space = this.spaces.get(i);
-            if (this.isUserPresent(space, user)) {
                 this.createSpaceCard(space);
-            }
         }
     }
 
@@ -92,10 +93,7 @@ public class SpaceController {
     }
 
     public boolean isUserPresent(Space space, User user) {
-        for (User element : space.getUsers()) {
-            if (element.equals(user)) return true;
-        }
-        return false;
+        return space.getAuthor().getId().equals(user.getId());
     }
 
     public void yourSpacesAction() throws IOException {
@@ -170,7 +168,7 @@ public class SpaceController {
         int countExploreSpaces = 0;
         for (int i = this.spaces.size()-1; i >= 0; i--) {
             Space space = this.spaces.get(i);
-            if (space.getVisibility() == "public") {
+            if (space.getVisibility().equals("public")) {
                 countExploreSpaces++;
             }
         }

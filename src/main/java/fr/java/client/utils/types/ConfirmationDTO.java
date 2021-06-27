@@ -4,4 +4,5 @@ public class ConfirmationDTO {
 
     private String message;
 
+
 }

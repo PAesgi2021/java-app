@@ -1,5 +1,6 @@
 package fr.java.client.components.login;
 
+import fr.java.client.components.space.SpaceAsync;
 import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
@@ -11,12 +12,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URI;
 
 
 public class LoginController {
-    Instance instance = Instance.getInstance();
-    LoginAsync loginAsync = new LoginAsync();
+    Instance   instance   = Instance.getInstance();
 
     @FXML TextField emailEntry;
     @FXML PasswordField passwordEntry;
@@ -41,15 +40,12 @@ public class LoginController {
             this.errorPane.setStyle("-fx-padding: 20; -fx-border-color: #eeeff0");
             this.emailEntry.setStyle("-fx-border-color: red");
             this.passwordEntry.setStyle("-fx-border-color: red");
-            return;
+        }
+        if (instance.getUserService().getUser() != null) {
+            FileUtils.showView(this.connectionBtn, "space/Space.fxml");
         }
 
-        try {
-            System.out.println(loginAsync.getTest().getTest());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        FileUtils.showView(this.connectionBtn, "space/Space.fxml");
+
     }
 
     public void showRegisterView() throws IOException {

@@ -89,10 +89,11 @@ public class CreateSpaceController {
                 this.spaceNameEntry.getText(),
                 this.spaceVisibility,
                 this.tagNameEntry.getText(),
-                this.instance.getUserService().getUser()
+                this.instance.getUserService().getUser(),
+                this.descriptionEntry.getText()
         );
+        this.instance.getSpaceService().addSpace(newSpace);
         this.instance.getSpaceService().setCurrentSpace(newSpace);
-        this.instance.getSpaceService().getSpaces().add(newSpace);
 
         FileUtils.showView(this.cancel,"space/Space.fxml");
     }

@@ -1,5 +1,6 @@
 package fr.java.client.entities;
 
+import fr.java.client.components.createTask.dto.TaskDTO;
 import fr.java.client.utils.types.TaskStatusType;
 
 import java.time.LocalDateTime;
@@ -21,12 +22,30 @@ public class Task {
         this.limitDescription = 1000;
     }
 
+    public Task(TaskDTO toAdapt) {
+        this.title = toAdapt.getTitle();
+        this.description = toAdapt.getDescription();
+        this.deadLine = toAdapt.getDeadLine();
+        this.status = retrieveStatus(toAdapt.getStatus());
+        this.limitDescription = toAdapt.getLimitDescription();
+    }
+
+
     public Task(String title, LocalDateTime deadLine) {
         this.title = title;
         this.deadLine = deadLine;
         this.status = TaskStatusType.todo;
         this.limitDescription = 1000;
     }
+
+    private TaskStatusType retrieveStatus(String status) {
+        if (status.equals(TaskStatusType.done.toString())) {
+            return TaskStatusType.done;
+        } else {
+            return TaskStatusType.todo;
+        }
+    }
+
 
     public String getTitle() {
         return title;

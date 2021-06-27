@@ -81,7 +81,7 @@ public class AsyncService {
     private <T> T executeRequest(Type dtoClass, HttpClient client, HttpRequest request, String url) throws Exception {
         CompletableFuture<HttpResponse<String>> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                                                                  .toCompletableFuture();
-        if (response != null && response.get().statusCode() != 200) {
+        if (response != null && response.get().statusCode() != 200 && response.get().statusCode() != 201) {
             throw new Exception("unable to upload: {} response code: {}. response: {}" + url + response.get()
                                                                                                        .statusCode() + response
                     .get()
@@ -92,6 +92,5 @@ public class AsyncService {
         }
         throw new Exception("error");
     }
-
 
 }

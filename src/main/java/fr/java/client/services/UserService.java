@@ -1,7 +1,7 @@
 package fr.java.client.services;
 
+import fr.java.client.components.login.dto.LoginDTO;
 import fr.java.client.entities.User;
-import fr.java.client.utils.types.Roles;
 
 public class UserService {
 
@@ -23,7 +23,9 @@ public class UserService {
 
     public boolean login(String username, String password) {
         try {
-            this.user = authentificationService.getAuthentification(username, password);
+            LoginDTO loginDTO = authentificationService.getAuthentification(username, password);
+            this.user = new User(loginDTO.getUsername(),loginDTO.getPassword(),loginDTO.getId(), loginDTO.getFirstname(), loginDTO.getLastname());
+
             return true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -33,6 +35,7 @@ public class UserService {
 
     public boolean logout() {
         try {
+            authentificationService.logoutInstance();
             this.user = null;
             return true;
         } catch (Exception e) {

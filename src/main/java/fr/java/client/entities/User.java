@@ -9,12 +9,12 @@ import java.util.Objects;
 
 public class User {
 
-    String username;
-    String password;
-    String firstname;
-    String lastname;
-    LocalDateTime dob;
-    Roles  roles;
+    String  username;
+    String  password;
+    String  firstname;
+    String  lastname;
+    Roles   roles;
+    Integer id;
 
     public User(String username, String password, String firstname, String lastname, Roles roles) {
         this.username = username;
@@ -24,12 +24,19 @@ public class User {
         this.roles = roles;
     }
 
+    public User(String username, String password, Integer id, String firstname, String lastname) {
+        this.username = username;
+        this.password = password;
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
+
     public User(String username, String password, String firstname, String lastname, LocalDateTime dob) {
         this.username = username;
         this.password = password;
         this.firstname = firstname;
         this.lastname = lastname;
-        this.dob = dob;
         this.roles = Roles.Client;
     }
 
@@ -65,16 +72,16 @@ public class User {
         this.lastname = lastname;
     }
 
-    public LocalDateTime getDob() {
-        return dob;
-    }
-
-    public void setDob(LocalDateTime dob) {
-        this.dob = dob;
-    }
-
     public Roles getRoles() {
         return roles;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
@@ -84,7 +91,6 @@ public class User {
                 ", password='" + password + '\'' +
                 ", firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", dob=" + dob +
                 ", roles=" + roles +
                 '}';
     }
@@ -94,11 +100,12 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(firstname, user.firstname) && Objects.equals(lastname, user.lastname) && Objects.equals(dob, user.dob) && roles == user.roles;
+        return Objects.equals(username, user.username) && Objects.equals(password, user.password) && Objects.equals(firstname, user.firstname) && Objects
+                .equals(lastname, user.lastname) && roles == user.roles;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(username, password, firstname, lastname, dob, roles);
+        return Objects.hash(username, password, firstname, lastname, roles);
     }
 }

@@ -1,16 +1,12 @@
 package fr.java.client.components.register;
 
-import fr.java.client.entities.Todolist;
 import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
-import fr.java.client.utils.types.TaskStatusType;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -67,7 +63,9 @@ public class RegisterController {
         );
 
         // create a new user and update current user
-        this.instance.getUserService().getAuthentificationService().addUser(registeredUser);
+        if (this.instance.getUserService().getAuthentificationService().registerUser(registeredUser)) {
+            showError("Unable to registering");
+        };
         this.instance.getUserService().setUser(registeredUser);
         FileUtils.showView(this.errorPane, "/login/Login.fxml");
     }
