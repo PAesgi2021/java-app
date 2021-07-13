@@ -1,6 +1,7 @@
 package fr.java.client.services;
 
 import com.google.gson.Gson;
+import fr.java.client.utils.types.ConfirmationDTO;
 
 import java.lang.reflect.Type;
 import java.net.URI;
@@ -88,6 +89,10 @@ public class AsyncService {
                     .body());
         }
         if (response != null) {
+            if (dtoClass == String.class) {
+                System.out.println(response.get().body());
+                return (T) new ConfirmationDTO(response.get().body());
+            }
             return new Gson().fromJson(response.get().body(), dtoClass);
         }
         throw new Exception("error");

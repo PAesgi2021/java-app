@@ -1,15 +1,34 @@
 package fr.java.client.components.createTask.dto;
 
+import fr.java.client.entities.Task;
+
 import java.time.LocalDateTime;
 
 public class TaskDTO {
 
-    private String title;
-    private String description;
-    private LocalDateTime deadLine;
-    private LocalDateTime finishedDate;
-    private String status;
-    private int limitDescription;
+    private String  title;
+    private String  description;
+    private String  deadLine;
+    private String  finishedDate;
+    private String  status;
+    private int     limitDescription;
+    private Integer todolistId;
+    private Integer userId;
+
+    public TaskDTO(Task task, Integer todolistId) {
+        this.title = task.getTitle();
+        this.description = task.getDescription();
+        this.deadLine = task.getDeadLine().toString();
+        if (task.getFinishedDate() != null) {
+            this.finishedDate = task.getFinishedDate().toString();
+        }
+        this.status = task.getStatus().toString();
+        this.limitDescription = task.getLimitDescription();
+        this.todolistId = todolistId;
+    }
+
+    public TaskDTO() {
+    }
 
     public String getTitle() {
         return title;
@@ -27,19 +46,19 @@ public class TaskDTO {
         this.description = description;
     }
 
-    public LocalDateTime getDeadLine() {
+    public String getDeadLine() {
         return deadLine;
     }
 
-    public void setDeadLine(LocalDateTime deadLine) {
+    public void setDeadLine(String deadLine) {
         this.deadLine = deadLine;
     }
 
-    public LocalDateTime getFinishedDate() {
+    public String getFinishedDate() {
         return finishedDate;
     }
 
-    public void setFinishedDate(LocalDateTime finishedDate) {
+    public void setFinishedDate(String finishedDate) {
         this.finishedDate = finishedDate;
     }
 
@@ -57,5 +76,21 @@ public class TaskDTO {
 
     public void setLimitDescription(int limitDescription) {
         this.limitDescription = limitDescription;
+    }
+
+    public Integer getTodolistId() {
+        return todolistId;
+    }
+
+    public void setTodolistId(Integer todolistId) {
+        this.todolistId = todolistId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

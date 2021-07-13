@@ -11,6 +11,7 @@ import java.util.List;
 public class SpaceDTO {
 
 
+    private Integer id;
     private String   name;
     private LoginDTO author;
     private String   visibility;
@@ -74,5 +75,13 @@ public class SpaceDTO {
 
     public void setTodolists(List<TodolistDTO> todolists) {
         this.todolists = todolists;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

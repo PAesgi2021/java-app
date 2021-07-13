@@ -11,20 +11,28 @@ public class Todolist {
     private Integer id;
     private String title;
     private List<Task> tasks;
+    private Integer spaceId;
 
     public Todolist(String title) {
         this.title = title;
         this.tasks = new ArrayList<>();
+        this.id = null;
     }
 
     public Todolist(TodolistDTO toAdapt) {
         this.title = toAdapt.getTitle();
         List<Task> tasklist = new ArrayList<>();
-        toAdapt.getTasks().forEach(task -> {
-            tasklist.add(new Task(task));
-        });
-        this.tasks = tasklist;
+        if (toAdapt.getTasks() != null) {
+            toAdapt.getTasks().forEach(task -> {
+                tasklist.add(new Task(task));
+            });
+            this.tasks = tasklist;
+        }
+        this.tasks = new ArrayList<>();
+
         this.id = toAdapt.getId();
+    }
+    public Todolist() {
     }
 
     public void addTask(Task task) {

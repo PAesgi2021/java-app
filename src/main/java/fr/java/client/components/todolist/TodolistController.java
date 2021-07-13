@@ -29,22 +29,25 @@ import java.util.List;
 public class TodolistController {
     Instance instance = Instance.getInstance();
 
-    @FXML HBox listsHBox;
-    @FXML CheckBox showDoneTasks;
-    @FXML BorderPane component;
-    @FXML Button homeBtn;
-    @FXML MenuButton settingsMenu;
-    @FXML MenuItem profileMenuItem;
-    @FXML MenuItem logoutMenuItem;
-    @FXML MenuButton sortedBtn;
-    @FXML TextField searchEntry;
-    @FXML Label spaceNameLabel;
-    private String sortSelected;
+    @FXML   HBox       listsHBox;
+    @FXML   CheckBox   showDoneTasks;
+    @FXML   BorderPane component;
+    @FXML   Button     homeBtn;
+    @FXML   MenuButton settingsMenu;
+    @FXML   MenuItem   profileMenuItem;
+    @FXML   MenuItem   logoutMenuItem;
+    @FXML   MenuButton sortedBtn;
+    @FXML   TextField  searchEntry;
+    @FXML   Label      spaceNameLabel;
+    private String     sortSelected;
 
     @FXML
     protected void initialize() throws MalformedURLException {
         this.showAllTodolist();
-        this.spaceNameLabel.setText("Welcome to the Space : " + this.instance.getSpaceService().getCurrentSpace().getName().toUpperCase());
+        this.spaceNameLabel.setText("Welcome to the Space : " + this.instance.getSpaceService()
+                                                                             .getCurrentSpace()
+                                                                             .getName()
+                                                                             .toUpperCase());
         FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenuItem, this.logoutMenuItem);
     }
 
@@ -56,6 +59,7 @@ public class TodolistController {
 
     /**
      * create a list of task component
+     *
      * @param todolist
      * @param status
      */
@@ -77,7 +81,10 @@ public class TodolistController {
         VBox listBody = new VBox();
         listBody.getStyleClass().add("todolistCard");
         listBody.getStyleClass().add("todolistCardBody");
-        addTask(todolist, listBody, status);
+        if (todolist.getTasks() != null) {
+            addTask(todolist, listBody, status);
+        }
+
 
         //Footer
         //  + If (isTodoList) delete list btn
@@ -93,6 +100,7 @@ public class TodolistController {
             btnAddTask.setOnAction(actionEvent -> {
                 try {
                     this.instance.getSpaceService().getTodolistService().setCurrentTodolist(todolist);
+                    System.out.println(todolist +" :verif");
                     this.createTaskAction();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -175,7 +183,8 @@ public class TodolistController {
             title.getChildren().add(new Text(task.getTitle()));
             body.getChildren().add(title);
 
-            if (task.getDescription() != null && task.getDescription().length() > 0 && task.getDescription().length() < 200) {
+            if (task.getDescription() != null && task.getDescription().length() > 0 && task.getDescription()
+                                                                                           .length() < 200) {
                 TextFlow text = new TextFlow();
                 text.getStyleClass().add("taskBody");
                 text.getChildren().add(new Text(task.getDescription()));

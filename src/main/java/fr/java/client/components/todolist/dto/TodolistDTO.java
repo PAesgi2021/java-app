@@ -1,14 +1,34 @@
 package fr.java.client.components.todolist.dto;
 
 import fr.java.client.components.createTask.dto.TaskDTO;
+import fr.java.client.entities.Todolist;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class TodolistDTO {
 
     private Integer id;
     private String        title;
     private List<TaskDTO> tasks;
+    private Integer spaceId;
+
+    public TodolistDTO(Todolist todolist, Integer spaceId) {
+        this.id = todolist.getId() != null ? todolist.getId() : null;
+        this.title = todolist.getTitle();
+        this.spaceId = spaceId;
+
+        //List<TaskDTO> taskList = new ArrayList<>();
+
+        //todolist.getTasks().forEach(t -> {
+        //taskList.add(new TaskDTO(t));
+        //});
+        //this.tasks = taskList;
+    }
+
+    public TodolistDTO() {
+    }
 
     public Integer getId() {
         return id;

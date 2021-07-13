@@ -3,10 +3,12 @@ package fr.java.client.services;
 import fr.java.client.components.login.dto.LoginDTO;
 import fr.java.client.components.space.dto.SpaceDTO;
 import fr.java.client.components.space.dto.SpaceListDTO;
+import fr.java.client.components.todolist.dto.TodolistDTO;
 import fr.java.client.entities.Space;
 import fr.java.client.entities.Task;
 import fr.java.client.entities.Todolist;
 import fr.java.client.entities.User;
+import fr.java.client.utils.types.ConfirmationDTO;
 import fr.java.client.utils.types.Roles;
 import fr.java.client.utils.types.SpaceTab;
 import java.time.LocalDateTime;
@@ -25,6 +27,7 @@ public class SpaceService {
 
     private static final String SPACE_URL = "/er-space";
     private static final String SAVE_URL = "/save";
+    private static final String UPDATE_URL = "/update";
 
     private SpaceService() {
        // this.spaces = new ArrayList<>();
@@ -41,8 +44,30 @@ public class SpaceService {
         return instance;
     }
 
-    public void addSpace(Space space) {
+//    public void updateSpace() {
+//        SpaceDTO spaceToSave = new SpaceDTO();
+//        spaceToSave.setAuthor(new LoginDTO(this.currentSpace.getAuthor()));
+//        spaceToSave.setVisibility(this.currentSpace.getVisibility());
+//        spaceToSave.setDescription(this.currentSpace.getDescription());
+//        System.out.println(this.currentSpace.getDescription());
+//        spaceToSave.setName(this.currentSpace.getName());
+//        spaceToSave.setTag(this.currentSpace.getTag());
+//        spaceToSave.setId(this.currentSpace.getId());
+//        List<TodolistDTO> todolistToSave = new ArrayList<>();
+//        this.currentSpace.getTodolists().forEach( todo -> {
+//            todolistToSave.add(new TodolistDTO(todo));
+//        });
+//        spaceToSave.setTodolists(todolistToSave);
+//        try {
+//            this.asyncService.put(SPACE_URL + UPDATE_URL, String.class, spaceToSave);
+//            System.out.println("updated");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
+    public void addSpace(Space space) {
         SpaceDTO spaceToSave = new SpaceDTO();
         spaceToSave.setAuthor(new LoginDTO(space.getAuthor()));
         spaceToSave.setVisibility(space.getVisibility());

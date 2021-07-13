@@ -10,6 +10,7 @@ import java.util.List;
 
 public class Space {
 
+    private Integer        id;
     private String         name;
     private User           author;
     private String         visibility;
@@ -45,6 +46,7 @@ public class Space {
             todolistList.add(toAdd);
         });
         this.todolists = todolistList;
+        this.id = spaceDTO.getId();
     }
 
 
@@ -103,6 +105,18 @@ public class Space {
 
     public List<Todolist> getTodolists() {
         return todolists;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setTodolists(List<Todolist> todolists) {
+        this.todolists = todolists;
     }
 
     @Override

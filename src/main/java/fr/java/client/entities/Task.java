@@ -13,6 +13,8 @@ public class Task {
     private LocalDateTime finishedDate;
     private TaskStatusType status;
     private int limitDescription;
+    private Integer todolistId;
+    private Integer userId;
 
     public Task(String title, String description, LocalDateTime deadLine) {
         this.title = title;
@@ -25,9 +27,14 @@ public class Task {
     public Task(TaskDTO toAdapt) {
         this.title = toAdapt.getTitle();
         this.description = toAdapt.getDescription();
-        this.deadLine = toAdapt.getDeadLine();
-        this.status = retrieveStatus(toAdapt.getStatus());
+        this.deadLine = LocalDateTime.parse(toAdapt.getDeadLine());
+        this.finishedDate = LocalDateTime.parse(toAdapt.getFinishedDate());
+        this.status = retrieveStatus(toAdapt.getStatus().toLowerCase());
         this.limitDescription = toAdapt.getLimitDescription();
+        this.todolistId = toAdapt.getTodolistId();
+        if (toAdapt.getUserId() != null) {
+            this.userId = toAdapt.getUserId();
+        }
     }
 
 
