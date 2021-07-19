@@ -43,6 +43,25 @@ public class TodolistService {
         return new Todolist(response);
     }
 
+    public void deleteTodolist(Todolist todolist) {
+        System.out.println("delete todo");
+        try {
+            this.asyncService.delete(TODOLIST_URL + "/" + todolist.getId() , String.class);
+            System.out.println("deleted todolist");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void deleteTask(Task task) {
+        System.out.println("delete task");
+        try {
+            this.asyncService.delete(TASK_URL + "/" + task.getId() , String.class);
+            System.out.println("deleted todolist");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public Task saveOrUpdateTask(Task task, Integer todolistId) {
         TaskDTO taskToSave = new TaskDTO(task, todolistId);
         TaskDTO response = new TaskDTO();

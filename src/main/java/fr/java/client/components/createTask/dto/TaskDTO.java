@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 
 public class TaskDTO {
 
+    private Integer id;
     private String  title;
     private String  description;
     private String  deadLine;
@@ -16,9 +17,12 @@ public class TaskDTO {
     private Integer userId;
 
     public TaskDTO(Task task, Integer todolistId) {
+        this.id = task.getId() != null ? task.getId() : null;
         this.title = task.getTitle();
         this.description = task.getDescription();
-        this.deadLine = task.getDeadLine().toString();
+        this.deadLine = (task.getDeadLine() != null)
+                ? task.getDeadLine().toString()
+                : LocalDateTime.of(2021,11,15,8,0).toString();
         if (task.getFinishedDate() != null) {
             this.finishedDate = task.getFinishedDate().toString();
         }
@@ -92,5 +96,13 @@ public class TaskDTO {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

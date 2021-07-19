@@ -3,6 +3,7 @@ package fr.java.client.components.register.dto;
 
 public class UserDTO {
 
+    Integer       id;
     String        username;
     String        password;
     String        firstname;
@@ -38,5 +39,13 @@ public class UserDTO {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 }

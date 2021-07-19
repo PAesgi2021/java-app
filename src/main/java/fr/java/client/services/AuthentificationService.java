@@ -62,13 +62,16 @@ public class AuthentificationService {
         }
     }
 
-    public boolean registerUser(User user) {
+    public boolean registerOrUpdateUser(User user) {
 
         UserDTO userToCreate = new UserDTO();
         userToCreate.setUsername(user.getUsername());
         userToCreate.setPassword(user.getPassword());
         userToCreate.setFirstname(user.getFirstname());
         userToCreate.setLastname(user.getLastname());
+        if (user.getId() != null) {
+            userToCreate.setId(user.getId());
+        }
 
         try {
             UserDTO response = asyncService.post(ROUTE_URL + REGISTER_URL, UserDTO.class, userToCreate);

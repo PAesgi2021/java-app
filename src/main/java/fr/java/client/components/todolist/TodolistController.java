@@ -113,6 +113,7 @@ public class TodolistController {
             btnDeleteList.getStyleClass().add("btnActionList");
             btnDeleteList.setOnAction(e -> {
                 instance.getSpaceService().getCurrentSpace().getTodolists().remove(todolist);
+                this.instance.getSpaceService().getTodolistService().deleteTodolist(todolist);
                 try {
                     this.refreshAction();
                 } catch (MalformedURLException malformedURLException) {

@@ -3,10 +3,13 @@ package fr.java.client.entities;
 import fr.java.client.components.createTask.dto.TaskDTO;
 import fr.java.client.utils.types.TaskStatusType;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Task {
 
+    private Integer id;
     private String title;
     private String description;
     private LocalDateTime deadLine;
@@ -25,10 +28,13 @@ public class Task {
     }
 
     public Task(TaskDTO toAdapt) {
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        this.id = toAdapt.getId();
         this.title = toAdapt.getTitle();
         this.description = toAdapt.getDescription();
-        this.deadLine = LocalDateTime.parse(toAdapt.getDeadLine());
-        this.finishedDate = LocalDateTime.parse(toAdapt.getFinishedDate());
+        this.deadLine = toAdapt.getDeadLine() != null ? LocalDateTime.parse(toAdapt.getDeadLine()) : null;
+        this.finishedDate = toAdapt.getFinishedDate() != null ? LocalDate.parse(toAdapt.getFinishedDate().substring(0,10), df).atStartOfDay() : null;
         this.status = retrieveStatus(toAdapt.getStatus().toLowerCase());
         this.limitDescription = toAdapt.getLimitDescription();
         this.todolistId = toAdapt.getTodolistId();
@@ -101,5 +107,29 @@ public class Task {
 
     public void setLimitDescription(int limitDescription) {
         this.limitDescription = limitDescription;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getTodolistId() {
+        return todolistId;
+    }
+
+    public void setTodolistId(Integer todolistId) {
+        this.todolistId = todolistId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 }

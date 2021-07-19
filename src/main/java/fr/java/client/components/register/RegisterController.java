@@ -63,7 +63,7 @@ public class RegisterController {
         );
 
         // create a new user and update current user
-        if (this.instance.getUserService().getAuthentificationService().registerUser(registeredUser)) {
+        if (this.instance.getUserService().getAuthentificationService().registerOrUpdateUser(registeredUser)) {
             showError("Unable to registering");
         };
         this.instance.getUserService().setUser(registeredUser);

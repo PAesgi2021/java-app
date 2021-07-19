@@ -71,6 +71,7 @@ public class TaskConfigController {
 
         if (res) {
             this.currentTodolist.getTasks().remove(this.currentTask);
+            this.instance.getSpaceService().getTodolistService().deleteTask(this.currentTask);
             FileUtils.close(this.titleTask);
         }
     }
@@ -104,6 +105,14 @@ public class TaskConfigController {
         if (this.isSizeDescriptionValid(this.descriptionTask.getText())) {
             this.currentTask.setDescription(this.descriptionTask.getText());
         }
+
+        System.out.println(this.currentTask.getId() + " TASK ID");
+        this.instance.getSpaceService()
+                     .getTodolistService()
+                     .saveOrUpdateTask(this.currentTask, this.instance.getSpaceService()
+                                                                      .getTodolistService()
+                                                                      .getCurrentTodolist()
+                                                                      .getId());
         FileUtils.close(this.titleTask);
     }
 
@@ -129,6 +138,12 @@ public class TaskConfigController {
             this.textComplete.setVisible(false);
             this.actionPane.setVisible(false);
             this.nbCharDescription.setVisible(false);
+            this.instance.getSpaceService()
+                         .getTodolistService()
+                         .saveOrUpdateTask(this.currentTask, this.instance.getSpaceService()
+                                                                .getTodolistService()
+                                                                .getCurrentTodolist()
+                                                                .getId());
         }
         // else
         //      reset task: status, finishedDate
@@ -137,7 +152,11 @@ public class TaskConfigController {
         else {
             this.currentTask.setStatus(TaskStatusType.todo);
             this.currentTask.setFinishedDate(null);
-            this.statusCheckbox.setText(LocalDateTime.now().until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
+            if (this.currentTask.getDeadLine() != null) {
+                this.statusCheckbox.setText(LocalDateTime.now().until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
+            } else {
+                this.statusCheckbox.setText("");
+            }
             this.statusCheckbox.setStyle("-fx-background-color: #e26050");
             this.headerTaskConfig.setStyle("-fx-background-color: #e26050");
             this.textComplete.setVisible(true);
