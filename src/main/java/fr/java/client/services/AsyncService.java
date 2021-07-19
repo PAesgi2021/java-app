@@ -1,6 +1,7 @@
 package fr.java.client.services;
 
 import com.google.gson.Gson;
+import fr.java.client.utils.types.ConfirmationDTO;
 
 import java.lang.reflect.Type;
 import java.net.URI;
@@ -81,17 +82,20 @@ public class AsyncService {
     private <T> T executeRequest(Type dtoClass, HttpClient client, HttpRequest request, String url) throws Exception {
         CompletableFuture<HttpResponse<String>> response = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
                                                                  .toCompletableFuture();
-        if (response != null && response.get().statusCode() != 200) {
+        if (response != null && response.get().statusCode() != 200 && response.get().statusCode() != 201) {
             throw new Exception("unable to upload: {} response code: {}. response: {}" + url + response.get()
                                                                                                        .statusCode() + response
                     .get()
                     .body());
         }
         if (response != null) {
+            if (dtoClass == String.class) {
+                System.out.println(response.get().body());
+                return (T) new ConfirmationDTO(response.get().body());
+            }
             return new Gson().fromJson(response.get().body(), dtoClass);
         }
         throw new Exception("error");
     }
-
 
 }

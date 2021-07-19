@@ -2,6 +2,7 @@ package fr.java.client.components.createList;
 
 import fr.java.client.entities.Todolist;
 import fr.java.client.services.Instance;
+import fr.java.client.services.TodolistService;
 import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import java.io.IOException;
 
 public class createListController {
     Instance instance = Instance.getInstance();
+    TodolistService todolistService = TodolistService.getInstance();
 
     @FXML TextField titleEntry;
 
@@ -23,7 +25,8 @@ public class createListController {
             return;
         }
 
-        this.instance.getSpaceService().getCurrentSpace().getTodolists().add(new Todolist(this.titleEntry.getText()));
+        Todolist newTodolist = this.todolistService.saveOrUpdateTodolist(new Todolist(this.titleEntry.getText()),this.instance.getSpaceService().getCurrentSpace().getId());
+        this.instance.getSpaceService().getCurrentSpace().getTodolists().add(newTodolist);
         FileUtils.close(this.titleEntry);
     }
 

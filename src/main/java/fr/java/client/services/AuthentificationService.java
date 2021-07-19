@@ -1,9 +1,10 @@
 package fr.java.client.services;
 
+import fr.java.client.components.login.dto.LoginDTO;
+import fr.java.client.components.register.dto.UserDTO;
 import fr.java.client.entities.User;
-import fr.java.client.utils.types.Roles;
 
-import java.time.LocalDate;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +16,14 @@ public class AuthentificationService {
     boolean isAuthenticated;
 
     private static AuthentificationService authentificationService;
+
+
+    private final String ROUTE_URL = "/er-user";
+    private final String LOGIN_URL = "/signin";
+    private final String REGISTER_URL = "/signup";
+
+    private final AsyncService asyncService = AsyncService.getInstance();
+
 
     private AuthentificationService() {
         this.users = new ArrayList<>();
@@ -30,20 +39,19 @@ public class AuthentificationService {
         return authentificationService;
     }
 
-    public User getAuthentification(String username, String password) throws Exception {
-        // requete http vers l'API qui authentifie l'utilisateur et renvoie les informations du user
-        // SessionDTO session = JSONResponseFromApi;
-        // this.user = session.user;
-        // this.todolists = session.todolists
+    public LoginDTO getAuthentification(String username, String password) throws Exception {
 
-        //code provisoire pour test en local
-        for (User user : this.users) {
-            if (username.equals(user.getUsername()) && password.equals(user.getPassword())) {
-                this.isAuthenticated = true;
-                return user;
-            }
+        LoginDTO loginDTO = new LoginDTO();
+        loginDTO.setUsername(username);
+        loginDTO.setPassword(password);
+
+        LoginDTO response = asyncService.post(ROUTE_URL + LOGIN_URL, LoginDTO.class, loginDTO);
+
+        if (response != null) {
+            isAuthenticated = true;
+            return response;
         }
-        throw new Exception("Authentification failed.");
+        throw new Exception("Authentification failed");
     }
 
     public boolean isAuthenticated() {
@@ -54,8 +62,25 @@ public class AuthentificationService {
         }
     }
 
-    public void addUser(User user) {
-        this.users.add(user);
+    public boolean registerOrUpdateUser(User user) {
+
+        UserDTO userToCreate = new UserDTO();
+        userToCreate.setUsername(user.getUsername());
+        userToCreate.setPassword(user.getPassword());
+        userToCreate.setFirstname(user.getFirstname());
+        userToCreate.setLastname(user.getLastname());
+        if (user.getId() != null) {
+            userToCreate.setId(user.getId());
+        }
+
+        try {
+            UserDTO response = asyncService.post(ROUTE_URL + REGISTER_URL, UserDTO.class, userToCreate);
+            return response != null;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
     }
 
     public List<User> getUsers() {
@@ -66,4 +91,7 @@ public class AuthentificationService {
         this.users = users;
     }
 
+    public void logoutInstance() {
+        isAuthenticated = false;
+    }
 }
