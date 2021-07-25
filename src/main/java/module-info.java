@@ -3,6 +3,7 @@ module fr.java.client {
     requires javafx.fxml;
     requires java.net.http;
     requires com.google.gson;
+    requires itextpdf;
 
     // exports
     exports fr.java.client;
