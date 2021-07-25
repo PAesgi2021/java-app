@@ -5,16 +5,13 @@ import fr.java.client.entities.Todolist;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import fr.java.client.utils.types.TaskStatusType;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
-import java.io.File;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -23,20 +20,20 @@ public class TaskConfigController {
 
     Instance instance = Instance.getInstance();
     Todolist currentTodolist;
-    Task currentTask;
+    Task     currentTask;
 
     @FXML TextField titleTask;
-    @FXML TextArea descriptionTask;
-    @FXML TextFlow titleTaskTextFlow;
-    @FXML TextFlow descriptionTaskTextFlow;
-    @FXML CheckBox lockCheckbox;
-    @FXML Button saveBtn;
-    @FXML CheckBox statusCheckbox;
-    @FXML Pane headerTaskConfig;
-    @FXML Label nbCharDescription;
-    @FXML VBox component;
-    @FXML Label textComplete;
-    @FXML Pane actionPane;
+    @FXML TextArea  descriptionTask;
+    @FXML TextFlow  titleTaskTextFlow;
+    @FXML TextFlow  descriptionTaskTextFlow;
+    @FXML CheckBox  lockCheckbox;
+    @FXML Button    saveBtn;
+    @FXML CheckBox  statusCheckbox;
+    @FXML Pane      headerTaskConfig;
+    @FXML Label     nbCharDescription;
+    @FXML VBox      component;
+    @FXML Label     textComplete;
+    @FXML Pane      actionPane;
 
 
     @FXML
@@ -139,9 +136,9 @@ public class TaskConfigController {
             this.instance.getSpaceService()
                          .getTodolistService()
                          .saveOrUpdateTask(this.currentTask, this.instance.getSpaceService()
-                                                                .getTodolistService()
-                                                                .getCurrentTodolist()
-                                                                .getId());
+                                                                          .getTodolistService()
+                                                                          .getCurrentTodolist()
+                                                                          .getId());
         }
         // else
         //      reset task: status, finishedDate
@@ -151,7 +148,8 @@ public class TaskConfigController {
             this.currentTask.setStatus(TaskStatusType.todo);
             this.currentTask.setFinishedDate(null);
             if (this.currentTask.getDeadLine() != null) {
-                this.statusCheckbox.setText(LocalDateTime.now().until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
+                this.statusCheckbox.setText(LocalDateTime.now()
+                                                         .until(this.currentTask.getDeadLine(), ChronoUnit.DAYS) + " days left");
             } else {
                 this.statusCheckbox.setText("");
             }
@@ -164,11 +162,17 @@ public class TaskConfigController {
     }
 
     public void updateNbCharDescription() {
-        this.nbCharDescription.setText(this.descriptionTask.getLength() + "/" + this.instance.getSpaceService().getTodolistService().getCurrentTask().getLimitDescription());
+        this.nbCharDescription.setText(this.descriptionTask.getLength() + "/" + this.instance.getSpaceService()
+                                                                                             .getTodolistService()
+                                                                                             .getCurrentTask()
+                                                                                             .getLimitDescription());
     }
 
     public boolean isSizeDescriptionValid(String str) {
-        return str.length() < this.instance.getSpaceService().getTodolistService().getCurrentTask().getLimitDescription();
+        return str.length() < this.instance.getSpaceService()
+                                           .getTodolistService()
+                                           .getCurrentTask()
+                                           .getLimitDescription();
     }
 
 }

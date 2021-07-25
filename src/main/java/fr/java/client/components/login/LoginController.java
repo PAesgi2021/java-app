@@ -1,28 +1,28 @@
 package fr.java.client.components.login;
 
-import fr.java.client.components.space.SpaceAsync;
 import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
-import javafx.scene.layout.StackPane;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 
 
 public class LoginController {
-    Instance   instance   = Instance.getInstance();
+    Instance  instance  = Instance.getInstance();
     FileUtils fileUtils = new FileUtils();
 
-    @FXML TextField emailEntry;
+    @FXML TextField     emailEntry;
     @FXML PasswordField passwordEntry;
-    @FXML Button connectionBtn;
-    @FXML Button registerBtn;
-    @FXML StackPane errorPane;
+    @FXML Button        connectionBtn;
+    @FXML Button        registerBtn;
+    @FXML StackPane     errorPane;
 
     @FXML
     protected void initialize() {
@@ -43,7 +43,7 @@ public class LoginController {
             this.passwordEntry.setStyle("-fx-border-color: red");
         }
         if (instance.getUserService().getUser() != null) {
-            fileUtils.showView(this.connectionBtn,getClass().getResource("/Space.fxml"));
+            fileUtils.showView(this.connectionBtn, getClass().getResource("/Space.fxml"));
         }
 
 

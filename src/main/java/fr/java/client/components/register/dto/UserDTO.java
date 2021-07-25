@@ -3,11 +3,11 @@ package fr.java.client.components.register.dto;
 
 public class UserDTO {
 
-    Integer       id;
-    String        username;
-    String        password;
-    String        firstname;
-    String        lastname;
+    Integer id;
+    String  username;
+    String  password;
+    String  firstname;
+    String  lastname;
 
     public String getUsername() {
         return username;

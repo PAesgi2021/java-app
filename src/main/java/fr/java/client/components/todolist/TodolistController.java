@@ -11,9 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.control.*;
-import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -23,7 +21,6 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -31,7 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class TodolistController {
-    Instance instance = Instance.getInstance();
+    Instance  instance  = Instance.getInstance();
     FileUtils fileUtils = new FileUtils();
 
     @FXML   HBox       listsHBox;

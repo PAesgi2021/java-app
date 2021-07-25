@@ -9,15 +9,15 @@ import java.time.format.DateTimeFormatter;
 
 public class Task {
 
-    private Integer id;
-    private String title;
-    private String description;
-    private LocalDateTime deadLine;
-    private LocalDateTime finishedDate;
+    private Integer        id;
+    private String         title;
+    private String         description;
+    private LocalDateTime  deadLine;
+    private LocalDateTime  finishedDate;
     private TaskStatusType status;
-    private int limitDescription;
-    private Integer todolistId;
-    private Integer userId;
+    private int            limitDescription;
+    private Integer        todolistId;
+    private Integer        userId;
 
     public Task(String title, String description, LocalDateTime deadLine) {
         this.title = title;
@@ -34,7 +34,9 @@ public class Task {
         this.title = toAdapt.getTitle();
         this.description = toAdapt.getDescription();
         this.deadLine = toAdapt.getDeadLine() != null ? LocalDateTime.parse(toAdapt.getDeadLine()) : null;
-        this.finishedDate = toAdapt.getFinishedDate() != null ? LocalDate.parse(toAdapt.getFinishedDate().substring(0,10), df).atStartOfDay() : null;
+        this.finishedDate = toAdapt.getFinishedDate() != null ? LocalDate.parse(toAdapt.getFinishedDate()
+                                                                                       .substring(0, 10), df)
+                                                                         .atStartOfDay() : null;
         this.status = retrieveStatus(toAdapt.getStatus().toLowerCase());
         this.limitDescription = toAdapt.getLimitDescription();
         this.todolistId = toAdapt.getTodolistId();

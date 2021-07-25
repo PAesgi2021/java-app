@@ -5,7 +5,6 @@ import fr.java.client.components.space.dto.SpaceDTO;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class Space {

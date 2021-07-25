@@ -1,8 +1,6 @@
 package plugins;
 
 import fr.java.client.IPlugin;
-import fr.java.client.services.AsyncService;
-import javafx.scene.image.WritableImage;
 
 public class myPlugin implements IPlugin {
     /**

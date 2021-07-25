@@ -3,7 +3,6 @@ package fr.java.client.entities;
 
 import fr.java.client.utils.types.Roles;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Objects;
 

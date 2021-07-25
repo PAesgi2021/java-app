@@ -5,7 +5,7 @@ import java.util.List;
 public class SpaceListDTO {
 
 
-    private List<SpaceDTO>  spaces;
+    private List<SpaceDTO> spaces;
 
     public List<SpaceDTO> getSpaces() {
         return spaces;

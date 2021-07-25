@@ -34,13 +34,13 @@ public class FileUtils {
         errorAlert.showAndWait();
     }
 
-    public static boolean confirmationAlert(String header, String body)  {
+    public static boolean confirmationAlert(String header, String body) {
         Alert errorAlert = new Alert(Alert.AlertType.CONFIRMATION);
         errorAlert.setHeaderText(header);
         errorAlert.setContentText(body);
         errorAlert.showAndWait();
 
-        if(errorAlert.getResult().getText() == "OK"){
+        if (errorAlert.getResult().getText() == "OK") {
             return true;
         }
         return errorAlert.getResult().getText().equals("OK");
@@ -48,13 +48,14 @@ public class FileUtils {
 
     public static void closeWhenLoseFocus(Stage stage) {
         stage.focusedProperty().addListener((ov, onHidden, onShown) -> {
-            if(!stage.isFocused())
+            if (!stage.isFocused())
                 Platform.runLater(() -> stage.close());
         });
     }
 
     /**
      * This function verify and turn in red TextField until they are filled.
+     *
      * @param textFields
      * @return
      */
@@ -62,7 +63,7 @@ public class FileUtils {
         int result = 0;
         for (TextField tf : textFields) {
             if (tf.getText().length() > 0) {
-               result += 1;
+                result += 1;
             } else {
                 tf.setStyle("-fx-border-color: red");
                 tf.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -91,7 +92,7 @@ public class FileUtils {
 
 
     public static ImageView createViewImg(URL url, double height, double width) throws MalformedURLException {
-        Image img = new Image(url.toString());
+        Image     img     = new Image(url.toString());
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(height);
         imgView.setFitWidth(width);
@@ -100,9 +101,19 @@ public class FileUtils {
 
     public static String getAcronymUser() {
         Instance instance = Instance.getInstance();
-        if (instance.getUserService().getUser().getFirstname() != null && instance.getUserService().getUser().getLastname() != null) {
-            String firstLetterFirstname = instance.getUserService().getUser().getFirstname().substring(0, 1).toUpperCase();
-            String firstLetterLastname = instance.getUserService().getUser().getLastname().substring(0, 1).toUpperCase();
+        if (instance.getUserService().getUser().getFirstname() != null && instance.getUserService()
+                                                                                  .getUser()
+                                                                                  .getLastname() != null) {
+            String firstLetterFirstname = instance.getUserService()
+                                                  .getUser()
+                                                  .getFirstname()
+                                                  .substring(0, 1)
+                                                  .toUpperCase();
+            String firstLetterLastname  = instance.getUserService()
+                                                  .getUser()
+                                                  .getLastname()
+                                                  .substring(0, 1)
+                                                  .toUpperCase();
             return firstLetterFirstname + firstLetterLastname;
         }
         return "XX";
@@ -115,10 +126,13 @@ public class FileUtils {
         stage.show();
     }
 
-    public  void setUpNavbarImg(Button homeBtn, MenuButton settingsMenu, MenuItem profileMenu, MenuItem logoutMenu) throws MalformedURLException {
-        URL urlHome = getClass().getResource("/images/home.png");
-        URL urlAccount = getClass().getResource("/images/account.png");
-        URL urlLogout = getClass().getResource("/images/logout.png");
+    public void setUpNavbarImg(Button homeBtn,
+                               MenuButton settingsMenu,
+                               MenuItem profileMenu,
+                               MenuItem logoutMenu) throws MalformedURLException {
+        URL urlHome     = getClass().getResource("/images/home.png");
+        URL urlAccount  = getClass().getResource("/images/account.png");
+        URL urlLogout   = getClass().getResource("/images/logout.png");
         URL urlSettings = getClass().getResource("/images/settings.png");
 
         homeBtn.setGraphic(FileUtils.createViewImg(urlHome, 15, 15));

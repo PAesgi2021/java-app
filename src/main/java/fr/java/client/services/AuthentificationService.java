@@ -4,7 +4,6 @@ import fr.java.client.components.login.dto.LoginDTO;
 import fr.java.client.components.register.dto.UserDTO;
 import fr.java.client.entities.User;
 
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,8 +17,8 @@ public class AuthentificationService {
     private static AuthentificationService authentificationService;
 
 
-    private final String ROUTE_URL = "/er-user";
-    private final String LOGIN_URL = "/signin";
+    private final String ROUTE_URL    = "/er-user";
+    private final String LOGIN_URL    = "/signin";
     private final String REGISTER_URL = "/signup";
 
     private final AsyncService asyncService = AsyncService.getInstance();

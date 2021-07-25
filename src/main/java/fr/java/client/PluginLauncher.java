@@ -10,7 +10,7 @@ public class PluginLauncher {
 
 
     public IPlugin find() {
-        File            authorizedJarFile = new File("./myPlugin.jar");
+        File        authorizedJarFile = new File("./myPlugin.jar");
         ClassLoader authorizedLoader  = null;
         try {
             authorizedLoader = URLClassLoader.newInstance(new URL[]{authorizedJarFile.toURI().toURL()});
@@ -18,7 +18,7 @@ public class PluginLauncher {
                 MalformedURLException e) {
             e.printStackTrace();
         }
-        IPlugin authorizedPlugin  = null;
+        IPlugin authorizedPlugin = null;
         try {
             authorizedPlugin = (IPlugin) authorizedLoader.loadClass("plugins.myPlugin")
                                                          .getDeclaredConstructor()
@@ -27,10 +27,6 @@ public class PluginLauncher {
             e.printStackTrace();
         }
         return authorizedPlugin;
-    }
-
-    public void runPlugin(IPlugin pluginToRun) {
-        pluginToRun.run();
     }
 
 }

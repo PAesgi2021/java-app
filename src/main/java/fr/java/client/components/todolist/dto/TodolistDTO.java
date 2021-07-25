@@ -7,22 +7,15 @@ import java.util.List;
 
 public class TodolistDTO {
 
-    private Integer id;
+    private Integer       id;
     private String        title;
     private List<TaskDTO> tasks;
-    private Integer spaceId;
+    private Integer       spaceId;
 
     public TodolistDTO(Todolist todolist, Integer spaceId) {
         this.id = todolist.getId() != null ? todolist.getId() : null;
         this.title = todolist.getTitle();
         this.spaceId = spaceId;
-
-        //List<TaskDTO> taskList = new ArrayList<>();
-
-        //todolist.getTasks().forEach(t -> {
-        //taskList.add(new TaskDTO(t));
-        //});
-        //this.tasks = taskList;
     }
 
     public TodolistDTO() {

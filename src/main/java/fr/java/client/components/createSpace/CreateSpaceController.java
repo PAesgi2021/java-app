@@ -3,7 +3,6 @@ package fr.java.client.components.createSpace;
 import fr.java.client.entities.Space;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.layout.StackPane;
@@ -13,24 +12,24 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 public class CreateSpaceController {
-    Instance instance = Instance.getInstance();
+    Instance  instance  = Instance.getInstance();
     FileUtils fileUtils = new FileUtils();
 
-    @FXML Button homeBtn;
-    @FXML MenuButton settingsMenu;
-    @FXML MenuItem profileMenu;
-    @FXML MenuItem logoutMenu;
-    @FXML TextField spaceNameEntry;
-    @FXML TextField tagNameEntry;
-    @FXML TextArea descriptionEntry;
-    @FXML RadioButton privateVisibility;
-    @FXML RadioButton publicVisibility;
-    @FXML Button cancel;
-    @FXML Button createSpace;
-    @FXML StackPane errorPane;
-    private String spaceVisibility;
-    
-    @FXML 
+    @FXML   Button      homeBtn;
+    @FXML   MenuButton  settingsMenu;
+    @FXML   MenuItem    profileMenu;
+    @FXML   MenuItem    logoutMenu;
+    @FXML   TextField   spaceNameEntry;
+    @FXML   TextField   tagNameEntry;
+    @FXML   TextArea    descriptionEntry;
+    @FXML   RadioButton privateVisibility;
+    @FXML   RadioButton publicVisibility;
+    @FXML   Button      cancel;
+    @FXML   Button      createSpace;
+    @FXML   StackPane   errorPane;
+    private String      spaceVisibility;
+
+    @FXML
     public void initialize() throws MalformedURLException {
         URL url = getClass().getResource("/images/cadenas.png");
         this.privateVisibility.setGraphic(FileUtils.createViewImg(url, 15, 15));
@@ -96,7 +95,7 @@ public class CreateSpaceController {
         this.instance.getSpaceService().addSpace(newSpace);
         this.instance.getSpaceService().setCurrentSpace(newSpace);
 
-        fileUtils.showView(this.cancel,getClass().getResource("/Space.fxml"));
+        fileUtils.showView(this.cancel, getClass().getResource("/Space.fxml"));
     }
 
     public void showError(String message) {

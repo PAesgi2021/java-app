@@ -24,7 +24,8 @@ public class UserService {
     public boolean login(String username, String password) {
         try {
             LoginDTO loginDTO = authentificationService.getAuthentification(username, password);
-            this.user = new User(loginDTO.getUsername(),loginDTO.getPassword(),loginDTO.getId(), loginDTO.getFirstname(), loginDTO.getLastname());
+            this.user = new User(loginDTO.getUsername(), loginDTO.getPassword(), loginDTO.getId(), loginDTO.getFirstname(), loginDTO
+                    .getLastname());
 
             return true;
         } catch (Exception e) {

@@ -1,6 +1,5 @@
 package fr.java.client.entities;
 
-import fr.java.client.components.todolist.TodolistController;
 import fr.java.client.components.todolist.dto.TodolistDTO;
 
 import java.util.ArrayList;
@@ -8,10 +7,10 @@ import java.util.List;
 
 public class Todolist {
 
-    private Integer id;
-    private String title;
+    private Integer    id;
+    private String     title;
     private List<Task> tasks;
-    private Integer spaceId;
+    private Integer    spaceId;
 
     public Todolist(String title) {
         this.title = title;
@@ -33,6 +32,7 @@ public class Todolist {
 
         this.id = toAdapt.getId();
     }
+
     public Todolist() {
     }
 

@@ -4,7 +4,6 @@ import fr.java.client.entities.Space;
 import fr.java.client.entities.User;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
-import javafx.event.ActionEvent;
 import fr.java.client.utils.types.SpaceTab;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,45 +13,42 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class SpaceController {
-    SpaceAsync spaceAsync = new SpaceAsync();
-    Instance    instance = Instance.getInstance();
-    List<Space> spaces   = this.instance.getSpaceService().getSpaces();
-    User        user     = this.instance.getUserService().getUser();
-    FileUtils fileUtils = new FileUtils();
+    Instance    instance  = Instance.getInstance();
+    List<Space> spaces    = this.instance.getSpaceService().getSpaces();
+    User        user      = this.instance.getUserService().getUser();
+    FileUtils   fileUtils = new FileUtils();
 
-    @FXML VBox       spacesContainer;
-    @FXML Label      yourNumberSpaces;
-    @FXML Label      numberFavoriteSpaces;
-    @FXML Button     newSpace;
-    @FXML Button     personalSpacesBtn;
-    @FXML Button     allSpacesBtn;
-    @FXML Button     yourSpacesBtn;
-    @FXML Button     favoriteSpacesBtn;
-    @FXML Button     exploreSpacesBtn;
-    @FXML HBox       yourSpacesMenuBtnHBox;
-    @FXML Separator  lastSeparator;
-    @FXML Button     homeBtn;
-    @FXML MenuButton settingsMenu;
-    @FXML MenuItem   profileMenu;
-    @FXML MenuItem   logoutMenu;
-    @FXML Label      numberExploreSpaces;
-    @FXML TextField  tfFilter;
-    @FXML MenuButton mbSort;
-    private MenuItem selectedFilter;
+    @FXML   VBox       spacesContainer;
+    @FXML   Label      yourNumberSpaces;
+    @FXML   Label      numberFavoriteSpaces;
+    @FXML   Button     newSpace;
+    @FXML   Button     personalSpacesBtn;
+    @FXML   Button     allSpacesBtn;
+    @FXML   Button     yourSpacesBtn;
+    @FXML   Button     favoriteSpacesBtn;
+    @FXML   Button     exploreSpacesBtn;
+    @FXML   HBox       yourSpacesMenuBtnHBox;
+    @FXML   Separator  lastSeparator;
+    @FXML   Button     homeBtn;
+    @FXML   MenuButton settingsMenu;
+    @FXML   MenuItem   profileMenu;
+    @FXML   MenuItem   logoutMenu;
+    @FXML   Label      numberExploreSpaces;
+    @FXML   TextField  tfFilter;
+    @FXML   MenuButton mbSort;
+    private MenuItem   selectedFilter;
 
     @FXML
     public void initialize() throws IOException {
-            this.yourSpacesAction();
-            this.updateBadgesNumber();
-            fileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
-            tfFilter.setDisable(true);
-            filterSpace();
+        this.yourSpacesAction();
+        this.updateBadgesNumber();
+        fileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
+        tfFilter.setDisable(true);
+        filterSpace();
 
     }
 
@@ -71,9 +67,9 @@ public class SpaceController {
 
         // show only the spaces if the user is a collaborator
         this.spacesContainer.getChildren().clear();
-        for (int i = this.spaces.size()-1; i >= 0; i--) {
+        for (int i = this.spaces.size() - 1; i >= 0; i--) {
             Space space = this.spaces.get(i);
-                this.createSpaceCard(space);
+            this.createSpaceCard(space);
         }
     }
 
@@ -82,7 +78,7 @@ public class SpaceController {
 
         // show only the spaces if the user is the author
         this.spacesContainer.getChildren().clear();
-        for (int i = this.spaces.size()-1; i >= 0; i--) {
+        for (int i = this.spaces.size() - 1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (space.getAuthor() == user) {
                 this.createSpaceCard(space);
@@ -113,7 +109,7 @@ public class SpaceController {
 
         // show all existing spaces
         this.spacesContainer.getChildren().clear();
-        for (int i = this.spaces.size()-1; i >= 0; i--) {
+        for (int i = this.spaces.size() - 1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (space.getVisibility() == "public") {
                 this.createSpaceCard(space);
@@ -156,7 +152,7 @@ public class SpaceController {
 
     public void updateBadgesNumber() {
         int countYourSpaces = 0;
-        for (int i = this.spaces.size()-1; i >= 0; i--) {
+        for (int i = this.spaces.size() - 1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (this.isUserPresent(space, user)) {
                 countYourSpaces++;
@@ -164,7 +160,7 @@ public class SpaceController {
         }
 
         int countExploreSpaces = 0;
-        for (int i = this.spaces.size()-1; i >= 0; i--) {
+        for (int i = this.spaces.size() - 1; i >= 0; i--) {
             Space space = this.spaces.get(i);
             if (space.getVisibility().equals("public")) {
                 countExploreSpaces++;
@@ -176,54 +172,56 @@ public class SpaceController {
     }
 
     public void filterSpace() {
-        tfFilter.setOnKeyTyped( event -> {
-                    if (tfFilter.getText().length() > 0) {
-                        if (selectedFilter.getText().equals("Spacename")) {
-                            this.spacesContainer.getChildren().clear();
-                            for (int i = this.spaces.size() - 1; i > 0; i--) {
-                                Space space = this.spaces.get(i);
-                                // explore
-                                if (!isUserPresent(space, user) && instance.getSpaceService().getSpaceTab() == SpaceTab.Personal) {
-                                    continue;
-                                }
-                                // search by namespace
-                                if (space.getName().toLowerCase().contains(tfFilter.getText().toLowerCase())) {
-                                    try {
-                                        this.createSpaceCard(space);
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
-                        } else if (selectedFilter.getText().equals("Tag")) {
-                            this.spacesContainer.getChildren().clear();
-                            for (int i = this.spaces.size() - 1; i > 0; i--) {
-                                Space space = this.spaces.get(i);
-                                if (!isUserPresent(space, user) && instance.getSpaceService().getSpaceTab() == SpaceTab.Personal) {
-                                    continue;
-                                }
-                                // search by tag
-                                if (space.getTag().toLowerCase().contains(tfFilter.getText().toLowerCase())) {
-                                    try {
-                                        this.createSpaceCard(space);
-                                    } catch (IOException e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            }
+        tfFilter.setOnKeyTyped(event -> {
+            if (tfFilter.getText().length() > 0) {
+                if (selectedFilter.getText().equals("Spacename")) {
+                    this.spacesContainer.getChildren().clear();
+                    for (int i = this.spaces.size() - 1; i > 0; i--) {
+                        Space space = this.spaces.get(i);
+                        // explore
+                        if (!isUserPresent(space, user) && instance.getSpaceService()
+                                                                   .getSpaceTab() == SpaceTab.Personal) {
+                            continue;
                         }
-                    } else {
-                        try {
-                            if (instance.getSpaceService().getSpaceTab() == SpaceTab.Personal) {
-                                personalSpaceAction();
-                            } else if (instance.getSpaceService().getSpaceTab() == SpaceTab.All){
-                                exploreSpacesAction();
+                        // search by namespace
+                        if (space.getName().toLowerCase().contains(tfFilter.getText().toLowerCase())) {
+                            try {
+                                this.createSpaceCard(space);
+                            } catch (IOException e) {
+                                e.printStackTrace();
                             }
-                        } catch (IOException e) {
-                            e.printStackTrace();
                         }
                     }
-        } );
+                } else if (selectedFilter.getText().equals("Tag")) {
+                    this.spacesContainer.getChildren().clear();
+                    for (int i = this.spaces.size() - 1; i > 0; i--) {
+                        Space space = this.spaces.get(i);
+                        if (!isUserPresent(space, user) && instance.getSpaceService()
+                                                                   .getSpaceTab() == SpaceTab.Personal) {
+                            continue;
+                        }
+                        // search by tag
+                        if (space.getTag().toLowerCase().contains(tfFilter.getText().toLowerCase())) {
+                            try {
+                                this.createSpaceCard(space);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                }
+            } else {
+                try {
+                    if (instance.getSpaceService().getSpaceTab() == SpaceTab.Personal) {
+                        personalSpaceAction();
+                    } else if (instance.getSpaceService().getSpaceTab() == SpaceTab.All) {
+                        exploreSpacesAction();
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 

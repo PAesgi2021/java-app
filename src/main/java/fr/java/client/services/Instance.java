@@ -3,9 +3,9 @@ package fr.java.client.services;
 public class Instance {
 
 
-    private final UserService userService;
-    private final SpaceService spaceService;
-    private static Instance instance;
+    private final  UserService  userService;
+    private final  SpaceService spaceService;
+    private static Instance     instance;
 
 
     private Instance() {

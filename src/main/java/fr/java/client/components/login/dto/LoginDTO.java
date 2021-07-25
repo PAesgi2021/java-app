@@ -22,6 +22,7 @@ public class LoginDTO {
         this.firstname = user.getFirstname();
         this.lastname = user.getLastname();
     }
+
     public LoginDTO() {
     }
 

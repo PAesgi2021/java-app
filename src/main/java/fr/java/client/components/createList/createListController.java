@@ -5,15 +5,12 @@ import fr.java.client.services.Instance;
 import fr.java.client.services.TodolistService;
 import fr.java.client.utils.FileUtils;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
+
 import java.io.IOException;
 
 public class createListController {
-    Instance instance = Instance.getInstance();
+    Instance        instance        = Instance.getInstance();
     TodolistService todolistService = TodolistService.getInstance();
 
     @FXML TextField titleEntry;
@@ -25,7 +22,10 @@ public class createListController {
             return;
         }
 
-        Todolist newTodolist = this.todolistService.saveOrUpdateTodolist(new Todolist(this.titleEntry.getText()),this.instance.getSpaceService().getCurrentSpace().getId());
+        Todolist newTodolist = this.todolistService.saveOrUpdateTodolist(new Todolist(this.titleEntry.getText()), this.instance
+                .getSpaceService()
+                .getCurrentSpace()
+                .getId());
         this.instance.getSpaceService().getCurrentSpace().getTodolists().add(newTodolist);
         FileUtils.close(this.titleEntry);
     }

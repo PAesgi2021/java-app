@@ -22,7 +22,7 @@ public class TaskDTO {
         this.description = task.getDescription();
         this.deadLine = (task.getDeadLine() != null)
                 ? task.getDeadLine().toString()
-                : LocalDateTime.of(2021,11,15,8,0).toString();
+                : LocalDateTime.of(2021, 11, 15, 8, 0).toString();
         if (task.getFinishedDate() != null) {
             this.finishedDate = task.getFinishedDate().toString();
         }

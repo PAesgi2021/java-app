@@ -13,14 +13,14 @@ import java.io.IOException;
 public class RegisterController {
     Instance instance = Instance.getInstance();
 
-    @FXML TextField emailEntry;
-    @FXML TextField firstnameEntry;
-    @FXML TextField lastnameEntry;
-    @FXML DatePicker dobEntry;
+    @FXML TextField     emailEntry;
+    @FXML TextField     firstnameEntry;
+    @FXML TextField     lastnameEntry;
+    @FXML DatePicker    dobEntry;
     @FXML PasswordField passwordEntry;
-    @FXML Button redirectLoginBtn;
-    @FXML Button registerBtn;
-    @FXML StackPane errorPane;
+    @FXML Button        redirectLoginBtn;
+    @FXML Button        registerBtn;
+    @FXML StackPane     errorPane;
 
     public void register() throws IOException {
 
@@ -67,7 +67,8 @@ public class RegisterController {
         // create a new user and update current user
         if (this.instance.getUserService().getAuthentificationService().registerOrUpdateUser(registeredUser)) {
             showError("Unable to registering");
-        };
+        }
+        ;
         this.instance.getUserService().setUser(registeredUser);
         fileUtils.showView(this.errorPane, getClass().getResource("/Login.fxml"));
     }

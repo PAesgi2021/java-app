@@ -4,38 +4,35 @@ import fr.java.client.entities.User;
 import fr.java.client.services.AuthentificationService;
 import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.net.URL;
 
 public class ProfileController {
-    
+
     Instance instance = Instance.getInstance();
     private AuthentificationService authentificationService = AuthentificationService.getInstance();
     FileUtils fileUtils = new FileUtils();
 
-    @FXML Label acronymLabel;
-    @FXML Label nameLabel;
-    @FXML Label usernameLabel;
-    @FXML TextField usernameEntry;
-    @FXML TextField passwordEntry;
-    @FXML TextField firstnameEntry;
-    @FXML TextField lastnameEntry;
-    @FXML DatePicker dobEntry;
-    @FXML TextField roleEntry;
-    @FXML Button saveEntry;
-    @FXML Button homeBtn;
-    @FXML MenuButton settingsMenu;
-    @FXML MenuItem logoutMenu;
-    @FXML MenuItem profileMenu;
-    @FXML Button backBtn;
-    private User user;
-    
+    @FXML   Label      acronymLabel;
+    @FXML   Label      nameLabel;
+    @FXML   Label      usernameLabel;
+    @FXML   TextField  usernameEntry;
+    @FXML   TextField  passwordEntry;
+    @FXML   TextField  firstnameEntry;
+    @FXML   TextField  lastnameEntry;
+    @FXML   DatePicker dobEntry;
+    @FXML   TextField  roleEntry;
+    @FXML   Button     saveEntry;
+    @FXML   Button     homeBtn;
+    @FXML   MenuButton settingsMenu;
+    @FXML   MenuItem   logoutMenu;
+    @FXML   MenuItem   profileMenu;
+    @FXML   Button     backBtn;
+    private User       user;
+
     @FXML
     protected void initialize() throws MalformedURLException {
         this.user = this.instance.getUserService().getUser();
@@ -45,7 +42,7 @@ public class ProfileController {
         this.passwordEntry.setText(this.user.getPassword());
         this.firstnameEntry.setText(this.user.getFirstname());
         this.lastnameEntry.setText(this.user.getLastname());
-        this.roleEntry.setText(this.user.getRoles()+"");
+        this.roleEntry.setText(this.user.getRoles() + "");
         this.usernameLabel.setText("/ @" + user.getFirstname().toLowerCase() + user.getLastname().toLowerCase());
 
         fileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);

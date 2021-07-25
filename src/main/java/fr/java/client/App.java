@@ -4,12 +4,6 @@ import fr.java.client.utils.FileUtils;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-import java.io.File;
-import java.lang.reflect.InvocationTargetException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
-
 
 /**
  * JavaFX App
