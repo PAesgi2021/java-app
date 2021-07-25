@@ -60,9 +60,7 @@ public class ExportTasksToPDF {
         // Lets write a big header
         preface.add(new Paragraph("Tasks Export", catFont));
 
-        preface.add(new Paragraph(
-                "This is the list of tasks you export ",
-                smallBold));
+        addEmptyLine(preface, 3);
         document.add(preface);
     }
 
