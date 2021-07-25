@@ -14,6 +14,7 @@ import java.net.URL;
 
 public class CreateSpaceController {
     Instance instance = Instance.getInstance();
+    FileUtils fileUtils = new FileUtils();
 
     @FXML Button homeBtn;
     @FXML MenuButton settingsMenu;
@@ -31,19 +32,19 @@ public class CreateSpaceController {
     
     @FXML 
     public void initialize() throws MalformedURLException {
-        URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/cadenas.png");
+        URL url = getClass().getResource("/images/cadenas.png");
         this.privateVisibility.setGraphic(FileUtils.createViewImg(url, 15, 15));
-        url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/globale.png");
+        url = getClass().getResource("/images/globale.png");
         this.publicVisibility.setGraphic(FileUtils.createViewImg(url, 15, 15));
-        FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
+        fileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
     }
 
     public void logout() throws IOException {
-        FileUtils.logout(this.cancel);
+        fileUtils.logout(this.cancel);
     }
 
     public void homeAction() throws IOException {
-        FileUtils.showView(this.cancel, "space/Space.fxml");
+        fileUtils.showView(this.cancel, getClass().getResource("/Space.fxml"));
     }
 
     public void privateVisibilityAction() {
@@ -95,7 +96,7 @@ public class CreateSpaceController {
         this.instance.getSpaceService().addSpace(newSpace);
         this.instance.getSpaceService().setCurrentSpace(newSpace);
 
-        FileUtils.showView(this.cancel,"space/Space.fxml");
+        fileUtils.showView(this.cancel,getClass().getResource("/Space.fxml"));
     }
 
     public void showError(String message) {
@@ -106,6 +107,6 @@ public class CreateSpaceController {
     }
 
     public void cancelAction() throws IOException {
-        FileUtils.showView(this.cancel, "space/Space.fxml");
+        fileUtils.showView(this.cancel, getClass().getResource("/Space.fxml"));
     }
 }

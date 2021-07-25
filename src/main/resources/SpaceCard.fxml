@@ -79,6 +79,6 @@
     </bottom>
 
     <stylesheets>
-        <URL value="@SpaceCard.css"/>
+        <URL value="@css/SpaceCard.css"/>
     </stylesheets>
 </BorderPane>

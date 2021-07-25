@@ -24,6 +24,8 @@ public class RegisterController {
 
     public void register() throws IOException {
 
+        FileUtils fileUtils = new FileUtils();
+
         // use case: wrong e-mail
         if (this.emailEntry.getText().isEmpty()) {
             this.showError("adresse e-mail incorrect");
@@ -67,12 +69,12 @@ public class RegisterController {
             showError("Unable to registering");
         };
         this.instance.getUserService().setUser(registeredUser);
-        FileUtils.showView(this.errorPane, "/login/Login.fxml");
+        fileUtils.showView(this.errorPane, getClass().getResource("/Login.fxml"));
     }
 
     public void showLoginView() throws IOException {
         Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/login/Login.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM(getClass().getResource("/Login.fxml")));
         FileUtils.close(this.errorPane);
         stage.show();
     }

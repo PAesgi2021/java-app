@@ -24,6 +24,7 @@ public class SpaceController {
     Instance    instance = Instance.getInstance();
     List<Space> spaces   = this.instance.getSpaceService().getSpaces();
     User        user     = this.instance.getUserService().getUser();
+    FileUtils fileUtils = new FileUtils();
 
     @FXML VBox       spacesContainer;
     @FXML Label      yourNumberSpaces;
@@ -49,7 +50,7 @@ public class SpaceController {
     public void initialize() throws IOException {
             this.yourSpacesAction();
             this.updateBadgesNumber();
-            FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
+            fileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
             tfFilter.setDisable(true);
             filterSpace();
 
@@ -57,12 +58,9 @@ public class SpaceController {
 
     private void createSpaceCard(Space space) throws IOException {
         this.instance.getSpaceService().setCurrentSpace(space);
+        BorderPane mainPane = FXMLLoader.load(
+                getClass().getResource("/SpaceCard.fxml")
 
-        FXMLLoader loader = new FXMLLoader();
-        BorderPane mainPane = loader.load(
-                new File("src/main/java/fr/java/client/components/spaceCard/SpaceCard.fxml")
-                        .toURI()
-                        .toURL()
         );
         this.spacesContainer.getChildren().add(mainPane);
         this.instance.getSpaceService().setCurrentSpace(null);
@@ -145,7 +143,7 @@ public class SpaceController {
     }
 
     public void logout() throws IOException {
-        FileUtils.logout(this.allSpacesBtn);
+        fileUtils.logout(this.allSpacesBtn);
     }
 
     public void homeAction() throws IOException {
@@ -153,7 +151,7 @@ public class SpaceController {
     }
 
     public void newSpaceAction() throws IOException {
-        FileUtils.showView(this.newSpace, "createSpace/CreateSpace.fxml");
+        fileUtils.showView(this.newSpace, getClass().getResource("/CreateSpace.fxml"));
     }
 
     public void updateBadgesNumber() {
@@ -237,6 +235,6 @@ public class SpaceController {
     }
 
     public void profileAction() throws IOException {
-        FileUtils.showView(this.allSpacesBtn, "profile/Profile.fxml");
+        fileUtils.showView(this.allSpacesBtn, getClass().getResource("/Profile.fxml"));
     }
 }

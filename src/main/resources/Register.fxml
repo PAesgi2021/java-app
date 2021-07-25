@@ -6,9 +6,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.login.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.java.client.components.register.RegisterController">
     <top>
-        <StackPane prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+        <StackPane prefHeight="100.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
             <children>
                 <Label style="-fx-text-fill: #253858;" text="PAESGI">
                     <font>
@@ -25,8 +25,7 @@
                     <children>
                         <VBox maxHeight="-Infinity" maxWidth="-Infinity" StackPane.alignment="CENTER">
                             <children>
-                                <Label maxHeight="-Infinity" maxWidth="-Infinity" style="-fx-text-fill: #5e6c84; -fx-font-size: 16;" text="Log in to continue to :" />
-                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #5e6c84; -fx-font-size: 16; -fx-font-weight: bolder;" text="PAESGI">
+                                <Label alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-text-fill: #5e6c84; -fx-font-size: 16; -fx-font-weight: bolder;" text="Create your account">
                                     <font>
                                         <Font name="System Bold" size="12.0" />
                                     </font>
@@ -38,14 +37,33 @@
                 <StackPane fx:id="errorPane" />
                 <StackPane prefHeight="74.0" prefWidth="318.0">
                     <children>
-                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                             <children>
-                                <TextField fx:id="emailEntry" promptText="Enter your username/e-mail" styleClass="loginEntries">
+                                <TextField fx:id="emailEntry" promptText="Enter an username/e-mail" styleClass="registerEntries">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
                                 </TextField>
-                                <PasswordField fx:id="passwordEntry" onAction="#onEnter" promptText="Enter your password" styleClass="loginEntries">
+                                <HBox prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                    <children>
+                                        <TextField fx:id="firstnameEntry" promptText="Enter your firstname" styleClass="registerEntries">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </TextField>
+                                        <TextField fx:id="lastnameEntry" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" promptText="Enter your lastname" styleClass="registerEntries">
+                                            <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                            </cursor>
+                                        </TextField>
+                                    </children>
+                                </HBox>
+                                <DatePicker fx:id="dobEntry" maxWidth="1.7976931348623157E308" promptText="Enter your date of birthday" styleClass="registerEntries">
+                                    <cursor>
+                                        <Cursor fx:constant="HAND" />
+                                    </cursor>
+                                </DatePicker>
+                                <PasswordField fx:id="passwordEntry" promptText="Create a password" styleClass="registerEntries">
                                     <cursor>
                                         <Cursor fx:constant="HAND" />
                                     </cursor>
@@ -56,7 +74,7 @@
                 </StackPane>
                 <StackPane prefHeight="82.0" prefWidth="318.0">
                     <children>
-                        <Button fx:id="connectionBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#signIn" styleClass="continueBtn" text="Login">
+                        <Button fx:id="registerBtn" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#register" styleClass="registerBtn" text="Register">
                             <cursor>
                                 <Cursor fx:constant="HAND" />
                             </cursor>
@@ -70,7 +88,7 @@
                                 <Separator />
                                 <StackPane alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="200.0">
                                     <children>
-                                        <Button fx:id="registerBtn" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showRegisterView" styleClass="createBtn" text="Create an account">
+                                        <Button fx:id="redirectLoginBtn" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#showLoginView" styleClass="redirectLoginBtn" text="You already have an account ? Login">
                                             <font>
                                                 <Font size="14.0" />
                                             </font>
@@ -89,10 +107,10 @@
     </center>
 
     <stylesheets>
-        <URL value="@LoginView.css" />
+        <URL value="@css/Register.css" />
     </stylesheets>
     <bottom>
-        <StackPane prefHeight="150.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <StackPane prefHeight="150.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
             <children>
                 <VBox maxHeight="-Infinity" maxWidth="-Infinity">
                     <children>

@@ -1,16 +1,19 @@
 package fr.java.client.components.todolist;
 
-import fr.java.client.services.Instance;
+import fr.java.client.IPlugin;
+import fr.java.client.PluginLauncher;
 import fr.java.client.entities.Task;
 import fr.java.client.entities.Todolist;
+import fr.java.client.services.Instance;
 import fr.java.client.utils.FileUtils;
 import fr.java.client.utils.types.TaskStatusType;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Cursor;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
@@ -20,6 +23,7 @@ import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -28,11 +32,14 @@ import java.util.List;
 
 public class TodolistController {
     Instance instance = Instance.getInstance();
+    FileUtils fileUtils = new FileUtils();
 
     @FXML   HBox       listsHBox;
     @FXML   CheckBox   showDoneTasks;
     @FXML   BorderPane component;
     @FXML   Button     homeBtn;
+    @FXML   Button     scanPlugin;
+    @FXML   Button     exportBtn;
     @FXML   MenuButton settingsMenu;
     @FXML   MenuItem   profileMenuItem;
     @FXML   MenuItem   logoutMenuItem;
@@ -40,6 +47,7 @@ public class TodolistController {
     @FXML   TextField  searchEntry;
     @FXML   Label      spaceNameLabel;
     private String     sortSelected;
+    private IPlugin    myPlugin;
 
     @FXML
     protected void initialize() throws MalformedURLException {
@@ -48,7 +56,10 @@ public class TodolistController {
                                                                              .getCurrentSpace()
                                                                              .getName()
                                                                              .toUpperCase());
-        FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenuItem, this.logoutMenuItem);
+        fileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenuItem, this.logoutMenuItem);
+        //add plugin btn to navbar
+        URL urlPlugin = getClass().getResource("/images/plugin.png");
+        this.scanPlugin.setGraphic(FileUtils.createViewImg(urlPlugin, 15, 15));
     }
 
     public void showAllTodolist() {
@@ -100,7 +111,6 @@ public class TodolistController {
             btnAddTask.setOnAction(actionEvent -> {
                 try {
                     this.instance.getSpaceService().getTodolistService().setCurrentTodolist(todolist);
-                    System.out.println(todolist +" :verif");
                     this.createTaskAction();
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -146,7 +156,6 @@ public class TodolistController {
     public void addTask(Todolist todolist, VBox listView, TaskStatusType status) {
         for (Task task : todolist.getTasks()) {
 
-            //TODO need to be refacto
             if (!this.isValidSortedByTaskTitle(task)) continue;
 
             // separate todoTask and doneTask
@@ -233,15 +242,23 @@ public class TodolistController {
         }
     }
 
-    public void logout() throws IOException {
+    public void logout() {
         instance.getUserService().logout();
-        FileUtils.logout(this.component);
+    }
+
+    public void scanPlugin() {
+        PluginLauncher pluginLauncher = new PluginLauncher();
+        this.myPlugin = pluginLauncher.find();
+        if (myPlugin != null) {
+            this.exportBtn.setDisable(false);
+            //display export btn
+        }
     }
 
     public void createListAction() throws IOException {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createList/createList.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM(getClass().getResource("/createList.fxml")));
         FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();
@@ -250,7 +267,7 @@ public class TodolistController {
     public void createTaskAction() throws IOException {
         Stage stage = new Stage();
         stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/createTask/createTask.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM(getClass().getResource("/createTask.fxml")));
         FileUtils.closeWhenLoseFocus(stage);
         stage.showAndWait();
         this.refreshAction();
@@ -258,7 +275,7 @@ public class TodolistController {
 
     public void showTaskConfigView() throws IOException {
         Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/taskConfig/TaskConfig.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM(getClass().getResource("/TaskConfig.fxml")));
         FileUtils.closeWhenLoseFocus(stage);
         stage.initStyle(StageStyle.UNDECORATED);
         this.component.setOpacity(0.8);
@@ -275,17 +292,17 @@ public class TodolistController {
 
         HBox result = new HBox();
         result.setSpacing(5);
-        URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/validation.png");
+        URL url = getClass().getResource("/images/validation.png");
         result.getChildren().addAll(List.of(FileUtils.createViewImg(url, 15, 15), finishedDate));
         return result;
     }
 
     public void homeAction() throws IOException {
-        FileUtils.showView(this.component, "space/Space.fxml");
+        fileUtils.showView(this.component, getClass().getResource("/Space.fxml"));
     }
 
     public void profileAction() throws IOException {
-        FileUtils.showView(this.component, "profile/Profile.fxml");
+        fileUtils.showView(this.component, getClass().getResource("/Profile.fxml"));
     }
 
     public void menuItemSortedAction(ActionEvent actionEvent) {
@@ -330,7 +347,6 @@ public class TodolistController {
                 return true;
             }
         }
-
         return false;
     }
 
@@ -343,5 +359,9 @@ public class TodolistController {
         }
 
         return true;
+    }
+
+    public void exportList() {
+        this.myPlugin.run();
     }
 }

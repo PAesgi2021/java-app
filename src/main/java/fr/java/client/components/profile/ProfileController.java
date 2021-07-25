@@ -17,6 +17,7 @@ public class ProfileController {
     
     Instance instance = Instance.getInstance();
     private AuthentificationService authentificationService = AuthentificationService.getInstance();
+    FileUtils fileUtils = new FileUtils();
 
     @FXML Label acronymLabel;
     @FXML Label nameLabel;
@@ -47,9 +48,8 @@ public class ProfileController {
         this.roleEntry.setText(this.user.getRoles()+"");
         this.usernameLabel.setText("/ @" + user.getFirstname().toLowerCase() + user.getLastname().toLowerCase());
 
-        FileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
-        URL url = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/previous.png");
-        this.backBtn.setGraphic(FileUtils.createViewImg(url, 15, 15));
+        fileUtils.setUpNavbarImg(this.homeBtn, this.settingsMenu, this.profileMenu, this.logoutMenu);
+        this.backBtn.setGraphic(FileUtils.createViewImg(getClass().getResource("/images/previous.png"), 15, 15));
 
     }
 
@@ -64,18 +64,18 @@ public class ProfileController {
     }
 
     public void homeAction() throws IOException {
-        FileUtils.showView(this.usernameEntry, "space/Space.fxml");
+        fileUtils.showView(this.usernameEntry, getClass().getResource("/Space.fxml"));
     }
 
     public void logout() throws IOException {
-        FileUtils.logout(this.usernameEntry);
+        fileUtils.logout(this.usernameEntry);
     }
 
     public void backAction() throws IOException {
         if (this.instance.getSpaceService().getCurrentSpace() == null) {
-            FileUtils.showView(this.usernameEntry, "space/Space.fxml");
+            fileUtils.showView(this.usernameEntry, getClass().getResource("/Space.fxml"));
             return;
         }
-        FileUtils.showView(this.usernameEntry, "todolist/Todolist.fxml");
+        fileUtils.showView(this.usernameEntry, getClass().getResource("/Todolist.fxml"));
     }
 }

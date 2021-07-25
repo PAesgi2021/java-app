@@ -68,6 +68,6 @@
     </children>
 
     <stylesheets>
-        <URL value="@TaskConfig.css"/>
+        <URL value="@css/TaskConfig.css"/>
     </stylesheets>
 </VBox>

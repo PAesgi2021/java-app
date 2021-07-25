@@ -16,6 +16,7 @@ import java.io.IOException;
 
 public class LoginController {
     Instance   instance   = Instance.getInstance();
+    FileUtils fileUtils = new FileUtils();
 
     @FXML TextField emailEntry;
     @FXML PasswordField passwordEntry;
@@ -42,7 +43,7 @@ public class LoginController {
             this.passwordEntry.setStyle("-fx-border-color: red");
         }
         if (instance.getUserService().getUser() != null) {
-            FileUtils.showView(this.connectionBtn, "space/Space.fxml");
+            fileUtils.showView(this.connectionBtn,getClass().getResource("/Space.fxml"));
         }
 
 
@@ -50,7 +51,7 @@ public class LoginController {
 
     public void showRegisterView() throws IOException {
         Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/register/Register.fxml"));
+        stage.setScene(FileUtils.createSceneFromFXLM(getClass().getResource("/Register.fxml")));
         FileUtils.close(this.errorPane);
         stage.show();
     }

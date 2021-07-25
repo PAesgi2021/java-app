@@ -34,6 +34,6 @@
       <Pane prefHeight="10.0" prefWidth="500.0" styleClass="footerPane" />
    </children>
    <stylesheets>
-      <URL value="@createTask.css" />
+      <URL value="@css/createTask.css" />
    </stylesheets>
 </VBox>

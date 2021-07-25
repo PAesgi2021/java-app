@@ -24,7 +24,6 @@ public class Todolist {
         List<Task> tasklist = new ArrayList<>();
         if (toAdapt.getTasks() != null) {
             toAdapt.getTasks().forEach(task -> {
-                System.out.println(task.getDeadLine());
                 tasklist.add(new Task(task));
             });
             this.tasks = tasklist;

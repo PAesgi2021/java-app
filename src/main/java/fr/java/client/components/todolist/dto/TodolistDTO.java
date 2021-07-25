@@ -3,9 +3,7 @@ package fr.java.client.components.todolist.dto;
 import fr.java.client.components.createTask.dto.TaskDTO;
 import fr.java.client.entities.Todolist;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class TodolistDTO {
 

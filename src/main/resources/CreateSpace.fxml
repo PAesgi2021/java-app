@@ -85,7 +85,7 @@
     </bottom>
 
     <stylesheets>
-        <URL value="@../profile/Profile.css"/>
+        <URL value="@css/Profile.css"/>
     </stylesheets>
     <center>
         <VBox maxWidth="-Infinity" prefWidth="650.0" spacing="10.0" style="-fx-padding: 20;"
@@ -189,6 +189,6 @@
     </center>
 
     <stylesheets>
-        <URL value="@CreateSpace.css"/>
+        <URL value="@css/CreateSpace.css"/>
     </stylesheets>
 </BorderPane>

@@ -14,7 +14,7 @@ public class AsyncService {
 
     private final String BASE_URL = "http://localhost:3000";
 
-    //Singleton pour le Thread-safe
+    //Singleton for Thread-safe
     private static AsyncService asyncService;
 
     public static AsyncService getInstance() {
@@ -90,7 +90,6 @@ public class AsyncService {
         }
         if (response != null) {
             if (dtoClass == String.class) {
-                System.out.println(response.get().body());
                 return (T) new ConfirmationDTO(response.get().body());
             }
             return new Gson().fromJson(response.get().body(), dtoClass);

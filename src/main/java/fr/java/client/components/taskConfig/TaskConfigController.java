@@ -105,8 +105,6 @@ public class TaskConfigController {
         if (this.isSizeDescriptionValid(this.descriptionTask.getText())) {
             this.currentTask.setDescription(this.descriptionTask.getText());
         }
-
-        System.out.println(this.currentTask.getId() + " TASK ID");
         this.instance.getSpaceService()
                      .getTodolistService()
                      .saveOrUpdateTask(this.currentTask, this.instance.getSpaceService()

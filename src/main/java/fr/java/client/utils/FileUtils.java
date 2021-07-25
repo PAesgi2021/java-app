@@ -12,7 +12,6 @@ import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -22,9 +21,8 @@ public class FileUtils {
 
     public static final String PROJECT_PATH = System.getProperty("user.dir");
 
-    public static Scene createSceneFromFXLM(String path) throws IOException {
-        URL    file = new File(path).toURI().toURL();
-        Parent root = FXMLLoader.load(file);
+    public static Scene createSceneFromFXLM(URL path) throws IOException {
+        Parent root = FXMLLoader.load(path);
         return new Scene(root);
     }
 
@@ -110,27 +108,28 @@ public class FileUtils {
         return "XX";
     }
 
-    public static void showView(Node node, String path) throws IOException {
+    public void showView(Node node, URL path) throws IOException {
         Stage stage = new Stage();
-        stage.setScene(FileUtils.createSceneFromFXLM("src/main/java/fr/java/client/components/" + path));
+        stage.setScene(FileUtils.createSceneFromFXLM(path));
         FileUtils.close(node);
         stage.show();
     }
 
-    public static void setUpNavbarImg(Button homeBtn, MenuButton settingsMenu, MenuItem profileMenu, MenuItem logoutMenu) throws MalformedURLException {
-        URL urlHome = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/home.png");
-        URL urlAccount = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/account.png");
-        URL urlLogout = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/logout.png");
-        URL urlSettings = new URL("file:///" + FileUtils.PROJECT_PATH + "/src/main/resources/images/settings.png");
+    public  void setUpNavbarImg(Button homeBtn, MenuButton settingsMenu, MenuItem profileMenu, MenuItem logoutMenu) throws MalformedURLException {
+        URL urlHome = getClass().getResource("/images/home.png");
+        URL urlAccount = getClass().getResource("/images/account.png");
+        URL urlLogout = getClass().getResource("/images/logout.png");
+        URL urlSettings = getClass().getResource("/images/settings.png");
+
         homeBtn.setGraphic(FileUtils.createViewImg(urlHome, 15, 15));
         settingsMenu.setGraphic(FileUtils.createViewImg(urlSettings, 15, 15));
         logoutMenu.setGraphic(FileUtils.createViewImg(urlLogout, 15, 15));
         profileMenu.setGraphic(FileUtils.createViewImg(urlAccount, 15, 15));
     }
 
-    public static void logout(Node node) throws IOException {
+    public void logout(Node node) throws IOException {
         Instance instance = Instance.getInstance();
         instance.getSpaceService().setCurrentSpace(null);
-        FileUtils.showView(node, "login/Login.fxml");
+        this.showView(node, getClass().getResource("/Login.fxml"));
     }
 }
