@@ -10,23 +10,23 @@ public class PluginLauncher {
 
 
     public IPlugin find() {
-        File        authorizedJarFile = new File("./myPlugin.jar");
-        ClassLoader authorizedLoader  = null;
+        File        selectedJarFile = new File("./myPlugin.jar");
+        ClassLoader loader  = null;
         try {
-            authorizedLoader = URLClassLoader.newInstance(new URL[]{authorizedJarFile.toURI().toURL()});
+            loader = URLClassLoader.newInstance(new URL[]{selectedJarFile.toURI().toURL()});
         } catch (
                 MalformedURLException e) {
             e.printStackTrace();
         }
-        IPlugin authorizedPlugin = null;
+        IPlugin selectedPlugin = null;
         try {
-            authorizedPlugin = (IPlugin) authorizedLoader.loadClass("plugins.myPlugin")
+            selectedPlugin = (IPlugin) loader.loadClass("plugins.myPlugin")
                                                          .getDeclaredConstructor()
                                                          .newInstance();
         } catch (InstantiationException | InvocationTargetException | IllegalAccessException | NoSuchMethodException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return authorizedPlugin;
+        return selectedPlugin;
     }
 
 }
